@@ -1,0 +1,66 @@
+.button_wrapper {
+	width:60px;
+	height:60px;
+	position:absolute;
+	z-index:15;
+	cursor:default;
+}
+.button_circle {
+	position:absolute;
+	background-color:lightgrey;
+	box-shadow: 0px 0px 6px;
+	transition: box-shadow 60ms;
+	width: 60px;
+	height:  60px;
+	border-radius: 30px;
+}
+.button_arrow_wrapper {
+	position: relative;
+	box-sizing:border-box;
+	border:1px solid lightgrey;
+	z-index:5;
+	bottom:-16px;
+	margin: auto;
+	height:27px;
+	width:27px;
+	overflow:hidden;
+}
+.button_arrow_ext {
+	position:absolute;
+	height:100%;
+	width:100%;
+	box-shadow: inset 0px 0px 12px;
+	transition: box-shadow 60ms;
+	z-index:1;
+}
+.button_arrow_int {
+	position:absolute;
+	background-color:lightgrey;
+	height:100%;
+	width:100%;
+	box-shadow: 0px 0px 12px;
+	transition: box-shadow 60ms;
+	left:10px;
+	bottom:10px;
+	z-index:5;
+}
+.button_arrow_left {
+	-ms-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+.button_arrow_up {
+	-ms-transform: rotate(135deg);
+	-webkit-transform: rotate(135deg);
+	transform: rotate(135deg);
+}
+.button_arrow_right {
+	-ms-transform: rotate(225deg);
+	-webkit-transform: rotate(225deg);
+	transform: rotate(225deg);
+}
+.button_arrow_down {
+	-ms-transform: rotate(315deg);
+	-webkit-transform: rotate(315deg);
+	transform: rotate(315deg);
+}

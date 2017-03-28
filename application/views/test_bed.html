@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+              left:0px;
+              width:100%;
+              height:100%;
+              padding:0px;
+              margin:0px;
+            }
+            #outer_wrapper {
+              position:absolute;
+              box-sizing:border-box;
+              width:100%;
+              height:100%;
+              padding:0px;
+              margin:0px;
+            }
+            #wrapper {
+              position:relative;
+              box-sizing:border-box;
+              width:90%;
+              height:92%;
+              background-color:lightgrey;
+              margin-left:auto;
+              margin-right:auto;
+              margin-top:1%;
+              margin-bottom:1%;
+              overflow:hidden;
+            }
+            #lvp {
+              position:relative;
+              padding:0px;
+              width:104%;
+              height:100%;
+              left:-2%;
+              overflow-y:auto;
+              margin:0 auto;
+            }
+            .group_title {
+              position:relative;
+              box-sizing:border-box;
+              top:0px;
+              max-width:900px;
+              min-width:300px;
+              background-color:grey;
+              color:white;
+              padding:1vw;
+              margin:0px;
+              margin:0 auto;
+              z-index:2;
+            }
+            .group {
+              position:relative;
+              box-sizing:border-box;
+              max-width:900px;
+              min-width:300px;
+              background-color:white;
+              list-style:none;
+              margin:0px;
+              padding:0px;
+              margin:0 auto;
+              z-index:1;
+            }
+            .field {
+              position:relative;
+              box-sizing:border-box;
+              background-color:white;
+              color:black;
+              border-bottom:1px solid grey;
+              width:98%;
+              margin:0 auto;
+              padding:1vw;
+            }
+
+            .field:last-child {
+              border-bottom:0px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="outer_wrapper">
+            <div id="wrapper">
+                <div id="lvp">
+                    <h3 id="group_1-title" class="group_1 group_title current">Group 1</h3>
+                    <ul id="group_1-fields" class="group_1 group">
+                        <li id="group_1-field_1" class="field">group 1 field 1 stuff</li>
+                        <li id="group_1-field_2" class="field">group 1 field 2 stuff</li>
+                        <li id="group_1-field_3" class="field">group 1 field 3 stuff</li>
+                        <li id="group_1-field_4" class="field">group 1 field 4 stuff</li>
+                        <li id="group_1-field_5" class="field">group 1 field 5 stuff</li>
+                        <li id="group_1-field_6" class="field">group 1 field 6 stuff</li>
+                    </ul>
+                    <h3 id="group_2-title" class="group_2 group_title">Group 2</h3>
+                    <ul id="group_2-fields" class="group_2 group">
+                        <li id="group_2-field_1" class="field">group 2 field 1 stuff</li>
+                        <li id="group_2-field_2" class="field">group 2 field 2 stuff</li>
+                        <li id="group_2-field_3" class="field">group 2 field 3 stuff</li>
+                        <li id="group_2-field_4" class="field">group 2 field 4 stuff</li>
+                        <li id="group_2-field_5" class="field">group 2 field 5 stuff</li>
+                        <li id="group_2-field_6" class="field">group 2 field 6 stuff</li>
+                    </ul>
+                    <h3 id="group_3-title" class="group_3 group_title">Group 3</h3>
+                    <ul id="group_3-fields" class="group_3 group">
+                        <li id="group_3-field_1" class="field">group 3 field 1 stuff</li>
+                        <li id="group_3-field_2" class="field">group 3 field 2 stuff</li>
+                        <li id="group_3-field_3" class="field">group 3 field 3 stuff</li>
+                        <li id="group_3-field_4" class="field">group 3 field 4 stuff</li>
+                        <li id="group_3-field_5" class="field">group 3 field 5 stuff</li>
+                        <li id="group_3-field_6" class="field">group 3 field 6 stuff</li>
+                    </ul>
+                    <h3 id="group_4-title" class="group_4 group_title">Group 4</h3>
+                    <ul id="group_4-fields" class="group_4 group">
+                        <li id="group_4-field_1" class="field">group 4 field 1 stuff</li>
+                        <li id="group_4-field_2" class="field">group 4 field 2 stuff</li>
+                        <li id="group_4-field_3" class="field">group 4 field 3 stuff</li>
+                        <li id="group_4-field_4" class="field">group 4 field 4 stuff</li>
+                        <li id="group_4-field_5" class="field">group 4 field 5 stuff</li>
+                        <li id="group_4-field_6" class="field">group 4 field 6 stuff</li>
+                    </ul>
+                    <h3 id="group_5-title" class="group_5 group_title">Group 5</h3>
+                    <ul id="group_5-fields" class="group_5 group">
+                        <li id="group_5-field_1" class="field">group 5 field 1 stuff</li>
+                        <li id="group_5-field_2" class="field">group 5 field 2 stuff</li>
+                        <li id="group_5-field_3" class="field">group 5 field 3 stuff</li>
+                        <li id="group_5-field_4" class="field">group 5 field 4 stuff</li>
+                        <li id="group_5-field_5" class="field">group 5 field 5 stuff</li>
+                        <li id="group_5-field_6" class="field">group 5 field 6 stuff</li>
+                    </ul>
+                    <h3 id="group_6-title" class="group_6 group_title">Group 6</h3>
+                    <ul id="group_6-fields" class="group_6 group">
+                        <li id="group_6-field_1" class="field">group 6 field 1 stuff</li>
+                        <li id="group_6-field_2" class="field">group 6 field 2 stuff</li>
+                        <li id="group_6-field_3" class="field">group 6 field 3 stuff</li>
+                        <li id="group_6-field_4" class="field">group 6 field 4 stuff</li>
+                        <li id="group_6-field_5" class="field">group 6 field 5 stuff</li>
+                        <li id="group_6-field_6" class="field">group 6 field 6 stuff</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script>
+        <!--//<![CDATA[
+            function listScroll() {
+              var titles = document.getElementsByClassName('group_title'),
+                  titleHeight = titles[0].clientHeight,
+                  offset = document.getElementById('lvp').scrollTop;
+
+              for ( var i = 0 ; i < titles.length ; i++ ) {
+                var next = i + 1;
+                if(titles[next]) {
+                  if (titles[next].offsetTop >= (offset + titleHeight) && offset === titles[i].offsetTop ) {
+                    titles[i].style.top = offset + 'px';
+                  } else {
+                    //titles[i].style.top = (titles[next].offsetTop - titleHeight) + 'px';
+                  }
+                  if (offset === 0) {
+                    titles[i].style.top = '0px';
+                  }
+                }
+                console.log('Group ' + i + '; element.top : ' + titles[i].style.top + '; element.offsetTop : ' + titles[i].offsetTop + '; lvp.scrollTop: ' + offset + '; titleHeight: ' + titleHeight + ';' );
+              }
+            }
+            document.getElementById('lvp').addEventListener('scroll', listScroll);
+            var ttitles = document.getElementsByClassName('group_title');
+            for ( var i = 0 ; i < ttitles.length ; i++ ) {
+              ttitles[i].style.top = '0px';
+            }
+            /*for ( var i = 0 ; i < ttitles.length ; i++ ) {
+              console.log('Group ' + i + '; Raw : ' + ttitles[i] + '; element.top : ' + ttitles[i].style.top + '; element.offsetTop : ' + ttitles[i].offsetTop + '; lvp.scrollTop: ' + ttitles[i].parentElement.scrollTop + '; titleHeight: ' + ttitles[i].clientHeight + ';' );
+              console.log(ttitles[i]);
+            }*/
+        //]]>-->
+        </script>
+    </body>
+</html>
