@@ -48,6 +48,7 @@
 				width:100%;
 				height:100%;
 			}
+
 		</style>
 	</head>
 	<body>
@@ -156,12 +157,12 @@
 												<div class="range_outer_wrapper">
 													<h3>Standard Loggers</h3>
 													<div class="range_wrapper">
-														<input type="range" name="range-standard_loggers" id="range-standard_loggers" min=1 max=100 value=1  step=1 oninput="updateRange(this)">
+														<input type="range" name="range-standard_loggers" id="range-standard_loggers" min=1 max=10 value=1  step=1 oninput="updateRange(this)">
 														<div class="range_line">&nbsp;</div>
 													</div>
 													<ul class="number_box_list">
 														<li class="number_box">
-															<input class="number_input" type="number" name="number-standard_loggers" id="number-standard_loggers" min=1 max=100 step=1 value=1>
+															<input class="number_input" type="number" name="number-standard_loggers" id="number-standard_loggers" min=1 max=10 step=1 value=1>
 														</li>
 														<li class="arrow_box_li">
 															<ul class="arrow_box">
@@ -174,7 +175,7 @@
 															</ul>
 														</li>
 													</ul>
-													<div class="max_adj_display">100</div>
+													<div class="max_adj_display">10</div>
 												</div>
 											</li>
 											<li>
@@ -235,7 +236,7 @@
 						</div>
 					<?php endforeach;?>
 					<div class="button_wrapper" id="next_button">
-						<div class="button_circle" onmousedown="(function(el) { button_down(el); next_slide(el);})(this)" onmouseup="button_up(this)" onmouseout="button_up(this)">
+						<div class="button_circle active" onmousedown="(function(el) { button_down(el); next_slide(el);})(this)" onmouseup="button_up(this)" onmouseout="button_up(this)">
 							<div class="button_arrow button_arrow_right">
 							</div>
 						</div>

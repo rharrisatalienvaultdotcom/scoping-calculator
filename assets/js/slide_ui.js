@@ -16,7 +16,7 @@ function previous_slide(el) {
 function next_slide(el) {
     var elem1 = document.getElementsByClassName('selected');
     var max_val = Object.keys(field_values).length;
-    var elem1Pos = elem1[0].getAttribute('data-slide-position');
+    var elem1Pos = Number(elem1[0].getAttribute('data-slide-position'));
     if (elem1Pos < max_val ) {
         var data_string = '[data-slide-position=' + String.fromCharCode(34) + (Number(elem1Pos) + 1) + String.fromCharCode(34) + ']'; 
         elem1Pos += 1;
@@ -26,6 +26,13 @@ function next_slide(el) {
         var elem2 = document.querySelectorAll(data_string);
         elem1[0].className = elem1[0].className.replace('selected', 'unselected');
         elem2[0].className = elem2[0].className.replace('unselected', 'selected');
+        if ( elem1Pos === max_val ) {
+            document.getElementById('show_hide_wrapper').style.visibility = 'visibile';
+            document.getElementById('show_hide_wrapper').style.opacity = 1;
+            document.getElementById('next_button').firstElementChild.className = document.getElementById('next_button').firstElementChild.className.replace('active','disabled');
+            setTimeout (function () {
+            document.getElementById('next_button').firstElementChild.className = document.getElementById('next_button').firstElementChild.className.replace('disabled','active'); }, 2000);
+        }
     } else {
         //button_down(document.getElementById('show_hide').firstElementChild);
         show_hide(document.getElementById('show_hide').firstElementChild);

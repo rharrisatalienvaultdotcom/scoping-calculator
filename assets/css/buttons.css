@@ -9,7 +9,7 @@
 .button_circle {
     position:relative;
     background-color:transparent;
-    transition: background-color 60ms;
+    transition: background-color 60ms, border-color 60ms;
     box-sizing:border-box;
     width: 60px;
     height:  60px;
@@ -52,8 +52,10 @@
     transform: rotate(315deg);
 }
 .button_circle.disabled {
-    border-color:grey !important;
+    border-color:grey;
+    pointer-events:none;
 }
 .button_circle.disabled .button_arrow {
     border-color:grey !important;
+    pointer-events:none;
 }
