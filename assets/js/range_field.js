@@ -1,7 +1,6 @@
 var int_cont;
 var tmt_cont;
 updateRange = function(e) {
-    "use strict";
     var pos = (e.valueAsNumber - e.min) / (e.max - e.min);
     pos = pos * 100;
     if(pos > 94) {
@@ -15,7 +14,6 @@ updateRange = function(e) {
     update_numbers();
 }
 function number_up(el) {
-    "use strict";
     el.style.backgroundColor = 'grey';
     el.firstElementChild.style.borderColor = 'lightgrey'
     el.parentElement.parentElement.previousElementSibling.firstElementChild.stepUp(1);
@@ -23,7 +21,6 @@ function number_up(el) {
     updateRange(el.parentElement.parentElement.parentElement.previousElementSibling.firstElementChild)
 }
 function number_down(el) {
-    "use strict";
     el.style.backgroundColor = 'grey';
     el.firstElementChild.style.borderColor = 'lightgrey'
     el.parentElement.parentElement.previousElementSibling.firstElementChild.stepDown(1);
@@ -31,11 +28,9 @@ function number_down(el) {
     updateRange(el.parentElement.parentElement.parentElement.previousElementSibling.firstElementChild)
 }
 function button_repeater(el) {
-    "use strict";
     tmt_cont = setTimeout(function() { button_repeater_start(el); },400);
 }
 function button_repeater_start(el){
-    "use strict";
     if(el.className.includes('number_up')) {
         int_cont = setInterval(function() { number_up(el); }, 50);
     }
@@ -44,7 +39,6 @@ function button_repeater_start(el){
     }
 }
 function selectThisRange(el) {
-    "use strict";
     var listItems = el.parentElement.children;
     for(var i = 0; i < listItems.length; i++) {
         listItems[i].className = listItems[i].className.replace(' rselected', ' runselected');
