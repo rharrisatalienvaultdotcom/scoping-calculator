@@ -11,4 +11,15 @@ class Calculator extends CI_Controller {
 		$this->load->view('calcview', $data);
 	}
 
+	public function pdf_test_a()
+	{
+		$this->load->view('report_view_dummy');
+	}
+
+	public function pdf_test_b()
+	{
+		$this->load->library('input');
+		$report_html = $this->input->post('');
+	}
+
 }

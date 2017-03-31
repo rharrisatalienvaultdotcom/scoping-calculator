@@ -284,10 +284,12 @@
 				field_values.<?php echo $slide['handle']; ?> = {};
 				field_values.<?php echo $slide['handle']; ?>.handle = '<?php echo $slide['handle']; ?>';
 				field_values.<?php echo $slide['handle']; ?>.title = '<?php echo $slide['title']; ?>';
+				field_values.<?php echo $slide['handle']; ?>.position = '<?php echo $slide['position']; ?>';
 				<?php foreach ($slide['fields'] as $field): ?>
 					field_values.<?php echo $slide['handle']; ?>.<?php echo $field['handle']; ?> = {};
 					field_values.<?php echo $slide['handle']; ?>.<?php echo $field['handle']; ?>.handle = '<?php echo $field['handle']; ?>';
 					field_values.<?php echo $slide['handle']; ?>.<?php echo $field['handle']; ?>.title = '<?php echo $field['title']; ?>';
+					field_values.<?php echo $slide['handle']; ?>.<?php echo $field['handle']; ?>.position = '<?php echo $field['position']; ?>';
 					field_values.<?php echo $slide['handle']; ?>.<?php echo $field['handle']; ?>.raw = <?php echo $field['default_val']; ?>;
 					if ( '<?php echo $field['function']; ?>' !== 'NA') {
 						field_values.<?php echo $slide['handle']; ?>.<?php echo $field['handle']; ?>.function = function() { 
