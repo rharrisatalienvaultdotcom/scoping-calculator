@@ -20,6 +20,31 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+		//ini_set('memory_limit', '256M');
 		$this->load->view('welcome_message');
+		//$this->load->library('pdf');
+		//$pdf = $this->pdf->load();
+		//$html = $this->load->view('welcome_message',null,true);
+		//$pdf->WriteHTML($html);
+		// write the HTML into the PDF
+		//$output = 'itemreport' . date('Y_m_d_H_i_s') . '_.pdf';
+		//$pdf->Output("$output", 'I');
+	}
+
+	/*public function mypdf() {
+		$this->load->library('pdf');
+		$pdf = $this->pdf->load();
+		$html = $this->load->view('welcome_message',null,true);
+		$pdf->WriteHTML($html);
+		// write the HTML into the PDF
+		$output = 'itemreport' . date('Y_m_d_H_i_s') . '_.pdf';
+		$pdf->Output("$output", 'I');
+	}*/
+	function mypdf(){
+		
+		$this->load->library('pdf');
+		$this->pdf->load_view('mypdf');
+		$this->pdf->render();
+		$this->pdf->stream("welcome.pdf");
 	}
 }

@@ -1,6 +1,12 @@
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Scoping calculator">
+        <meta name="keywords" content="">
+        <meta name="author" content="Ryan Harris">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="../assets/css/report_print.css">
+        <title>Scoping Calculator - USM</title>
         <style>
             @font-face {
                 font-family:ProximaNova;
@@ -15,18 +21,18 @@
                 height:100%;
                 width:100%;
                 position:absolute;
-                font-size: calc(10px + (20 - 10) * ((100vw - 300px) / (1600 - 300)));
+                font-size: calc(10px + (16 - 10) * ((100vw - 300px) / (1600 - 300)));
                 font-family:ProximaNova;
             }
             li {
                 list-style-type:none;
             }
-            #wrapper {
+            #report_wrapper {
                 margin:0px;
-                position:fixed;
+                position:relative;
                 width:100%;
-                height:100%;
-                background-color:#d8dfe4;
+                margin:0 auto;
+                /*background-color:#d8dfe4;*/
             }
             /*#shadow_box {
                 margin:0px;

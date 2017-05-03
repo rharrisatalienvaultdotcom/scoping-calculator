@@ -6,7 +6,7 @@ updateRange = function(e) {
     if(pos > 94) {
         pos = pos - 1;
     }
-    if(pos < 8) {
+    if(pos < 20) {
         pos = pos + 1;
     }
     e.style = 'background-image: -webkit-linear-gradient( top left, transparent, transparent 1%, grey 1%, grey ' + pos + '%, transparent ' + pos + '%';

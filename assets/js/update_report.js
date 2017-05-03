@@ -1,368 +1,214 @@
+
 function update_report() {
-    var report_section = document.getElementById( 'report_wrapper_inner' );
-    report_section.innerHTML = '';
-    var servers_rep_list = document.createElement( 'ul' );
-    servers_rep_list.appendChild( build_slide_title_row( field_values['servers'].title ) );
+    if ( field_values ) {
+        var wrapper = document.getElementById( 'report_wrapper_inner' ),
+            numberedSlides = [];
 
-    for ( var field in field_values['servers'] ) {
-        if( field != 'handle' &&
-            field != 'title' &&
-            field != 'position' &&
-            Number( field_values['servers'][field]['raw'] ) != 0 ) {
-            servers_rep_list.appendChild( build_field_row( field_values['servers'][field]['title'],
-                field_values['servers'][field]['raw'],
-                field_values['servers'][field]['calc'] ) );
+        wrapper.innerHTML = '';
+
+        for ( var slide in field_values[ 'slides' ] ) {
+            numberedSlides[ field_values[ 'slides' ][ slide ][ 'position' ] ] = slide;
         }
-    }
-
-    servers_rep_list.appendChild( build_slide_total_row( total_servers,
-        total_servers_eps ) );
-
-    var network_devices_rep_list = document.createElement( 'ul' );
-
-    network_devices_rep_list.appendChild( build_slide_title_row( field_values['network_devices'].title ) );
-
-    for ( var field in field_values['network_devices'] ) {
-        if( field != 'handle' &&
-            field != 'title' &&
-            field != 'position' &&
-            Number( field_values['network_devices'][field]['raw'] ) != 0 ) {
-            network_devices_rep_list.appendChild( build_field_row(field_values['network_devices'][field]['title'],
-                field_values['network_devices'][field]['raw'],
-                field_values['network_devices'][field]['calc'] ) );
+        
+        for ( var n = 0 ; n < numberedSlides.length ; n++ ) {
+            var slide = numberedSlides[ n ],
+                this_slide = field_values[ 'slides' ][ numberedSlides[ n ] ];
+            //console.log( slide );
+            if ( this_slide[ 'add_to_total' ] == 1 && this_slide[ 'total' ] > 0 ) {
+                wrapper.appendChild( build_section( slide ) );
+            }
         }
-    }
-
-    network_devices_rep_list.appendChild( build_slide_total_row( total_network_devices,
-        total_network_devices_eps ) );
-
-    var users_rep_list = document.createElement( 'ul' );
-
-    users_rep_list.appendChild( build_slide_title_row( field_values['users'].title,
-        'Users',
-        '&nbsp;' ) );
-
-    for ( var field in field_values['users'] ) {
-        if( field != 'handle' &&
-            field != 'title' &&
-            field != 'position' &&
-            Number( field_values['users'][field]['raw']) != 0 ) {
-            users_rep_list.appendChild( build_field_row( field_values['users'][field]['title'],
-                field_values['users'][field]['raw'] ) );
+        if ( field_values[ 'grand_totals' ][ 'devices' ] !== 0 ) {
+            wrapper.appendChild( grand_total_row() );
         }
-    }
+        
 
-    users_rep_list.appendChild( build_slide_total_row( total_users ) );
-    var devices_rep_list = document.createElement( 'ul' );
-    devices_rep_list.appendChild( build_slide_title_row( field_values['devices'].title,
-        'Devices',
-        '&nbsp;' ) );
-
-    for ( var field in field_values['devices'] ) {
-        if( field != 'handle' &&
-            field != 'title' &&
-            field != 'position' &&
-            Number( field_values['devices'][field]['raw'] ) != 0 ) {
-            devices_rep_list.appendChild( build_field_row( field_values['devices'][field]['title'],
-                field_values['devices'][field]['raw'] ) );
+        for ( var n = 0 ; n < numberedSlides.length ; n++ ) {
+            var slide = numberedSlides[ n ];
+            if ( field_values[ 'slides' ][ slide ][ 'add_to_total' ] == 0 && field_values[ 'slides' ][ slide ][ 'total' ] > 0 ) {
+                wrapper.appendChild( build_section( slide ) );
+            }
         }
-    }
 
-    devices_rep_list.appendChild( build_slide_total_row( total_devices ) );
-    var network_data_rep_list = document.createElement( 'ul' );
-    network_data_rep_list.appendChild( build_slide_title_row( field_values['network_data'].title,
-        'Devices',
-        '&nbsp;' ) );
-
-    for ( var field in field_values['network_data'] ) {
-        if( field != 'handle' &&
-            field != 'title' &&
-            field != 'position' &&
-            Number( field_values['network_data'][field]['raw'] ) != 0 ) {
-            network_data_rep_list.appendChild( build_field_row( field_values['network_data'][field]['title'],
-                field_values['network_data'][field]['raw'] ) );
-        }
-    }
-
-    var misc_rep_list = document.createElement( 'ul' );
-
-    misc_rep_list.style.marginTop = '15px';
-    misc_rep_list.appendChild( build_slide_title_row( field_values['misc'].title,
-        '&nbsp;',
-        '&nbsp;' ) );
-    misc_rep_list.appendChild( build_field_row( field_values['misc']['compression_ratio']['title'],
-        field_values['misc']['compression_ratio']['raw'] + ':1' ) );
-    misc_rep_list.appendChild( build_field_row( field_values['misc']['avg_msg_size']['title'],
-        field_values['misc']['avg_msg_size']['raw'] + ' KB' ) );
-    misc_rep_list.appendChild( build_field_row( field_values['misc']['standard_loggers']['title'],
-        field_values['misc']['standard_loggers']['raw'] ) );
-
-    if( field_values['misc']['other_eps']['raw'] != 0 ) {
-        misc_rep_list.appendChild( build_field_row( field_values['misc']['other_eps']['title'],
-            field_values['misc']['other_eps']['raw'] ) );
-    }
-
-    if( field_values['misc']['virtual_or_physical']['raw'] == 1 ) {
-        misc_rep_list.appendChild( build_field_row( 'Appliance Type',
-            'Virtual' ) );
+        wrapper.appendChild( build_eps_table() );
     } else {
-        misc_rep_list.appendChild( build_field_row( 'Appliance Type',
-            'Phyical' ) );
+        return void(0);
+    }
+}
+
+function grand_total_row() {
+    var ul = document.createElement( 'ul' ),
+        li = document.createElement( 'li' ),
+        tmp, a, b, c;
+
+    a = 'Deployment Total:';
+    b = field_values[ 'grand_totals' ][ 'commatized_devices' ];
+    c = field_values[ 'grand_totals' ][ 'commatized_eps' ];
+    tmp = srow( a, b, c );
+    tmp.classList.add( 'grand_total' );
+    tmp.id = 'report-grand_total';
+    ul.classList.add( 'report_slide' );
+
+    li.appendChild( tmp );
+    ul.appendChild( li );
+
+    return ul;
+
+}
+
+function build_section( slide ) {
+    var ul = document.createElement( 'ul' ),
+        header = document.createElement( 'li' ),
+        total = document.createElement( 'li' ),
+        numberedFields = [],
+        this_slide = field_values[ 'slides' ][ slide ],
+        tmp, a, b, c, d;
+
+    for ( var field in this_slide[ 'fields' ] ) {
+        numberedFields[ this_slide[ 'fields' ][ field ][ 'position' ] ] = field;
     }
 
-    if( field_values['misc']['usage_pattern']['raw'] == 1 ) {
-        misc_rep_list.appendChild( build_field_row( 'Usage Pattern',
-            '24X7' ) );
+    ul.classList.add( 'report_slide' );
+    ul.id = 'report-' + this_slide[ 'handle' ];
+
+    a = this_slide[ 'title' ];
+    if ( this_slide[ 'add_to_total' ] == 1 ) {
+        b = 'Devices';
     } else {
-        misc_rep_list.appendChild( build_field_row( 'Usage Pattern',
-            '5X8' ) );
+        b = '&nbsp;';
     }
-
-    var eps_table = document.createElement( 'ul' );
-    var msg_size = field_values['misc']['avg_msg_size']['raw'];
-    var cratio = field_values['misc']['compression_ratio']['raw'];
-
-    eps_table.className = 'eps_table_list';
-    eps_table.appendChild( build_eps_table_row( '&nbsp;',
-        'Est. Events',
-        'Est. Storage',
-        '',
-        true ) );
-    eps_table.appendChild( build_eps_table_row( '&nbsp;',
-        '&nbsp;',
-        'Raw',
-        'Compressed' ) );
-
-    eps_table.appendChild( build_eps_table_row( 'Events/Second',
-        grand_total_devices_eps,
-        round_pretty( kb_to_mb( grand_total_devices_eps * msg_size ) ) + ' MB',
-        round_pretty( kb_to_mb( ( grand_total_devices_eps * msg_size ) / cratio ) ) + ' MB' ) );
-
-    eps_table.appendChild( build_eps_table_row( 'Events/Hour',
-        per_hour( grand_total_devices_eps ),
-        round_pretty( kb_to_mb( per_hour( grand_total_devices_eps * msg_size ) ) ) + ' MB', 
-        round_pretty( kb_to_mb( per_hour( ( grand_total_devices_eps * msg_size ) / cratio ) ) ) + ' MB' ) );
-
-    eps_table.appendChild(build_eps_table_row( 'Events/Day',
-        per_day( grand_total_devices_eps ),
-        round_pretty( kb_to_gb( per_day( grand_total_devices_eps * msg_size ) ) ) + ' GB',
-        round_pretty( kb_to_gb( per_day( ( grand_total_devices_eps * msg_size ) / cratio ) ) ) + ' GB' ) );
-
-    eps_table.appendChild(build_eps_table_row( 'Events/Month',
-        per_month( grand_total_devices_eps ),
-        round_pretty( kb_to_tb( per_month( grand_total_devices_eps * msg_size ) ) ) + ' TB',
-        round_pretty( kb_to_tb( per_month( ( grand_total_devices_eps * msg_size ) / cratio ) ) ) + ' TB' ) );
-
-    eps_table.appendChild(build_eps_table_row( 'Events/Year',
-        per_year(grand_total_devices_eps),
-        round_pretty( kb_to_tb( per_year( grand_total_devices_eps * msg_size ) ) ) + ' TB',
-        round_pretty( kb_to_tb( per_year( ( grand_total_devices_eps * msg_size ) / cratio ) ) ) + ' TB' ) );
-
-    var reco_box = document.createElement( 'ul' );
-    var reco_header = document.createElement( 'li' );
-    var reco_a = document.createElement( 'li' );
-    var reco_b = document.createElement( 'li' );
-    var reco_c = document.createElement( 'li' );
-    reco_box.id = 'reco_box';
-    reco_header.id = 'reco_header';
-    reco_a.id = 'reco_a';
-    reco_b.id = 'reco_b';
-    reco_c.id = 'reco_c';
-    reco_header.innerHTML = 'RECOMMENDED SETUP';
-    reco_box.appendChild( reco_header );
-    reco_a.innerHTML = line1();
-    reco_box.appendChild( reco_a );
-    reco_b.innerHTML = line2();
-    reco_box.appendChild( reco_b );
-    report_section.appendChild( servers_rep_list );
-    report_section.appendChild( network_devices_rep_list );
-    report_section.appendChild( devices_rep_list );
-    report_section.appendChild( build_field_row( '&nbsp;',
-        '&nbsp;',
-        '&nbsp;',
-        '&nbsp;' ) );
-    report_section.appendChild( build_deployment_total_row( grand_total_devices,
-        grand_total_devices_eps ) );
-    report_section.appendChild( users_rep_list );
-    report_section.appendChild( network_data_rep_list );
-    report_section.appendChild( misc_rep_list );
-    report_section.appendChild( eps_table );
-    report_section.appendChild( reco_box );
-
-    //console.log(grand_total_devices_eps);
-}
-
-// round_pretty(num) => rounds and limites decimal places to two 
-function round_pretty( num ) {
-    return Math.round( num * 100 ) / 100;
-}
-
-// Time conversion functions
-function per_hour( num ) {
-    return ( num * 60 ) * 60;
-}
-function per_day( num ) {
-    return per_hour( num ) * 24;
-}
-function per_month( num ) {
-    return per_day( num ) * 30;
-}
-function per_year( num ) {
-    return per_day( num ) * 365;
-}
-
-// Data size conversion functions
-
-// KB functions
-function kb_to_mb( kb ) {
-    return kb / 1024;
-}
-function kb_to_gb( kb ) {
-    return kb_to_mb( kb ) / 1024;
-}
-function kb_to_tb( kb ) {
-    return kb_to_gb( kb ) / 1024;
-}
-
-// MB functions
-function mb_to_gb( mb ) {
-    return mb / 1024;
-}
-function mb_to_tb( mb ) {
-    return mb_to_gb( mb ) / 1024;
-}
-function mb_to_kb( mb ) {
-    return mb * 1024;
-}
-
-// GB functions
-function gb_to_tb( gb ) {
-    return gb / 1024;
-}
-function gb_to_mb( gb ) {
-    return gb * 1024;
-}
-function gb_to_kb( gb ) {
-    return gb_to_mb( gb ) * 1024;
-}
-
-// TB functions
-function tb_to_gb( tb ) {
-    return tb * 1024;
-}
-function tb_to_mb( tb ) {
-    return tb_to_gb( tb ) * 1024;
-}
-function tb_to_kb( tb ) {
-    return tb_to_mb( tb ) * 1024;
-}
-
-function build_eps_table_row( col1, col2, col3, col4, combined = false ) {
-    var li = document.createElement( 'li' );
-    var col1_span = document.createElement( 'span' );
-    col1_span.className = 'eps_col1';
-    col1_span.innerHTML = col1;
-    var col2_span = document.createElement( 'span' );
-    col2_span.className = 'eps_col2';
-    col2_span.innerHTML = col2;
-    li.appendChild( col1_span );
-    li.appendChild( col2_span );
-    var col3_span = document.createElement( 'span' );
-    col3_span.innerHTML = col3;
-    if( combined == false ) {
-        var col4_span = document.createElement( 'span' );
-        col3_span.className = 'eps_col3';
-        col4_span.className = 'eps_col4';
-        col4_span.innerHTML = col4;
-        li.appendChild( col3_span );
-        li.appendChild( col4_span );
+    
+    if ( this_slide[ 'add_to_eps_total' ] == 1 ) {
+        c = 'EPS';
     } else {
-        li.appendChild( col3_span );
-        col3_span.className = 'eps_col3_coMBined';
+        c = '&nbsp;';
     }
-    return li;
+    tmp = srow( a, b, c );
+    tmp.classList.add( 'header' );
+    tmp.id = 'report-header-' + this_slide[ 'handle' ];
+    header.appendChild( tmp );
+    ul.appendChild( header );
+
+    for ( var i = 0 ; i < numberedFields.length ; i++ ) {
+        //var field = numberedFields[ i ];
+        var this_field = this_slide[ 'fields' ][ numberedFields[ i ] ];
+        //a = this_slide[ 'fields' ][ field ][ 'title' ];
+        a = this_field[ 'title' ];
+        //b = this_slide[ 'fields' ][ field ][ 'raw' ];
+        b = this_field[ 'commatized_raw' ];
+        if ( b > 0 || ( typeof b === 'string' && b !== '0' && b !== '' && b !== '&nbsp;' ) ) {
+            if ( this_slide[ 'add_to_eps_total' ] == 1 ) {
+                //c = this_slide[ 'fields' ][ field ][ 'calc' ];
+                c = this_field[ 'commatized_calc' ];
+            } else {
+                c = '&nbsp;';
+            }
+            tmp = document.createElement( 'li' );
+            tmp.appendChild( srow( a, b, c ) );
+            tmp.firstElementChild.id = 'report-' + slide + '-' + field;
+            ul.appendChild( tmp );
+        }
+    }
+
+    if ( this_slide[ 'sum_raw' ] == 1 || this_slide[ 'sum_calc' ] ) {
+        a = 'Total:';
+        if ( this_slide[ 'sum_raw' ] == 1 ) {
+            b = this_slide[ 'commatized_total' ];
+        } else {
+            b = '&nbsp;';
+        }
+        if ( this_slide[ 'sum_calc' ] == 1 ) {
+            c = this_slide[ 'commatized_total_eps' ];
+        } else {
+            c = '&nbsp;';
+        }
+        if ( ( typeof b === 'number' && b > 0 ) || ( typeof c === 'number' && c > 0 ) || ( typeof b === 'string' && b !== '0' ) || ( typeof c === 'string' && c !== '0' ) ) {
+            tmp = srow( a, b, c );
+            tmp.id = 'report-' + slide + '-total';
+            tmp.classList.add( 'total' );
+            total.appendChild( tmp );
+            ul.appendChild( total );
+        }
+    }
+    //console.log( ul );
+    return ul;
 }
-function build_deployment_total_row( raw, calc = '&nbsp;' ) {
-    var li = document.createElement( 'li' );
-    var label_span = document.createElement( 'span' );
-    var raw_span = document.createElement( 'span' );
-    var calc_span = document.createElement( 'span' );
-    var note_span = document.createElement( 'span' );
-    label_span.className = 'report_total_label';
-    raw_span.className = 'report_total_number';
-    calc_span.className = 'report_total_number';
-    label_span.innerHTML = 'Deployment Total:';
-    raw_span.innerHTML = raw;
-    calc_span.innerHTML = calc;
-    note_span.innerHTML = '&nbsp;';
-    li.style.marginBottom = '30px';
-    li.style.borderTop = '1px solid black';
-    li.style.paddingTop = '15px';
-    li.style.borderBottom = '1px solid black';
-    li.style.paddingBottom = '15px';
-    li.appendChild( label_span );
-    li.appendChild( raw_span );
-    li.appendChild( calc_span );
-    li.appendChild( note_span );
-    return li;
+
+function build_eps_table() {
+    var ul = document.createElement( 'ul' ),
+        li = document.createElement( 'li' ),
+        tmp, a, b, c, d;
+
+    ul.classList.add( 'eps_table' );
+
+    tmp = srow( '&nbsp;', 'Est. Events', 'Est. Storage' );
+    tmp.classList.add( 'header' );
+    li.appendChild( tmp );
+    ul.appendChild( li );
+
+    tmp = srow( '&nbsp;', '&nbsp;', 'Raw', 'Compressed' );
+    tmp.classList.add( 'subheader' );
+    li = document.createElement( 'li' );
+    li.appendChild( tmp );
+    ul.appendChild( li );
+
+    a = 'Events/Second';
+    b = field_values[ 'eps_vals' ][ 'per_second' ][ 'events' ] || 0;
+    c = field_values[ 'eps_vals' ][ 'per_second' ][ 'uncompressed' ] || 0;
+    d = field_values[ 'eps_vals' ][ 'per_second' ][ 'compressed' ] || '0';
+    li = document.createElement( 'li' );
+    li.appendChild( srow( a, b, c, d ) );
+    ul.appendChild( li );
+
+    a = 'Events/Hour&nbsp;&nbsp;&nbsp;&nbsp;';
+    b = field_values[ 'eps_vals' ][ 'per_hour' ][ 'events' ] || 0;
+    c = field_values[ 'eps_vals' ][ 'per_hour' ][ 'uncompressed' ] || 0;
+    d = field_values[ 'eps_vals' ][ 'per_hour' ][ 'compressed' ] || '0';
+    li = document.createElement( 'li' );
+    li.appendChild( srow( a, b, c, d ) );
+    ul.appendChild( li );
+
+    a = 'Events/Day&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+    b = field_values[ 'eps_vals' ][ 'per_day' ][ 'events' ] || 0;
+    c = field_values[ 'eps_vals' ][ 'per_day' ][ 'uncompressed' ] || 0;
+    d = field_values[ 'eps_vals' ][ 'per_day' ][ 'compressed' ] || '0';
+    li = document.createElement( 'li' );
+    li.appendChild( srow( a, b, c, d ) );
+    ul.appendChild( li );
+
+    a = 'Events/Month&nbsp;&nbsp;';
+    b = field_values[ 'eps_vals' ][ 'per_month' ][ 'events' ] || 0;
+    c = field_values[ 'eps_vals' ][ 'per_month' ][ 'uncompressed' ] || 0;
+    d = field_values[ 'eps_vals' ][ 'per_month' ][ 'compressed' ] || '0';
+    li = document.createElement( 'li' );
+    li.appendChild( srow( a, b, c, d ) );
+    ul.appendChild( li );
+
+    a = 'Events/Year&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+    b = field_values[ 'eps_vals' ][ 'per_year' ][ 'events' ] || 0;
+    c = field_values[ 'eps_vals' ][ 'per_year' ][ 'uncompressed' ] || 0;
+    d = field_values[ 'eps_vals' ][ 'per_year' ][ 'compressed' ] || '0';
+    li = document.createElement( 'li' );
+    li.appendChild( srow( a, b, c, d ) );
+    ul.appendChild( li );
+
+    return ul;
 }
-function build_field_row( label, raw, calc = '&nbsp;', note = '&nbsp;' ) {
-    var li = document.createElement( 'li' );
-    var label_span = document.createElement( 'span' );
-    var raw_span = document.createElement( 'span' );
-    var calc_span = document.createElement( 'span' );
-    var note_span = document.createElement( 'span' );
-    li.className = 'report_field_row_li';
-    label_span.className = 'report_field_label';
-    raw_span.className = 'report_field_number';
-    calc_span.className = 'report_field_number';
-    label_span.innerHTML = label;
-    raw_span.innerHTML = raw;
-    calc_span.innerHTML = calc;
-    note_span.innerHTML = note;
-    li.appendChild( label_span );
-    li.appendChild( raw_span );
-    li.appendChild( calc_span );
-    li.appendChild( note_span );
-    return li;
+function srow( a = '&nsbp;', b = '&nbsp;', c = '&nbsp;', d ) {
+    var ul = document.createElement( 'ul' ),
+        lbl = simpli( a );
+    lbl.classList.add( 'label' );
+    ul.appendChild( lbl );
+    ul.appendChild( simpli( b ) );
+    ul.appendChild( simpli( c ) );
+    if ( d ) {
+        ul.appendChild( simpli( d ) );
+    }
+    return ul;
 }
-function build_slide_title_row( label, raw = 'Devices', calc = 'EPS', note = '&nbsp;' ) {
-    var li = document.createElement( 'li' );
-    var label_span = document.createElement( 'span' );
-    var raw_span = document.createElement( 'span' );
-    var calc_span = document.createElement( 'span' );
-    var note_span = document.createElement( 'span' );
-    li.className = 'report_slide_li';
-    label_span.className = 'report_slide_label';
-    raw_span.className = 'report_slide_header';
-    calc_span.className = 'report_slide_header';
-    label_span.innerHTML = label;
-    raw_span.innerHTML = raw;
-    calc_span.innerHTML = calc;
-    /*note_span.innerHTML = note;*/
-    li.appendChild( label_span );
-    li.appendChild( raw_span );
-    li.appendChild( calc_span );
-    li.appendChild( note_span );
-    return li;
-}
-function build_slide_total_row( raw, calc = '&nbsp;' ) {
-    var li = document.createElement( 'li' );
-    var label_span = document.createElement( 'span' );
-    var raw_span = document.createElement( 'span' );
-    var calc_span = document.createElement( 'span' );
-    var note_span = document.createElement( 'span' );
-    label_span.className = 'report_slide_total_label';
-    raw_span.className = 'report_slide_total_number';
-    calc_span.className = 'report_slide_total_number';
-    label_span.innerHTML = 'Total:';
-    raw_span.innerHTML = raw;
-    calc_span.innerHTML = calc;
-    note_span.innerHTML = '&nbsp;';
-    li.style.marginBottom = '20px';
-    li.appendChild( label_span );
-    li.appendChild( raw_span );
-    li.appendChild( calc_span );
-    li.appendChild( note_span );
+
+function simpli ( a = '&nbsp;' ) {
+    var li = document.createElement('li');
+    li.innerHTML = a;
     return li;
 }

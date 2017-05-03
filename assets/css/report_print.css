@@ -1,23 +1,43 @@
 span {
-	display:inline-block;
+	display:inline-block; 
 }
 .flex_container {
 	display:flex;
 	align-items:stretch;
 	justify-content:space-between;
 }
+#report_wrapper {
+	position:absolute;
+	width:100%;
+	margin: 0;
+	z-index:-1;
+	box-shadow: 0px 0px 15px;
+	overflow-y: auto;
+	height:100%;
+	top:0px;
+	background-color:#f4f7fa;
+	padding-top:100px;
+	padding-bottom:200px;
+}
 #report_wrapper_inner {
 	flex-direction:column;
 	position:relative;
-	
+	width:100%;
+	margin:0 auto;
+	/*-webkit-filter: blur(15px);
+	filter: blur(10px);*/
+	transition: filter 600ms;
+	margin-bottom:200px;
 }
 .report_slide {
 	padding-right:40px;
+	padding-left:40px;
 }
 .report_slide li ul {
 	display:flex;
 	align-items:stretch;
 	justify-content:space-between;
+	margin-top: .5vw;
 }
 .report_slide li ul li {
 	float:left;
@@ -31,6 +51,7 @@ span {
 }
 .header {
 	border-bottom: 1px solid black;
+	padding-top:.5vw;
 }
 .header li {
 	font-size:1.2em;
@@ -57,26 +78,47 @@ span {
 	padding-bottom: 15px;
 	break-after: always;
 	font-size:1.2em;
+	page-break-after:always;
 }
 .eps_table {
-	padding-right:40px;
+	break-before:always;
+	box-sizing:border-box;
+	padding:15px;
+	width:88%;
+	margin: 0 auto;
+	margin-top: 100px;
+	border:15px solid grey;
+	background-color:rgba(50, 50, 50, .05);
+}
+.eps_table li {
+	box-sizing:border-box;
+}
+.eps_table li:nth-child(odd) {
+	background-color:rgba(50, 50, 50, .1);
 }
 .eps_table li ul {
 	display:flex;
 	align-items:stretch;
 	justify-content:space-between;
+	padding:0px;
 }
 .eps_table li ul li {
 	float:left;
 	text-align:right;
 	flex-basis:25%;
-	margin-left:15px;
-	margin-right:15px;
+	padding:5px 15px 5px 5px;
+}
+.eps_table li ul:not(.header):not(.subheader) li:not(.label) {
+	font-size:.8em;
+	padding-top:10px;
+}
+.eps_table li ul li:nth-child(odd) {
+	background-color:rgba(50, 50, 50, .1);
 }
 .eps_table li ul.header {
 	border-bottom:0;
+	font-size:1.2em;
 	text-align:center;
-	padding-right:40px;
 }
 .eps_table li ul.header li:nth-last-child(1) {
 	flex-basis:50%;
@@ -84,14 +126,15 @@ span {
 	border-bottom:1px solid black;
 	margin-right: 0px !important;
 }
-.eps_table li ul.header li {
+.eps_table li ul.header li {y
 
 }
-.eps_table li.label {
-	font-size:1em;
+.eps_table li ul li.label {
+	font-size:1.2em;
+	padding-left:15px;y
 }
 .subheader {
-	border-bottom:1px solid black;
+	border-bottom:1px solid black;y
 }
 .subheader li {
 	font-size:1.2em;
@@ -101,8 +144,8 @@ span {
 }
 #reco_box {
 	position:relative;
-	display:inline-block;
-	outline:black solid 1px;
+	display:block;
+	border-top:1px solid black;
 	width:50%;
 	margin: 50px auto;
 	min-height:100px;

@@ -13,36 +13,34 @@ class Calculator_model extends CI_Model {
 			$fields = $this->get_fields($slide['id']);
 			foreach ($fields as $field)
 			{
-				$this->slides[$slide['position']]['fields'][$field['position']] = $field;
-			}
-		}
-	}
+				$this->slides[$slide['position']]['fields'][$field['position']] = $field; } } }
 
 	public function get_slides()
 	{
-		$query = $this->db->query('SELECT id, title, handle, position FROM slides WHERE active = 1 ORDER BY position');
-		foreach ($query->result() as $row)
+		$query = $this->db->query('SELECT id, title, handle, position, sum_raw, sum_calc, add_to_total, add_to_eps_total FROM slides WHERE active = 1 ORDER BY position');
+		foreach ( $query->result() as $row )
 		{
-				$this->slides[$row->position] = array(
-					'position' => $row->position,
-					'title' => $row->title,
-					'handle' => $row->handle,
-					'id' => $row->id,
-					'fields' => array()
-				);
-			
-		}
-	}
+			$this->slides[$row->position] = array(
+				'position' => $row->position,
+				'sum_raw' => $row->sum_raw,
+				'sum_calc' => $row->sum_calc,
+				'add_to_total' => $row->add_to_total,
+				'add_to_eps_total' => $row->add_to_eps_total,
+				'title' => $row->title,
+				'handle' => $row->handle,
+				'id' => $row->id,
+				'fields' => array() ) ; } }
 
 	public function get_fields($slide_id)
 	{
 		$results = array();
-		$query = $this->db->query('SELECT fields.id, fields.title, fields.handle, fields.parent_handle, fields.position, fields.tab_order, fields.default_val, weights.value as \'weight\', fields.required, fields.function FROM fields LEFT JOIN weights ON (fields.weight = weights.id) WHERE slide = \'' . $slide_id . '\' AND fields.active = 1 ORDER BY position');
-		foreach ($query->result() as $field)
+		$query = $this->db->query('SELECT fields.id, fields.title, fields.handle, fields.parent_handle, fields.position, fields.global, fields.tab_order, fields.default_val, weights.value as \'weight\', fields.required, fields.function FROM fields LEFT JOIN weights ON (fields.weight = weights.id) WHERE slide = \'' . $slide_id . '\' AND fields.active = 1 ORDER BY position');
+		foreach ( $query->result() as $field )
 		{
 			$results[$field->position]['id'] = $field->id;
 			$results[$field->position]['title'] = $field->title;
 			$results[$field->position]['position'] = $field->position;
+			$results[$field->position]['global'] = $field->global;
 			$results[$field->position]['tab_order'] = $field->tab_order;
 			$results[$field->position]['default_val'] = $field->default_val;
 			$results[$field->position]['weight'] = $field->weight;
@@ -52,6 +50,4 @@ class Calculator_model extends CI_Model {
 			$results[$field->position]['parent_handle'] = $field->parent_handle;
 		}
 		//return $query->result();
-		return $results;
-	}
-}
+		return $results; } }

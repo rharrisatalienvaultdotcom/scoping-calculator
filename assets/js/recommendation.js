@@ -21,9 +21,9 @@ function line1() {
 
 function line2() {
     var msg,
-        locations = field_values['network_data']['locations']['raw'],
-        bandwidth = field_values['network_data']['bandwidth']['raw'],
-        branch_offices = field_values['network_data']['small_branches']['raw'];
+        locations = field_values[ 'slides' ][ 'network_data' ][ 'fields' ][ 'locations' ][ 'raw' ],
+        bandwidth = field_values[ 'slides' ][ 'network_data' ][ 'fields' ][ 'bandwidth' ][ 'raw' ],
+        branch_offices = field_values[ 'slides' ][ 'network_data' ][ 'fields' ][ 'small_branches' ][ 'raw' ];
     if ( locations < 1 && grand_total_devices_eps < 1 && bandwidth < 1 ) {
         msg = '&nbsp;';
     } else if ( locations <= 1 && grand_total_devices_eps < 1000 && bandwidth <= 100 ) {
@@ -31,26 +31,26 @@ function line2() {
     } else if ( locations <= 150 && grand_total_devices_eps < 1000 && bandwidth >= 100 ) {
         msg = ' - ' + locations + ' x STANDARD SENSORS';
     } else if ( locations > 1 && grand_total_devices_eps <= 1000 && bandwidth <= 100 ) {
-        msg = ' - ' + (locations - 1) + ' x REMOTE SENSORS';
-    } else if ( locations > 1 && grand_total_devices_eps >= 1000 && grand_total_devices_eps < 2500 && branch_office < 1 && bandwidth <= 100 ) {
+        msg = ' - ' + ( locations - 1 ) + ' x REMOTE SENSORS';
+    } else if ( locations > 1 && grand_total_devices_eps >= 1000 && grand_total_devices_eps < 2500 && branch_offices < 1 && bandwidth <= 100 ) {
         msg = ' - ' + locations + ' x REMOTE SENSORS';
-    } else if ( locations > 1 && grand_total_devices_eps >= 1000 && grand_total_devices_eps < 2500 && branch_office > 1 && bandwidth <= 100 ) {
+    } else if ( locations > 1 && grand_total_devices_eps >= 1000 && grand_total_devices_eps < 2500 && branch_offices > 1 && bandwidth <= 100 ) {
         msg = ' - ' + locations + ' x REMOTE SENSORS';
-    } else if ( locations > 1 && grand_total_devices_eps <= 1000 &&  branch_office < 1 && bandwidth <= 100 ) {
+    } else if ( locations > 1 && grand_total_devices_eps <= 1000 &&  branch_offices < 1 && bandwidth <= 100 ) {
         msg = locations + ' x STANDARD SENSORS';
-    } else if ( locations > 1 && grand_total_devices_eps <= 1000 &&  branch_office > 0 && bandwidth >= 100 && bandwidth <= 1000 ) {
+    } else if ( locations > 1 && grand_total_devices_eps <= 1000 &&  branch_offices > 0 && bandwidth >= 100 && bandwidth <= 1000 ) {
         msg = ' - ' + ( locations - branch_offices ) + ' x STANDARD SENSORS + ' + branch_offices + ' x REMOTE SENSORS';
-    } else if ( locations > 1 && grand_total_devices_eps >= 1000 &&  grand_total_devices_eps < 2500 && bandwidth >= 100 && bandwidth <= 1000 && branch_office > 0 ) {
+    } else if ( locations > 1 && grand_total_devices_eps >= 1000 &&  grand_total_devices_eps < 2500 && bandwidth >= 100 && bandwidth <= 1000 && branch_offices > 0 ) {
         msg = ' - ' + ( locations - branch_offices ) + ' x STANDARD SENSORS + ' + branch_offices + ' x REMOTE SENSORS';
     } else if ( locations < 1 && grand_total_devices >= 1000 && bandwidth >= 100 ) {
         msg = ' - ' + locations + ' x STANDARD SENSORS';
     } else if ( grand_total_devices < 2500 && grand_total_devices >= 1000 && bandwidth >= 1000 && bandwidth <= 1000 ) {
         msg = ' - ' + locations + ' x STANDARD SENSORS';
-    } else if (grand_total_devices_eps >= 2500 &&  grand_total_devices_eps <= 5000 && locations < 3 && bandwidth <= 1000 && branch_office < 1 ) {
+    } else if ( grand_total_devices_eps >= 2500 &&  grand_total_devices_eps <= 5000 && locations < 3 && bandwidth <= 1000 && branch_offices < 1 ) {
         msg = ' - 2 x STANDARD SENSORS';
-    } else if (grand_total_devices_eps >= 2500 &&  grand_total_devices_eps <= 5000 && branch_office < 1 ) {
+    } else if ( grand_total_devices_eps >= 2500 &&  grand_total_devices_eps <= 5000 && branch_offices < 1 ) {
         msg = ' - ' + location + ' x STANDARD SENSORS';
-    } else if (grand_total_devices_eps >= 2500 &&  grand_total_devices_eps <= 5000 && branch_office > 0 ) {
+    } else if ( grand_total_devices_eps >= 2500 &&  grand_total_devices_eps <= 5000 && branch_offices > 0 ) {
         msg = ' - 2 x STANDARD SENSORS + ' + branch_locations + ' x REMOTE SENSORS' ;
     }  else {
         msg = ' - CONTACT YOUR SE FOR SENSOR RECOMMENDATION';
@@ -63,17 +63,17 @@ function line3() {
     if ( F50 < 1) {
 
     } else if ( I34 == 1 && H38 == 0 && F50 <= 2500 ){
-        msg = (858993459) / K24;
+        msg = ( 858993459 ) / K24;
     } else if ( F50 <= 2500 && I34 === 2 && H38 === 0 ) {
-        msg = (1610612736) / K24;
+        msg = ( 1610612736 ) / K24;
     } else if ( I24 === 1 && H38 === 0 && F50 > 2500 ) {
-        msg = (1610612736) / K24;
+        msg = ( 1610612736 ) / K24;
     } else if ( I34 === 2 && H38 === 0 && F50 > 2500 ) {
-        msg = (1610612736) / K24;
+        msg = ( 1610612736 ) / K24;
     } else if ( I34 === 2 && H38 >= 1 && F50 > 2500 ) {
-        msg = (1610612736 * H38) / K24;
+        msg = ( 1610612736 * H38 ) / K24;
     } else if ( I34 === 2 && H38 >= 1 && F50 > 2500 ) {
-        msg = (1610612736 * H38) / K24;
+        msg = ( 1610612736 * H38 ) / K24;
     } else {
         msg = 'VIRTUAL or HARDWARE OPTION REQUIRED';
     }
