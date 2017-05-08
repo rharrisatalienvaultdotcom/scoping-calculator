@@ -1,5 +1,10 @@
 span {
-	display:inline-block; 
+	display:inline-block;
+}
+#wrapper {
+    margin:0px;
+    position:relative;
+    width:100%;
 }
 .flex_container {
 	display:flex;
@@ -7,15 +12,11 @@ span {
 	justify-content:space-between;
 }
 #report_wrapper {
-	position:absolute;
+	position:relative;
 	width:100%;
 	margin: 0;
 	z-index:-1;
-	box-shadow: 0px 0px 15px;
-	overflow-y: auto;
-	height:100%;
 	top:0px;
-	background-color:#f4f7fa;
 	padding-top:100px;
 	padding-bottom:200px;
 }
@@ -24,10 +25,9 @@ span {
 	position:relative;
 	width:100%;
 	margin:0 auto;
-	/*-webkit-filter: blur(15px);
-	filter: blur(10px);*/
+	-webkit-filter: blur(0px) !important;
+	filter: blur(0px) !important;
 	transition: filter 600ms;
-	margin-bottom:200px;
 }
 .report_slide {
 	padding-right:40px;
@@ -74,7 +74,6 @@ span {
 	margin-bottom: 30px;
 	border-top: 1px solid black;
 	padding-top: 15px;
-	border-bottom: 1px solid black;
 	padding-bottom: 15px;
 	break-after: always;
 	font-size:1.2em;
