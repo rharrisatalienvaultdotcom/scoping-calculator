@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" media="print" href="assets/css/report_print.css">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/report.css">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/dev_helper.css">
-    <title>USM Appliance! Scoping Calculator</title>
+    <title>USM Anywhere! Scoping Calculator</title>
     <style>
       @font-face {
         font-family:ProximaNova;

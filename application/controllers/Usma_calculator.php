@@ -8,7 +8,7 @@ class Usma_calculator extends CI_Controller {
     $this->load->model('calculator_model');
     //print("<pre>" . print_r($this->calculator_model->slides,true) . "</pre>");
     $data['calc_data'] = $this->calculator_model->slides;
-    $this->load->view('calcview', $data);
+    $this->load->view('anywherecalcview', $data);
   }
 
   public function pdf_test_a()

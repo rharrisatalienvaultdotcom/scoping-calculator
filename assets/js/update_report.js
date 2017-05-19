@@ -31,6 +31,7 @@ function update_report() {
     }
 
     wrapper.appendChild( build_eps_table() );
+    wrapper.appendChild( recommends() );
   } else {
     return void(0);
   }
@@ -212,3 +213,23 @@ function simpli ( a = '&nbsp;' ) {
   li.innerHTML = a;
   return li;
 }
+
+function recommends() {
+  var reco_box = document.createElement( 'ul' );
+  var reco_header = document.createElement( 'li' );
+  var reco_a = document.createElement( 'li' );
+  var reco_b = document.createElement( 'li' );
+  var reco_c = document.createElement( 'li' );
+  reco_box.id = 'reco_box';
+  reco_header.id = 'reco_header';
+  reco_a.id = 'reco_a';
+  reco_b.id = 'reco_b';
+  reco_c.id = 'reco_c';
+  reco_header.innerHTML = 'RECOMMENDED SETUP';
+  reco_box.appendChild( reco_header );
+  reco_a.innerHTML = line1();
+  reco_box.appendChild( reco_a );
+  reco_b.innerHTML = line2();
+  reco_box.appendChild( reco_b );
+  return reco_box;
+  }

@@ -76,7 +76,7 @@ function update_numbers() {
       grand_total_devices_eps += this_slide[ 'total_eps' ];
     }
   }
-
+  grand_total_devices_eps += field_values[ 'slides' ][ 'misc' ][ 'fields' ][ 'other_eps' ][ 'raw' ];
   field_values[ 'grand_totals' ][ 'eps' ] = grand_total_devices_eps;
   field_values[ 'grand_totals' ][ 'commatized_eps' ] = commatize( grand_total_devices_eps );
   update_eps_vals();
@@ -169,6 +169,19 @@ function per_year( num ) {
 
 // Data size conversion functions
 
+// B functions
+function b_to_kb( b ) {
+  return up_order( b );
+}
+function b_to_mb( b ) {
+  return up_order( up_order( b ) );
+}
+function b_to_gb( b ) {
+  return up_order( up_order( up_order( b ) ) );
+}
+function b_to_tb( b ) {
+
+}
 // KB functions
 function kb_to_mb( kb ) {
   return up_order( kb );
@@ -224,14 +237,15 @@ function down_order( num ) {
 function best_unit( num ) {
   if ( num ) {
     var units = [];
-    units[ 0 ] = 'KiB',
-    units[ 1 ] = 'MiB',
-    units[ 2 ] = 'GiB',
-    units[ 3 ] = 'TiB',
-    units[ 4 ] = 'PiB',
-    units[ 5 ] = 'EiB',
-    units[ 6 ] = 'ZiB',
-    units[ 7 ] = 'YiB';
+    units[ 0 ] = 'B';
+    units[ 1 ] = 'KiB',
+    units[ 2 ] = 'MiB',
+    units[ 3 ] = 'GiB',
+    units[ 4 ] = 'TiB',
+    units[ 5 ] = 'PiB',
+    units[ 6 ] = 'EiB',
+    units[ 7 ] = 'ZiB',
+    units[ 8 ] = 'YiB';
     for ( var i = 0 ; i < units.length ; i++ ) {
       if ( num > 1024 ) {
         num = up_order( num );
