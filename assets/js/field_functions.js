@@ -148,7 +148,7 @@ var field_functions = {
     if ( data['slides']['network_devices']['fields']['web_filters']['raw'] > 0 ) {
       result = data['slides']['network_devices']['fields']['web_filters']['raw'] * 5 + ( data[ 'grand_totals' ][ 'devices' ] / data[ 'slides' ][ 'network_devices' ][ 'fields' ][ 'web_filters' ][ 'weight' ] );
 
-      console.log('network_devices-web_filters: ' + data['slides']['network_devices']['fields']['web_filters']['raw'] + ' * 5 + ( ' + data[ 'grand_totals' ][ 'devices' ] + ' / ' + data[ 'slides' ][ 'network_devices' ][ 'fields' ][ 'web_filters' ][ 'weight' ] + ' )' );
+      //console.log('network_devices-web_filters: ' + data['slides']['network_devices']['fields']['web_filters']['raw'] + ' * 5 + ( ' + data[ 'grand_totals' ][ 'devices' ] + ' / ' + data[ 'slides' ][ 'network_devices' ][ 'fields' ][ 'web_filters' ][ 'weight' ] + ' )' );
     } else {
       result = 0;
     }

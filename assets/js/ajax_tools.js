@@ -1,17 +1,19 @@
-function ajaxFunction(){
-   var ajaxRequest;  // The variable that makes Ajax possible!
+var response_code;
+
+function ajax_object(){
+   var xhrObject;  // The variable that makes Ajax possible!
 
    try{
-      // Opera 8.0+, Firefox, Safari 
-      ajaxRequest = new XMLHttpRequest();
+      // Opera 8.0+, Firefox, Safari
+      xhrObject = new XMLHttpRequest();
    }catch (e){
 
       // Internet Explorer Browsers
       try{
-         ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP");
+         xhrObject = new ActiveXObject("Msxml2.XMLHTTP");
       }catch (e) {
          try{
-            ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP");
+            xhrObject = new ActiveXObject("Microsoft.XMLHTTP");
          }catch (e){
 
             // Something went wrong
@@ -19,6 +21,37 @@ function ajaxFunction(){
             return false;
          }
       }
+   }
+   return xhrObject;
+}
+
+function ajax_request( address = null, data = null, cbfunction = null, method = 'POST' ) {
+   if ( !!address ) {
+      //console.log('address: ' + address + ';');
+      //console.log('cbfunction: ' + cbfunction + ';');
+      //console.log('data: ' + data + ';');
+      //console.log('method: ' + method + ';');
+      var ajaxObj = ajax_object();
+      if ( ajaxObj !== false ){
+         ajaxObj.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+               //console.log( 'readyState: ' + this.readyState + '; status: ' + this.status + ';' );
+               //console.log( 'responseText:' );
+               //console.log( this.responseText );
+               response_code = this.responseText;
+               //console.log( '( ajax_tools->ajax_request ) Current response code: ' + response_code + ';' );
+               cbfunction();
+            }
+         }
+      } else {
+         console.log( 'ERROR - FAILED TO CREATE XHR OBJECT!!' );
+      }
+      ajaxObj.open("POST", address, true);
+      ajaxObj.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      ajaxObj.send( data );
+   } else {
+      console.log( 'UNABLE TO SEND!' );
+      return false;
    }
 }
 

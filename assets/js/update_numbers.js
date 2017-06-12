@@ -23,13 +23,14 @@ function update_numbers() {
     for ( var field in this_slide[ 'fields' ] ) {
       var this_field = this_slide[ 'fields' ][ field ];
       if( field !== 'virtual_or_physical' && field !== 'usage_pattern' ) {
-        var elem = document.getElementById( 'number-' + field );
+        var elem = document.getElementById( 'number-' + slide + '-' + field );
         this_field[ 'raw' ] = elem.valueAsNumber;
         this_field[ 'commatized_raw' ] = commatize( this_field[ 'raw' ] );
       } else {
-        var elem = document.getElementById( field );
+        var elem = document.getElementById( slide + '-' + field );
         this_field[ 'raw' ] = elem.options[ elem.selectedIndex ].text;
         this_field[ 'commatized_raw' ] = this_field[ 'raw' ];
+        this_field[ 'math_value' ] = Number( elem.options[ elem.selectedIndex ].value );
       }
       if ( this_slide[ 'sum_raw' ] == 1 ) {
         window[ 'total_' + slide ] += this_field[ 'raw' ];

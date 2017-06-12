@@ -49,7 +49,7 @@ function line2() {
     } else if ( grand_total_devices_eps >= 2500 &&  grand_total_devices_eps <= 5000 && locations < 3 && bandwidth <= 1000 && branch_offices < 1 ) {
         msg = ' - 2 x STANDARD SENSORS';
     } else if ( grand_total_devices_eps >= 2500 &&  grand_total_devices_eps <= 5000 && branch_offices < 1 ) {
-        msg = ' - ' + location + ' x STANDARD SENSORS';
+        msg = ' - ' + locations + ' x STANDARD SENSORS';
     } else if ( grand_total_devices_eps >= 2500 &&  grand_total_devices_eps <= 5000 && branch_offices > 0 ) {
         msg = ' - 2 x STANDARD SENSORS + ' + branch_locations + ' x REMOTE SENSORS' ;
     }  else {
@@ -60,20 +60,20 @@ function line2() {
 }
 
 function line3() {
-    if ( F50 < 1) {
+    if ( grand_total_devices_eps < 1) {
 
-    } else if ( I34 == 1 && H38 == 0 && F50 <= 2500 ){
-        msg = ( 858993459 ) / K24;
-    } else if ( F50 <= 2500 && I34 === 2 && H38 === 0 ) {
-        msg = ( 1610612736 ) / K24;
-    } else if ( I24 === 1 && H38 === 0 && F50 > 2500 ) {
-        msg = ( 1610612736 ) / K24;
-    } else if ( I34 === 2 && H38 === 0 && F50 > 2500 ) {
-        msg = ( 1610612736 ) / K24;
-    } else if ( I34 === 2 && H38 >= 1 && F50 > 2500 ) {
-        msg = ( 1610612736 * H38 ) / K24;
-    } else if ( I34 === 2 && H38 >= 1 && F50 > 2500 ) {
-        msg = ( 1610612736 * H38 ) / K24;
+    } else if ( field_values[ 'slides' ][ 'misc' ][ 'fields' ][ 'virtual_or_physical' ][ 'math_value' ] == 1 && field_values[ 'slides' ][ 'misc' ][ 'fields' ][ 'compression_ratio' ][ 'raw' ] == 0 && grand_total_devices_eps <= 2500 ){
+        msg = ( 858993459 ) / field_values[ 'eps_vals' ][ 'per_month' ][ 'compressed' ];
+    } else if ( grand_total_devices_eps <= 2500 && field_values[ 'slides' ][ 'misc' ][ 'fields' ][ 'virtual_or_physical' ][ 'math_value' ] === 2 && field_values[ 'slides' ][ 'misc' ][ 'fields' ][ 'compression_ratio' ][ 'raw' ] === 0 ) {
+        msg = ( 1610612736 ) / field_values[ 'eps_vals' ][ 'per_month' ][ 'compressed' ];
+    } else if ( field_values[ 'slides' ][ 'misc' ][ 'fields' ][ 'virtual_or_physical' ][ 'math_value' ] === 1 && field_values[ 'slides' ][ 'misc' ][ 'fields' ][ 'compression_ratio' ][ 'raw' ] === 0 && grand_total_devices_eps > 2500 ) {
+        msg = ( 1610612736 ) / field_values[ 'eps_vals' ][ 'per_month' ][ 'compressed' ];
+    } else if ( field_values[ 'slides' ][ 'misc' ][ 'fields' ][ 'virtual_or_physical' ][ 'math_value' ] === 2 && field_values[ 'slides' ][ 'misc' ][ 'fields' ][ 'compression_ratio' ][ 'raw' ] === 0 && grand_total_devices_eps > 2500 ) {
+        msg = ( 1610612736 ) / field_values[ 'eps_vals' ][ 'per_month' ][ 'compressed' ];
+    } else if ( field_values[ 'slides' ][ 'misc' ][ 'fields' ][ 'virtual_or_physical' ][ 'math_value' ] === 2 && field_values[ 'slides' ][ 'misc' ][ 'fields' ][ 'compression_ratio' ][ 'raw' ] >= 1 && grand_total_devices_eps > 2500 ) {
+        msg = ( 1610612736 * field_values[ 'slides' ][ 'misc' ][ 'fields' ][ 'virtual_or_physical' ][ 'standard_loggers' ] ) / K24;
+    } else if ( field_values[ 'slides' ][ 'misc' ][ 'fields' ][ 'virtual_or_physical' ][ 'math_value' ] === 2 && field_values[ 'slides' ][ 'misc' ][ 'fields' ][ 'compression_ratio' ][ 'raw' ] >= 1 && grand_total_devices_eps > 2500 ) {
+        msg = ( 1610612736 * field_values[ 'slides' ][ 'misc' ][ 'fields' ][ 'virtual_or_physical' ][ 'standard_loggers' ] ) / K24;
     } else {
         msg = 'VIRTUAL or HARDWARE OPTION REQUIRED';
     }

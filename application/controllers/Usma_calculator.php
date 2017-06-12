@@ -1,4 +1,4 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+<?php if ( !defined( 'BASEPATH' ) ) exit( 'No direct script access allowed' );
 class Usma_calculator extends CI_Controller {
 
   public function index()
@@ -7,8 +7,13 @@ class Usma_calculator extends CI_Controller {
     //echo 'testestest!';
     $this->load->model('calculator_model');
     //print("<pre>" . print_r($this->calculator_model->slides,true) . "</pre>");
-    $data['calc_data'] = $this->calculator_model->slides;
-    $this->load->view('anywherecalcview', $data);
+    $data[ 'calc_data' ][ 'slides' ] = $this->calculator_model->slides;
+    //$data[ 'def_field_values' ] = json_encode( $data[ 'calc_data' ] );
+    $data[ 'def_field_values' ] = json_encode( $this->calculator_model->slides_mod );
+    //$data[ 'def_field_values' ] = $data[ 'calc_data' ];
+
+    //echo $data[ 'def_field_values' ];
+    $this->load->view( 'anywherecalcview', $data );
   }
 
   public function pdf_test_a()

@@ -28,18 +28,21 @@ function next_slide(el) {
     elem1[0].className = elem1[0].className.replace('selected', 'unselected');
     elem2[0].className = elem2[0].className.replace('unselected', 'selected');
     if ( elem1Pos === max_val ) {
-      document.getElementById('show_hide_wrapper').style.visibility = 'visibile';
-      document.getElementById('show_hide_wrapper').style.pointerEvents = 'auto';
-      document.getElementById('show_hide_wrapper').style.opacity = 1;
-      document.getElementById('next_button').firstElementChild.className = document.getElementById('next_button').firstElementChild.className.replace('active','disabled');
-      setTimeout (function () {
-      document.getElementById('next_button').firstElementChild.className = document.getElementById('next_button').firstElementChild.className.replace('disabled','active'); }, 2000);
+      reveal_show_hide_button();
     }
   } else {
     //button_down(document.getElementById('show_hide').firstElementChild);
     show_hide(document.getElementById('show_hide').firstElementChild);
     //setTimeout(button_up(document.getElementById('show_hide').firstElementChild), 1000);
   }
+}
+function reveal_show_hide_button() {
+  document.getElementById('show_hide_wrapper').style.visibility = 'visibile';
+  document.getElementById('show_hide_wrapper').style.pointerEvents = 'auto';
+  document.getElementById('show_hide_wrapper').style.opacity = 1;
+  document.getElementById('next_button').firstElementChild.className = document.getElementById('next_button').firstElementChild.className.replace('active','disabled');
+  setTimeout (function () {
+  document.getElementById('next_button').firstElementChild.className = document.getElementById('next_button').firstElementChild.className.replace('disabled','active'); }, 2000);
 }
 function select_this_slide(el) {
   var slides = document.getElementsByClassName('slide');
@@ -69,6 +72,7 @@ function show_hide(el){
     el.className = 'button_circle show';
     el.firstElementChild.className = 'button_arrow button_arrow_down';
     el.parentElement.parentElement.style.backgroundColor = 'rgba(0, 0, 0, 1)';
+    save_log();
     document.getElementById('shadow_box').style.backgroundColor = 'rgba(0,0,0,0)';
     setTimeout(function(){
       document.getElementById('report_wrapper_inner').style.filter = 'blur(0px)';

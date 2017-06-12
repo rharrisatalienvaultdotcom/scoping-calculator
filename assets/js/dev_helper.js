@@ -1,4 +1,4 @@
-( function() {
+/*( function() {
 	var dev_helper = document.getElementById( 'dev_helper' );
 
 	var pdf_button = document.createElement( 'span' );
@@ -12,4 +12,4 @@
 	pdf_button.innerHTML = 'click to send';
 	pdf_button.addEventListener( 'click', function() { getPdf2(); } );
 	dev_helper.appendChild( pdf_button );
-} )()
+} )()*/

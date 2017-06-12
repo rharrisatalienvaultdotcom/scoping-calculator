@@ -1,0 +1,40 @@
+Math check
+==============================================
+
+message_size = 800 KiB = 819200 B = 6553600 b = 0.78125 MiB
+
+seconds in minute = 60
+
+seconds in hour = 3600
+minutes in hour = 60
+
+seconds in day = 86400
+minutes in day = 1440
+hours in day = 24
+
+seconds in a week = 604800
+minutes in a week = 10080
+hours in a week = 168
+days in a week = 7
+
+second in a month = 2592000
+minutes in a month = 43200
+hours in a month = 720
+days in a month = 30
+weeks in a month = 4.28571429
+
+seconds in a year = 31536000
+minutes in a year = 525600
+hours in a year = 8760
+days in a year = 365
+weeks in a year = 52
+months in a year = 12
+
+data in second = 800 KiB
+data in minute ( 800 * 60 ) = 48000 KiB = 46.875 MiB
+data in hour ( ( 800 * 60 ) * 60 ) = 2880000 KiB = 2812.5 MiB = 2.74658203125 GiB
+data in day ( ( ( 800 * 60 ) * 60 ) * 24 ) = 69120000 KiB = 67500 MiB = 65.91796875 GiB
+data in week ( ( ( ( 800 * 60 ) * 60 ) * 24 ) * 7 ) = 483840000 KiB = 472500 MiB = 461.42578125 GiB
+data in month ( ( ( ( 800 * 60 ) * 60 ) * 24 ) * 30 ) = 2073600000 KiB = 2025000 MiB = 1977.5390625 GiB = 1.931190490722656 TiB
+data in year ( ( ( ( 800 * 60 ) * 60 ) * 24 ) * 365 ) = 25228800000 KiB = 24637500 MiB = 24060.05859375 GiB = 23.496150970458984 TiB
+
