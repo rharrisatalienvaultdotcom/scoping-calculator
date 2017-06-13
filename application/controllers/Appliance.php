@@ -3,17 +3,13 @@ class Appliance extends CI_Controller {
 
   public function index()
   {
-    //header( 'Location: calculator/appliance');
-    // Do stuff
-    //echo 'testestest!';
-    $this->load->model('calculator_model');
-    //print("<pre>" . print_r($this->calculator_model->slides,true) . "</pre>");
-    $data[ 'calc_data' ][ 'slides' ] = $this->calculator_model->slides;
-    //$data[ 'def_field_values' ] = json_encode( $data[ 'calc_data' ] );
-    $data[ 'def_field_values' ] = json_encode( $this->calculator_model->slides_mod );
-    //$data[ 'def_field_values' ] = $data[ 'calc_data' ];
 
-    //echo $data[ 'def_field_values' ];
+    $this->load->model('calculator_model');
+
+    $data[ 'calc_data' ][ 'slides' ] = $this->calculator_model->slides;
+
+    $data[ 'def_field_values' ] = json_encode( $this->calculator_model->slides_mod );
+
     $this->load->view( 'head_open' );
     $this->load->view( 'calc_css' );
     $this->load->view( 'page_title', array( 'page_title' => 'USM Appliance! Scoping Calculator' ) );

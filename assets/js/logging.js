@@ -1,7 +1,7 @@
 (function() {
   if ( check_storage_compatibility() ) {
     if ( check_for_op_key() ) {
-
+      notification( 'Scoping data loaded for record url ' + current_scoping_id + '.' );
     } else {
       ask_for_op_key();
     }
@@ -32,6 +32,7 @@ function check_for_op_key() {
       op_keys = [];
     }
     if ( op_keys[0] !== 'undefined' && op_keys[0] !== '' ) {
+      current_scoping_id = op_keys[0];
       result =  true;
     }
   } else {
@@ -92,10 +93,12 @@ function response_handler() {
       console.log( 'Entry created for this scoping id successfully' );
       console.log( '( logging->response_handler ) Current response code: ' + response_code + ' (' + typeof( response_code ) + ');' );
       destroyPopup();
+      notification( 'Scoping data saved for record url ' + current_scoping_id + '.' );
     } else if ( Number( response_code ) == 2 ) {
       console.log( 'Entry updated for this scoping id successfully' );
       console.log( '( logging->response_handler ) Current response code: ' + response_code + ' (' + typeof( response_code ) + ');' );
       destroyPopup();
+      notification( 'Scoping data updated for record url ' + current_scoping_id + '.' );
     } else if ( Number( response_code ) == 3 ) {
       console.log( 'Unable create this scoping id successfully' );
       console.log( '( logging->response_handler ) Current response code: ' + response_code + ' (' + typeof( response_code ) + ');' );
@@ -110,7 +113,8 @@ function response_handler() {
       //console.log( '( logging->response_handler ) Current response code: ' + response_code + ' (' + typeof( response_code ) + ');' );
       field_values = response_code;
       console.log( 'Existing data for ' + current_scoping_id + ' found!' );
-      overwriting_alert();
+      destroyPopup();
+      notification( 'Scoping data loaded for record url ' + current_scoping_id + '.' );
     }
     //console.log( field_values );
 }
@@ -121,7 +125,8 @@ function clear_local_op_keys() {
     sessionStorage.op_keys = '';
     result = true;
   }
-  return result;
+  ask_for_op_key();
+  //return result;
 }
 
 function change_op_key() {
@@ -290,4 +295,64 @@ function destroyPopup() {
   if ( !!requester ) {
     requester.parentNode.removeChild( requester );
   }
+}
+
+function notification( message = null, show_change_link = true ) {
+  var bubble_el = document.createElement( 'div' ),
+      message_el = document.createElement( 'span' ),
+      link_el = document.createElement( 'a' ),
+      existing_bubble = document.getElementById( 'notication_bubble' );
+
+      if ( !!existing_bubble ) {
+        existing_bubble.parentNode.removeChild( existing_bubble );
+      }
+
+      bubble_el.id = 'notication_bubble';
+      bubble_el.style.position = 'fixed';
+      bubble_el.style.boxSizing = 'border-box';
+      bubble_el.style.display = 'block';
+      bubble_el.style.backgroundColor = 'rgba( 255, 255, 255, .5 )';
+      bubble_el.style.width = '30%';
+      bubble_el.style.margin = '0 auto';
+      bubble_el.style.marginTop = '1.5vw';
+      bubble_el.style.bottom = '1.5vw';
+      bubble_el.style.paddingBottom = '1vw';
+      bubble_el.style.borderRadius = '1vw';
+      bubble_el.style.zIndex = 50;
+
+      message_el.id = 'bubble_message';
+      message_el.style.position = 'relative';
+      message_el.style.boxSizing = 'border-box';
+      message_el.style.display = 'block';
+      message_el.style.color = 'black';
+      message_el.style.width = '90%';
+      message_el.style.margin = '0 auto';
+      message_el.style.textAlign = 'center';
+      message_el.style.marginTop = '1.5vw';
+
+      link_el.id = 'change_records_link';
+      link_el.style.position = 'relative';
+      link_el.style.boxSizing = 'border-box';
+      link_el.style.display = 'block';
+      link_el.style.color = 'black';
+      link_el.style.width = '90%';
+      link_el.style.margin = '0 auto';
+      link_el.style.marginTop = '1.5vw';
+      link_el.style.textAlign = 'center';
+      link_el.style.cursor = 'default';
+      link_el.innerHTML = 'Click here to change records!';
+
+
+      if ( !!message ) {
+        console.log('here');
+        message_el.innerHTML = message;
+        bubble_el.appendChild(message_el);
+        if ( show_change_link == true ) {
+          link_el.onclick = ( function() { clear_local_op_keys(); } );
+          bubble_el.appendChild( link_el );
+        console.log('here');
+        }
+        console.log('here');
+        document.getElementById( 'wrapper' ).appendChild( bubble_el );
+      }
 }

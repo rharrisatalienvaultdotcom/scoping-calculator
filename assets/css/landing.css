@@ -1,0 +1,15 @@
+body {
+  width: 100%;
+  position:relative;
+}
+a {
+  padding:50px;
+}
+#landing_links_wrapper {
+  position: absolute;
+  box-sizing: border-box;
+  margin-top:250px;
+  width:100%;
+  padding-left:250px ;
+}
+

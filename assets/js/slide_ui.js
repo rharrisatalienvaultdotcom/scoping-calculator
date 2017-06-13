@@ -22,7 +22,8 @@ function next_slide(el) {
     var data_string = '[data-slide-position=' + String.fromCharCode(34) + (Number(elem1Pos) + 1) + String.fromCharCode(34) + ']';
     elem1Pos += 1;
     if (elem1Pos > 0) {
-      document.getElementById('previous_button').firstElementChild.className = document.getElementById('previous_button').firstElementChild.className.replace('disabled','active');
+      var inner_button = document.getElementById('previous_button').firstElementChild;
+      inner_button.className = inner_button.className.replace('disabled','active');
     }
     var elem2 = document.querySelectorAll(data_string);
     elem1[0].className = elem1[0].className.replace('selected', 'unselected');
@@ -37,12 +38,14 @@ function next_slide(el) {
   }
 }
 function reveal_show_hide_button() {
-  document.getElementById('show_hide_wrapper').style.visibility = 'visibile';
-  document.getElementById('show_hide_wrapper').style.pointerEvents = 'auto';
-  document.getElementById('show_hide_wrapper').style.opacity = 1;
-  document.getElementById('next_button').firstElementChild.className = document.getElementById('next_button').firstElementChild.className.replace('active','disabled');
+  var sh_button = document.getElementById('show_hide_wrapper'),
+      inner_nbutton = document.getElementById('next_button').firstElementChild;
+  sh_button.style.visibility = 'visibile';
+  sh_button.style.pointerEvents = 'auto';
+  sh_button.style.opacity = 1;
+  inner_nbutton.className = inner_nbutton.className.replace('active','disabled');
   setTimeout (function () {
-  document.getElementById('next_button').firstElementChild.className = document.getElementById('next_button').firstElementChild.className.replace('disabled','active'); }, 2000);
+  inner_nbutton.className = inner_nbutton.className.replace('disabled','active'); }, 2000);
 }
 function select_this_slide(el) {
   var slides = document.getElementsByClassName('slide');
