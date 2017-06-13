@@ -3,7 +3,7 @@
             <h3 class="slide_title"><?php echo $slide['title']; ?></h3>
               <div id="fields_wrapper">
                 <ul id="fields_list">
-                <?php if ($slide['handle'] !== 'misc'): ?>
+                <?php if ($slide['handle'] !== 'misc' && $slide['handle'] !== 'cloud_services_aws' && $slide['handle'] !== 'cloud_services_azure'): ?>
                   <?php foreach ($slide['fields'] as $field): ?>
                     <li>
                       <div class="range_outer_wrapper">
