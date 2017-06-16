@@ -29,7 +29,8 @@ class Calculator_model extends CI_Model {
 
 	public function get_slides()
 	{
-		$query = $this->db->query("SELECT id, title, handle, position, sum_raw, sum_calc, add_to_total, add_to_eps_total FROM slides WHERE active = 1 AND products REGEXP '" . $this->router->fetch_class() . "' ORDER BY position");
+		#$query = $this->db->query("SELECT id, title, handle, position, sum_raw, sum_calc, add_to_total, add_to_eps_total FROM slides WHERE active = 1 AND products REGEXP '" . $this->router->fetch_class() . "' ORDER BY position");
+		$query = $this->db->query("SELECT id, title, handle, position, sum_raw, sum_calc, add_to_total, add_to_eps_total FROM slides WHERE active = 1  ORDER BY position");
 		foreach ( $query->result() as $row )
 		{
 			$this->slides[ $row->position ] = array(
