@@ -1,39 +1,39 @@
-          <div data-slide-position="6" id="cloud_services_aws" class="slide unselected">
+          <div data-slide-position="0" id="cloud_services_aws" class="slide unselected">
             <h3 class="slide_title">Cloud Services: AWS</h3>
-              <div id="fields_wrapper">
-                <ul id="fields_list">
-                  <li>
-                      <div class="range_outer_wrapper">
-                        <h3>CloudTrail event total</h3>
-                        <div class="range_wrapper">
-                          <input type="range" name="range-cloud_services_aws-cloudtrail" id="range-cloud_services_aws-cloudtrail" min=2 max=10 value=5  oninput="updateRange( this )">
-                          <div class="range_line">&nbsp;</div>
-                        </div>
-                        <ul class="number_box_list">
-                          <li class="number_box">
-                            <input class="number_input" type="number" name="number-cloud_services_aws-cloudtrail" id="number-cloud_services_aws-cloudtrail" min=2 max=10 step=1 value=5>
+            <div id="fields_wrapper">
+              <ul id="fields_list">
+                <li>
+                  <div class="range_outer_wrapper">
+                    <h3>CloudTrail event total</h3>
+                    <div class="range_wrapper">
+                      <input type="range" name="range-cloud_services_aws-cloudtrail" id="range-cloud_services_aws-cloudtrail" min=2 max=10 value=5  oninput="updateRange( this )">
+                      <div class="range_line">&nbsp;</div>
+                    </div>
+                    <ul class="number_box_list">
+                      <li class="number_box">
+                        <input class="number_input" type="number" name="number-cloud_services_aws-cloudtrail" id="number-cloud_services_aws-cloudtrail" min=2 max=10 step=1 value=5>
+                      </li>
+                      <li class="arrow_box_li">
+                        <ul class="arrow_box">
+                          <li class="number_up" onmouseup="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )" onmousedown="( function( el ) { number_up( el ); button_repeater( el ); } )( this )" onmouseout="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )">
+                            <div class="number_up_inner"></div>
                           </li>
-                          <li class="arrow_box_li">
-                            <ul class="arrow_box">
-                              <li class="number_up" onmouseup="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )" onmousedown="( function( el ) { number_up( el ); button_repeater( el ); } )( this )" onmouseout="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )">
-                                <div class="number_up_inner"></div>
-                              </li>
-                              <li class="number_down" onmouseup="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )" onmousedown="( function( el ) { number_down( el ); button_repeater( el ); } )( this )" onmouseout="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )">
-                                <div class="number_down_inner"></div>
-                              </li>
-                            </ul>
+                          <li class="number_down" onmouseup="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )" onmousedown="( function( el ) { number_down( el ); button_repeater( el ); } )( this )" onmouseout="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )">
+                            <div class="number_down_inner"></div>
                           </li>
                         </ul>
-                        <div class="max_adj_display">10</div>
-                        <div class="max_adj">
-                          <ul class="range_list">
-                            <li class="list_item range1 rselected" onclick="selectThisRange( this )"></li>
-                            <li class="list_item range2 runselected" onclick="selectThisRange( this )"></li>
-                            <li class="list_item range3 runselected" onclick="selectThisRange( this )"></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </li>
+                      </li>
+                    </ul>
+                    <div class="max_adj_display">10</div>
+                    <div class="max_adj">
+                      <ul class="range_list">
+                        <li class="list_item range1 rselected" onclick="selectThisRange( this )"></li>
+                        <li class="list_item range2 runselected" onclick="selectThisRange( this )"></li>
+                        <li class="list_item range3 runselected" onclick="selectThisRange( this )"></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
                   <li>
                       <div class="range_outer_wrapper">
                         <h3>CloudWatch event total</h3>
@@ -197,7 +197,7 @@
                   </ul>
                 </div>
               </div>
-            <div data-slide-position="7" id="cloud_services_azure" class="slide unselected">
+            <div data-slide-position="1" id="cloud_services_azure" class="slide unselected">
             <h3 class="slide_title">Cloud Services: Azure</h3>
               <div id="fields_wrapper">
                 <ul id="fields_list">
@@ -396,3 +396,202 @@
                   </ul>
                 </div>
               </div>
+            <div data-slide-position="2" id="on_prem_summary" class="slide unselected">
+            <h3 class="slide_title">On Prem Summary</h3>
+            <div id="fields_wrapper">
+              <ul id="fields_list">
+                <li>
+                  <div class="range_outer_wrapper">
+                    <h3>Domain Controllers</h3>
+                    <div class="range_wrapper">
+                      <input type="range" name="range-on_prem_summary-usma_domain_controllers" id="range-on_prem_summary-usma_domain_controllers" min=2 max=10 value=5  oninput="updateRange( this )">
+                      <div class="range_line">&nbsp;</div>
+                    </div>
+                    <ul class="number_box_list">
+                      <li class="number_box">
+                        <input class="number_input" type="number" name="number-on_prem_summary-usma_domain_controllers" id="number-on_prem_summary-usma_domain_controllers" min=2 max=10 step=1 value=5>
+                      </li>
+                      <li class="arrow_box_li">
+                        <ul class="arrow_box">
+                          <li class="number_up" onmouseup="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )" onmousedown="( function( el ) { number_up( el ); button_repeater( el ); } )( this )" onmouseout="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )">
+                            <div class="number_up_inner"></div>
+                          </li>
+                          <li class="number_down" onmouseup="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )" onmousedown="( function( el ) { number_down( el ); button_repeater( el ); } )( this )" onmouseout="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )">
+                            <div class="number_down_inner"></div>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <div class="max_adj_display">10</div>
+                    <div class="max_adj">
+                      <ul class="range_list">
+                        <li class="list_item range1 rselected" onclick="selectThisRange( this )"></li>
+                        <li class="list_item range2 runselected" onclick="selectThisRange( this )"></li>
+                        <li class="list_item range3 runselected" onclick="selectThisRange( this )"></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="range_outer_wrapper">
+                    <h3>Windows Systems</h3>
+                    <div class="range_wrapper">
+                      <input type="range" name="range-on_prem_summary-usma_windows_systems" id="range-on_prem_summary-usma_windows_systems" min=2 max=10 value=5  oninput="updateRange( this )">
+                      <div class="range_line">&nbsp;</div>
+                    </div>
+                    <ul class="number_box_list">
+                      <li class="number_box">
+                        <input class="number_input" type="number" name="number-on_prem_summary-usma_windows_systems" id="number-on_prem_summary-usma_windows_systems" min=2 max=10 step=1 value=5>
+                      </li>
+                      <li class="arrow_box_li">
+                        <ul class="arrow_box">
+                          <li class="number_up" onmouseup="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )" onmousedown="( function( el ) { number_up( el ); button_repeater( el ); } )( this )" onmouseout="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )">
+                            <div class="number_up_inner"></div>
+                          </li>
+                          <li class="number_down" onmouseup="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )" onmousedown="( function( el ) { number_down( el ); button_repeater( el ); } )( this )" onmouseout="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )">
+                            <div class="number_down_inner"></div>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <div class="max_adj_display">10</div>
+                    <div class="max_adj">
+                      <ul class="range_list">
+                        <li class="list_item range1 rselected" onclick="selectThisRange( this )"></li>
+                        <li class="list_item range2 runselected" onclick="selectThisRange( this )"></li>
+                        <li class="list_item range3 runselected" onclick="selectThisRange( this )"></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="range_outer_wrapper">
+                    <h3>Linux Systems</h3>
+                    <div class="range_wrapper">
+                      <input type="range" name="range-on_prem_summary-usma_linux_systems" id="range-on_prem_summary-usma_linux_systems" min=2 max=10 value=5  oninput="updateRange( this )">
+                      <div class="range_line">&nbsp;</div>
+                    </div>
+                    <ul class="number_box_list">
+                      <li class="number_box">
+                        <input class="number_input" type="number" name="number-on_prem_summary-usma_linux_systems" id="number-on_prem_summary-usma_linux_systems" min=2 max=10 step=1 value=5>
+                      </li>
+                      <li class="arrow_box_li">
+                        <ul class="arrow_box">
+                          <li class="number_up" onmouseup="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )" onmousedown="( function( el ) { number_up( el ); button_repeater( el ); } )( this )" onmouseout="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )">
+                            <div class="number_up_inner"></div>
+                          </li>
+                          <li class="number_down" onmouseup="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )" onmousedown="( function( el ) { number_down( el ); button_repeater( el ); } )( this )" onmouseout="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )">
+                            <div class="number_down_inner"></div>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <div class="max_adj_display">10</div>
+                    <div class="max_adj">
+                      <ul class="range_list">
+                        <li class="list_item range1 rselected" onclick="selectThisRange( this )"></li>
+                        <li class="list_item range2 runselected" onclick="selectThisRange( this )"></li>
+                        <li class="list_item range3 runselected" onclick="selectThisRange( this )"></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="range_outer_wrapper">
+                    <h3>Firewalls</h3>
+                    <div class="range_wrapper">
+                      <input type="range" name="range-on_prem_summary-usma_firewalls" id="range-on_prem_summary-usma_firewalls" min=2 max=10 value=5  oninput="updateRange( this )">
+                      <div class="range_line">&nbsp;</div>
+                    </div>
+                    <ul class="number_box_list">
+                      <li class="number_box">
+                        <input class="number_input" type="number" name="number-on_prem_summary-usma_firewalls" id="number-on_prem_summary-usma_firewalls" min=2 max=10 step=1 value=5>
+                      </li>
+                      <li class="arrow_box_li">
+                        <ul class="arrow_box">
+                          <li class="number_up" onmouseup="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )" onmousedown="( function( el ) { number_up( el ); button_repeater( el ); } )( this )" onmouseout="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )">
+                            <div class="number_up_inner"></div>
+                          </li>
+                          <li class="number_down" onmouseup="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )" onmousedown="( function( el ) { number_down( el ); button_repeater( el ); } )( this )" onmouseout="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )">
+                            <div class="number_down_inner"></div>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <div class="max_adj_display">10</div>
+                    <div class="max_adj">
+                      <ul class="range_list">
+                        <li class="list_item range1 rselected" onclick="selectThisRange( this )"></li>
+                        <li class="list_item range2 runselected" onclick="selectThisRange( this )"></li>
+                        <li class="list_item range3 runselected" onclick="selectThisRange( this )"></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="range_outer_wrapper">
+                    <h3>Users</h3>
+                    <div class="range_wrapper">
+                      <input type="range" name="range-on_prem_summary-usma_users" id="range-on_prem_summary-usma_users" min=2 max=10 value=5  oninput="updateRange( this )">
+                      <div class="range_line">&nbsp;</div>
+                    </div>
+                    <ul class="number_box_list">
+                      <li class="number_box">
+                        <input class="number_input" type="number" name="number-on_prem_summary-usma_users" id="number-on_prem_summary-usma_users" min=2 max=10 step=1 value=5>
+                      </li>
+                      <li class="arrow_box_li">
+                        <ul class="arrow_box">
+                          <li class="number_up" onmouseup="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )" onmousedown="( function( el ) { number_up( el ); button_repeater( el ); } )( this )" onmouseout="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )">
+                            <div class="number_up_inner"></div>
+                          </li>
+                          <li class="number_down" onmouseup="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )" onmousedown="( function( el ) { number_down( el ); button_repeater( el ); } )( this )" onmouseout="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )">
+                            <div class="number_down_inner"></div>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <div class="max_adj_display">10</div>
+                    <div class="max_adj">
+                      <ul class="range_list">
+                        <li class="list_item range1 rselected" onclick="selectThisRange( this )"></li>
+                        <li class="list_item range2 runselected" onclick="selectThisRange( this )"></li>
+                        <li class="list_item range3 runselected" onclick="selectThisRange( this )"></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="range_outer_wrapper">
+                    <h3>Non-Domain Users</h3>
+                    <div class="range_wrapper">
+                      <input type="range" name="range-on_prem_summary-usma_non_dom_users" id="range-on_prem_summary-usma_non_dom_users" min=2 max=10 value=5  oninput="updateRange( this )">
+                      <div class="range_line">&nbsp;</div>
+                    </div>
+                    <ul class="number_box_list">
+                      <li class="number_box">
+                        <input class="number_input" type="number" name="number-on_prem_summary-usma_non_dom_users" id="number-on_prem_summary-usma_non_dom_users" min=2 max=10 step=1 value=5>
+                      </li>
+                      <li class="arrow_box_li">
+                        <ul class="arrow_box">
+                          <li class="number_up" onmouseup="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )" onmousedown="( function( el ) { number_up( el ); button_repeater( el ); } )( this )" onmouseout="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )">
+                            <div class="number_up_inner"></div>
+                          </li>
+                          <li class="number_down" onmouseup="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )" onmousedown="( function( el ) { number_down( el ); button_repeater( el ); } )( this )" onmouseout="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )">
+                            <div class="number_down_inner"></div>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <div class="max_adj_display">10</div>
+                    <div class="max_adj">
+                      <ul class="range_list">
+                        <li class="list_item range1 rselected" onclick="selectThisRange( this )"></li>
+                        <li class="list_item range2 runselected" onclick="selectThisRange( this )"></li>
+                        <li class="list_item range3 runselected" onclick="selectThisRange( this )"></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>

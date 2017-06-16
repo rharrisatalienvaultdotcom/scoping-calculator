@@ -77,7 +77,9 @@ function update_numbers() {
       grand_total_devices_eps += this_slide[ 'total_eps' ];
     }
   }
-  grand_total_devices_eps += field_values[ 'slides' ][ 'misc' ][ 'fields' ][ 'other_eps' ][ 'raw' ];
+  if ( field_values[ 'slides' ][ 'misc' ] ) {
+    grand_total_devices_eps += field_values[ 'slides' ][ 'misc' ][ 'fields' ][ 'other_eps' ][ 'raw' ];
+  }
   field_values[ 'grand_totals' ][ 'eps' ] = grand_total_devices_eps;
   field_values[ 'grand_totals' ][ 'commatized_eps' ] = commatize( grand_total_devices_eps );
   update_eps_vals();
@@ -98,10 +100,10 @@ function update_numbers() {
 
 // EPS table values being made a part of the virtual dom structure
 function update_eps_vals() {
-  var eps_table = {},
-    msg_size = field_values[ 'slides' ][ 'misc' ][ 'fields' ][ 'avg_msg_size' ][ 'raw' ],
-    cratio = field_values[ 'slides' ][ 'misc' ][ 'fields' ][ 'compression_ratio' ][ 'raw' ];
-
+  if ( field_values[ 'slides' ][ 'misc' ] ) {
+    var eps_table = {},
+      msg_size = field_values[ 'slides' ][ 'misc' ][ 'fields' ][ 'avg_msg_size' ][ 'raw' ],
+      cratio = field_values[ 'slides' ][ 'misc' ][ 'fields' ][ 'compression_ratio' ][ 'raw' ];
     eps_table = {
       'per_second': {
         'events': commatize( grand_total_devices_eps ),
@@ -136,6 +138,7 @@ function update_eps_vals() {
     };
 
     field_values[ 'eps_vals' ] = eps_table;
+  }
 }
 
 function update_recommendations() {

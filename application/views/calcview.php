@@ -1,4 +1,5 @@
         <?php foreach ($calc_data['slides'] as $slide): ?>
+          <?php if($slide['handle'] !== 'cloud_services_aws' && $slide['handle'] !== 'cloud_services_azure' && $slide['handle'] !== 'on_prem_summary'): ?>
           <div data-slide-position="<?php echo $slide['position']; ?>" id="<?php echo $slide['handle']; ?>" class="slide unselected">
             <h3 class="slide_title"><?php echo $slide['title']; ?></h3>
               <div id="fields_wrapper">
@@ -170,6 +171,7 @@
                 </ul>
               </div>
           </div>
+        <?php endif; ?>
         <?php endforeach;?>
 
 

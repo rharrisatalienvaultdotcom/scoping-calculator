@@ -16,11 +16,19 @@
         other_globals = {};
 
       ( function() {
-        document.getElementById( 'servers' ).className = document.getElementById( 'servers' ).className.replace( 'unselected', 'selected' );
+        if ( document.getElementById( 'servers' ) ) {
+          document.getElementById( 'servers' ).className = document.getElementById( 'servers' ).className.replace( 'unselected', 'selected' );
+        } else if ( document.getElementById( 'cloud_services_aws' ) ) {
+          document.getElementById( 'cloud_services_aws' ).className = document.getElementById( 'cloud_services_aws' ).className.replace( 'unselected', 'selected' );
+        }
       } )();
       var field_values = {};
       field_values.slides = {};
       field_values.slides = <?php echo $def_field_values; ?>;
-      updateRange( document.getElementById( 'range-misc-compression_ratio' ) );
-      updateRange( document.getElementById( 'range-misc-avg_msg_size' ) );
+      if ( document.getElementById( 'range-misc-compression_ratio' ) ) {
+        updateRange( document.getElementById( 'range-misc-compression_ratio' ) );
+      }
+      if ( document.getElementById( 'range-misc-avg_msg_size' ) ) {
+        updateRange( document.getElementById( 'range-misc-avg_msg_size' ) );
+      }
       update_numbers();

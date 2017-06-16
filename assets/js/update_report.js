@@ -140,60 +140,62 @@ function build_eps_table() {
     li = document.createElement( 'li' ),
     tmp, a, b, c, d;
 
-  ul.classList.add( 'eps_table' );
+  if ( field_values[ 'eps_vals '] ) {
+    ul.classList.add( 'eps_table' );
 
-  tmp = srow( '&nbsp;', 'Est. Events', 'Est. Storage' );
-  tmp.classList.add( 'header' );
-  li.appendChild( tmp );
-  ul.appendChild( li );
+    tmp = srow( '&nbsp;', 'Est. Events', 'Est. Storage' );
+    tmp.classList.add( 'header' );
+    li.appendChild( tmp );
+    ul.appendChild( li );
 
-  tmp = srow( '&nbsp;', '&nbsp;', 'Raw', 'Compressed' );
-  tmp.classList.add( 'subheader' );
-  li = document.createElement( 'li' );
-  li.appendChild( tmp );
-  ul.appendChild( li );
+    tmp = srow( '&nbsp;', '&nbsp;', 'Raw', 'Compressed' );
+    tmp.classList.add( 'subheader' );
+    li = document.createElement( 'li' );
+    li.appendChild( tmp );
+    ul.appendChild( li );
 
-  a = 'Events/Second';
-  b = field_values[ 'eps_vals' ][ 'per_second' ][ 'events' ] || 0;
-  c = field_values[ 'eps_vals' ][ 'per_second' ][ 'uncompressed' ] || 0;
-  d = field_values[ 'eps_vals' ][ 'per_second' ][ 'compressed' ] || '0';
-  li = document.createElement( 'li' );
-  li.appendChild( srow( a, b, c, d ) );
-  ul.appendChild( li );
+    a = 'Events/Second';
+    b = field_values[ 'eps_vals' ][ 'per_second' ][ 'events' ] || 0;
+    c = field_values[ 'eps_vals' ][ 'per_second' ][ 'uncompressed' ] || 0;
+    d = field_values[ 'eps_vals' ][ 'per_second' ][ 'compressed' ] || '0';
+    li = document.createElement( 'li' );
+    li.appendChild( srow( a, b, c, d ) );
+    ul.appendChild( li );
 
-  a = 'Events/Hour&nbsp;&nbsp;&nbsp;&nbsp;';
-  b = field_values[ 'eps_vals' ][ 'per_hour' ][ 'events' ] || 0;
-  c = field_values[ 'eps_vals' ][ 'per_hour' ][ 'uncompressed' ] || 0;
-  d = field_values[ 'eps_vals' ][ 'per_hour' ][ 'compressed' ] || '0';
-  li = document.createElement( 'li' );
-  li.appendChild( srow( a, b, c, d ) );
-  ul.appendChild( li );
+    a = 'Events/Hour&nbsp;&nbsp;&nbsp;&nbsp;';
+    b = field_values[ 'eps_vals' ][ 'per_hour' ][ 'events' ] || 0;
+    c = field_values[ 'eps_vals' ][ 'per_hour' ][ 'uncompressed' ] || 0;
+    d = field_values[ 'eps_vals' ][ 'per_hour' ][ 'compressed' ] || '0';
+    li = document.createElement( 'li' );
+    li.appendChild( srow( a, b, c, d ) );
+    ul.appendChild( li );
 
-  a = 'Events/Day&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-  b = field_values[ 'eps_vals' ][ 'per_day' ][ 'events' ] || 0;
-  c = field_values[ 'eps_vals' ][ 'per_day' ][ 'uncompressed' ] || 0;
-  d = field_values[ 'eps_vals' ][ 'per_day' ][ 'compressed' ] || '0';
-  li = document.createElement( 'li' );
-  li.appendChild( srow( a, b, c, d ) );
-  ul.appendChild( li );
+    a = 'Events/Day&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+    b = field_values[ 'eps_vals' ][ 'per_day' ][ 'events' ] || 0;
+    c = field_values[ 'eps_vals' ][ 'per_day' ][ 'uncompressed' ] || 0;
+    d = field_values[ 'eps_vals' ][ 'per_day' ][ 'compressed' ] || '0';
+    li = document.createElement( 'li' );
+    li.appendChild( srow( a, b, c, d ) );
+    ul.appendChild( li );
 
-  a = 'Events/Month&nbsp;&nbsp;';
-  b = field_values[ 'eps_vals' ][ 'per_month' ][ 'events' ] || 0;
-  c = field_values[ 'eps_vals' ][ 'per_month' ][ 'uncompressed' ] || 0;
-  d = field_values[ 'eps_vals' ][ 'per_month' ][ 'compressed' ] || '0';
-  li = document.createElement( 'li' );
-  li.appendChild( srow( a, b, c, d ) );
-  ul.appendChild( li );
+    a = 'Events/Month&nbsp;&nbsp;';
+    b = field_values[ 'eps_vals' ][ 'per_month' ][ 'events' ] || 0;
+    c = field_values[ 'eps_vals' ][ 'per_month' ][ 'uncompressed' ] || 0;
+    d = field_values[ 'eps_vals' ][ 'per_month' ][ 'compressed' ] || '0';
+    li = document.createElement( 'li' );
+    li.appendChild( srow( a, b, c, d ) );
+    ul.appendChild( li );
 
-  a = 'Events/Year&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-  b = field_values[ 'eps_vals' ][ 'per_year' ][ 'events' ] || 0;
-  c = field_values[ 'eps_vals' ][ 'per_year' ][ 'uncompressed' ] || 0;
-  d = field_values[ 'eps_vals' ][ 'per_year' ][ 'compressed' ] || '0';
-  li = document.createElement( 'li' );
-  li.appendChild( srow( a, b, c, d ) );
-  ul.appendChild( li );
+    a = 'Events/Year&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+    b = field_values[ 'eps_vals' ][ 'per_year' ][ 'events' ] || 0;
+    c = field_values[ 'eps_vals' ][ 'per_year' ][ 'uncompressed' ] || 0;
+    d = field_values[ 'eps_vals' ][ 'per_year' ][ 'compressed' ] || '0';
+    li = document.createElement( 'li' );
+    li.appendChild( srow( a, b, c, d ) );
+    ul.appendChild( li );
+  }
 
-  return ul;
+    return ul;
 }
 function srow( a = '&nsbp;', b = '&nbsp;', c = '&nbsp;', d ) {
   var ul = document.createElement( 'ul' ),
