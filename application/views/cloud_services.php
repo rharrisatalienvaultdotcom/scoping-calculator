@@ -7,7 +7,7 @@
                     <h3 style="padding-top:35px">CloudTrail event total</h3>
                     <ul class="number_box_list">
                       <li class="number_box">
-                        <input class="number_input" type="number" name="number-cloud_services_aws-cloudtrail" id="number-cloud_services_aws-cloudtrail" max=10 step=1 value=0
+                        <input class="number_input" type="number" name="number-cloud_services_aws-cloudtrail" id="number-cloud_services_aws-cloudtrail" min=0 step=1 value=0>
                       </li>
                       <li class="arrow_box_li">
                         <ul class="arrow_box">
@@ -27,7 +27,7 @@
                         <h3 style="padding-top:35px">CloudWatch event total</h3>
                         <ul class="number_box_list">
                           <li class="number_box">
-                            <input class="number_input" type="number" name="number-cloud_services_aws-cloudwatch" id="number-cloud_services_aws-cloudwatch" max=10 step=1 value=0
+                            <input class="number_input" type="number" name="number-cloud_services_aws-cloudwatch" id="number-cloud_services_aws-cloudwatch" min=0 step=1 value=0>
                           </li>
                           <li class="arrow_box_li">
                             <ul class="arrow_box">
@@ -48,7 +48,7 @@
 
                         <ul class="number_box_list">
                           <li class="number_box">
-                            <input class="number_input" type="number" name="number-cloud_services_aws-data_transfered" id="number-cloud_services_aws-data_transfered" max=1024 step=8 value=0
+                            <input class="number_input" type="number" name="number-cloud_services_aws-data_transfered" id="number-cloud_services_aws-data_transfered" step=8 value=0>
                           </li>
                           <li class="arrow_box_li">
                             <ul class="arrow_box">
@@ -70,7 +70,7 @@
 
                         <ul class="number_box_list">
                           <li class="number_box">
-                            <input class="number_input" type="number" name="number-cloud_services_aws-elastic_cloud" id="number-cloud_services_aws-elastic_cloud" max=10 step=1 value=0
+                            <input class="number_input" type="number" name="number-cloud_services_aws-elastic_cloud" id="number-cloud_services_aws-elastic_cloud" min=0 step=1 value=0>
                           </li>
                           <li class="arrow_box_li">
                             <ul class="arrow_box">
@@ -92,7 +92,7 @@
 
                         <ul class="number_box_list">
                           <li class="number_box">
-                            <input class="number_input" type="number" name="number-cloud_services_aws-simple_storage" id="number-cloud_services_aws-simple_storage" max=100 step=1 value=0
+                            <input class="number_input" type="number" name="number-cloud_services_aws-simple_storage" id="number-cloud_services_aws-simple_storage" min=0 step=1 value=0>
                           </li>
                           <li class="arrow_box_li">
                             <ul class="arrow_box">
@@ -114,7 +114,7 @@
 
                         <ul class="number_box_list">
                           <li class="number_box">
-                            <input class="number_input" type="number" name="number-cloud_services_aws-elastic_load" id="number-cloud_services_aws-elastic_load" max=10 step=1 value=0
+                            <input class="number_input" type="number" name="number-cloud_services_aws-elastic_load" id="number-cloud_services_aws-elastic_load" min=0 step=1 value=0>
                           </li>
                           <li class="arrow_box_li">
                             <ul class="arrow_box">
@@ -143,7 +143,7 @@
 
                         <ul class="number_box_list">
                           <li class="number_box">
-                            <input class="number_input" type="number" name="number-cloud_services_azure-subscription_ids" id="number-cloud_services_azure-subscription_ids" max=10 step=1 value=0
+                            <input class="number_input" type="number" name="number-cloud_services_azure-subscription_ids" id="number-cloud_services_azure-subscription_ids" min=0 step=1 value=0>
                           </li>
                           <li class="arrow_box_li">
                             <ul class="arrow_box">
@@ -165,7 +165,7 @@
 
                         <ul class="number_box_list">
                           <li class="number_box">
-                            <input class="number_input" type="number" name="number-cloud_services_azure-analytics" id="number-cloud_services_azure-analytics" max=10 step=1 value=0
+                            <input class="number_input" type="number" name="number-cloud_services_azure-analytics" id="number-cloud_services_azure-analytics" min=0 step=1 value=0>
                           </li>
                           <li class="arrow_box_li">
                             <ul class="arrow_box">
@@ -187,7 +187,7 @@
 
                         <ul class="number_box_list">
                           <li class="number_box">
-                            <input class="number_input" type="number" name="number-cloud_services_azure-app_insights" id="number-cloud_services_azure-app_insights" max=1024 step=8 value=0
+                            <input class="number_input" type="number" name="number-cloud_services_azure-app_insights" id="number-cloud_services_azure-app_insights" step=8 value=0>
                           </li>
                           <li class="arrow_box_li">
                             <ul class="arrow_box">
@@ -209,7 +209,7 @@
 
                         <ul class="number_box_list">
                           <li class="number_box">
-                            <input class="number_input" type="number" name="number-cloud_services_azure-vmachines" id="number-cloud_services_azure-vmachines" max=10 step=1 value=0
+                            <input class="number_input" type="number" name="number-cloud_services_azure-vmachines" id="number-cloud_services_azure-vmachines" min=0 step=1 value=0>
                           </li>
                           <li class="arrow_box_li">
                             <ul class="arrow_box">
@@ -231,7 +231,7 @@
 
                         <ul class="number_box_list">
                           <li class="number_box">
-                            <input class="number_input" type="number" name="number-cloud_services_azure-azure_storage" id="number-cloud_services_azure-azure_storage" max=100 step=1 value=0
+                            <input class="number_input" type="number" name="number-cloud_services_azure-azure_storage" id="number-cloud_services_azure-azure_storage" min=0 step=1 value=0>
                           </li>
                           <li class="arrow_box_li">
                             <ul class="arrow_box">
@@ -253,7 +253,7 @@
 
                         <ul class="number_box_list">
                           <li class="number_box">
-                            <input class="number_input" type="number" name="number-cloud_services_azure-load_balancing" id="number-cloud_services_azure-load_balancing" max=10 step=1 value=0
+                            <input class="number_input" type="number" name="number-cloud_services_azure-load_balancing" id="number-cloud_services_azure-load_balancing" min=0 step=1 value=0>
                           </li>
                           <li class="arrow_box_li">
                             <ul class="arrow_box">
@@ -282,7 +282,7 @@
 
                     <ul class="number_box_list">
                       <li class="number_box">
-                        <input class="number_input" type="number" name="number-on_prem_summary-usma_domain_controllers" id="number-on_prem_summary-usma_domain_controllers" max=10 step=1 value=0
+                        <input class="number_input" type="number" name="number-on_prem_summary-usma_domain_controllers" id="number-on_prem_summary-usma_domain_controllers" min=0 step=1 value=0>
                       </li>
                       <li class="arrow_box_li">
                         <ul class="arrow_box">
@@ -304,7 +304,7 @@
 
                     <ul class="number_box_list">
                       <li class="number_box">
-                        <input class="number_input" type="number" name="number-on_prem_summary-usma_windows_systems" id="number-on_prem_summary-usma_windows_systems" max=10 step=1 value=0
+                        <input class="number_input" type="number" name="number-on_prem_summary-usma_windows_systems" id="number-on_prem_summary-usma_windows_systems" min=0 step=1 value=0>
                       </li>
                       <li class="arrow_box_li">
                         <ul class="arrow_box">
@@ -326,7 +326,7 @@
 
                     <ul class="number_box_list">
                       <li class="number_box">
-                        <input class="number_input" type="number" name="number-on_prem_summary-usma_linux_systems" id="number-on_prem_summary-usma_linux_systems" max=10 step=1 value=0
+                        <input class="number_input" type="number" name="number-on_prem_summary-usma_linux_systems" id="number-on_prem_summary-usma_linux_systems" min=0 step=1 value=0>
                       </li>
                       <li class="arrow_box_li">
                         <ul class="arrow_box">
@@ -348,7 +348,7 @@
 
                     <ul class="number_box_list">
                       <li class="number_box">
-                        <input class="number_input" type="number" name="number-on_prem_summary-usma_firewalls" id="number-on_prem_summary-usma_firewalls" max=10 step=1 value=0
+                        <input class="number_input" type="number" name="number-on_prem_summary-usma_firewalls" id="number-on_prem_summary-usma_firewalls" min=0 step=1 value=0>
                       </li>
                       <li class="arrow_box_li">
                         <ul class="arrow_box">
@@ -370,7 +370,7 @@
 
                     <ul class="number_box_list">
                       <li class="number_box">
-                        <input class="number_input" type="number" name="number-on_prem_summary-usma_users" id="number-on_prem_summary-usma_users" max=10 step=1 value=0
+                        <input class="number_input" type="number" name="number-on_prem_summary-usma_users" id="number-on_prem_summary-usma_users" min=0 step=1 value=0>
                       </li>
                       <li class="arrow_box_li">
                         <ul class="arrow_box">
@@ -392,7 +392,7 @@
 
                     <ul class="number_box_list">
                       <li class="number_box">
-                        <input class="number_input" type="number" name="number-on_prem_summary-usma_non_dom_users" id="number-on_prem_summary-usma_non_dom_users" max=10 step=1 value=0
+                        <input class="number_input" type="number" name="number-on_prem_summary-usma_non_dom_users" id="number-on_prem_summary-usma_non_dom_users" min=0 step=1 value=0>
                       </li>
                       <li class="arrow_box_li">
                         <ul class="arrow_box">
