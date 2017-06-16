@@ -13,29 +13,37 @@ updateRange = function(e) {
     e.parentElement.nextElementSibling.firstElementChild.firstElementChild.value = e.valueAsNumber;
     update_numbers();
 }
-function number_up(el) {
+function number_up(el, rangeud = true ) {
     el.style.backgroundColor = 'grey';
     el.firstElementChild.style.borderColor = 'lightgrey'
     el.parentElement.parentElement.previousElementSibling.firstElementChild.stepUp(1);
+    if ( rangeud == true ) {
     el.parentElement.parentElement.parentElement.previousElementSibling.firstElementChild.value = el.parentElement.parentElement.previousElementSibling.firstElementChild.valueAsNumber;
-    updateRange(el.parentElement.parentElement.parentElement.previousElementSibling.firstElementChild)
+        updateRange(el.parentElement.parentElement.parentElement.previousElementSibling.firstElementChild);
+    } else {
+        update_numbers();
+    }
 }
-function number_down(el) {
+function number_down(el, rangeud = true ) {
     el.style.backgroundColor = 'grey';
     el.firstElementChild.style.borderColor = 'lightgrey'
     el.parentElement.parentElement.previousElementSibling.firstElementChild.stepDown(1);
+    if ( rangeud == true ) {
     el.parentElement.parentElement.parentElement.previousElementSibling.firstElementChild.value = el.parentElement.parentElement.previousElementSibling.firstElementChild.valueAsNumber;
-    updateRange(el.parentElement.parentElement.parentElement.previousElementSibling.firstElementChild)
+        updateRange(el.parentElement.parentElement.parentElement.previousElementSibling.firstElementChild);
+    } else {
+        update_numbers();
+    }
 }
-function button_repeater(el) {
-    tmt_cont = setTimeout(function() { button_repeater_start(el); },400);
+function button_repeater(el, rangeud = true ) {
+    tmt_cont = setTimeout(function() { button_repeater_start( el, rangeud ); },400);
 }
-function button_repeater_start(el){
+function button_repeater_start(el, rangeud = true ){
     if(el.className.includes('number_up')) {
-        int_cont = setInterval(function() { number_up(el); }, 50);
+        int_cont = setInterval(function() { number_up( el, rangeud ); }, 50);
     }
     if(el.className.includes('number_down')) {
-        int_cont = setInterval(function() { number_down(el); }, 50);
+        int_cont = setInterval(function() { number_down( el, rangeud ); }, 50);
     }
 }
 function selectThisRange(el) {
