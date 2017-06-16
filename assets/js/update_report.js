@@ -29,9 +29,10 @@ function update_report() {
         wrapper.appendChild( build_section( slide ) );
       }
     }
-
-    wrapper.appendChild( build_eps_table() );
-    wrapper.appendChild( recommends() );
+    if ( !field_values[ 'slides' ][ 'cloud_services_aws' ]) {
+      wrapper.appendChild( build_eps_table() );
+      wrapper.appendChild( recommends() );
+    }
   } else {
     return void(0);
   }
@@ -74,13 +75,21 @@ function build_section( slide ) {
 
   a = this_slide[ 'title' ];
   if ( this_slide[ 'add_to_total' ] == 1 ) {
-    b = 'Devices';
+    if ( this_slide[ 'handle' ] == 'cloud_services_aws' || this_slide[ 'handle' ] == 'cloud_services_azure') {
+      b = 'EPM';
+    } else {
+      b = 'Devices';
+    }
   } else {
     b = '&nbsp;';
   }
 
   if ( this_slide[ 'add_to_eps_total' ] == 1 ) {
-    c = 'EPS';
+    if ( this_slide[ 'handle' ] == 'cloud_services_aws' || this_slide[ 'handle' ] == 'cloud_services_azure' || this_slide[ 'handle' ] == 'on_prem_summary') {
+      c = 'Est. Storage';
+    } else {
+      c = 'EPS';
+    }
   } else {
     c = '&nbsp;';
   }
