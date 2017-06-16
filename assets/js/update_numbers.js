@@ -56,6 +56,7 @@ function update_numbers() {
     var this_slide = field_values[ 'slides' ][ slide ];
     this_slide[ 'total_eps' ] = 0;
     this_slide[ 'commatized_total_eps' ] = '';
+    window[ 'total_' + slide + '_eps' ] = 0;
     for ( var field in this_slide[ 'fields' ] ) {
       var this_field = this_slide[ 'fields' ][ field ];
 
