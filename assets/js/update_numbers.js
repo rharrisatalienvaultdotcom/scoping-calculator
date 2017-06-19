@@ -22,7 +22,7 @@ function update_numbers() {
     this_slide[ 'commatized_total' ] = '';
     for ( var field in this_slide[ 'fields' ] ) {
       var this_field = this_slide[ 'fields' ][ field ];
-      if( field !== 'virtual_or_physical' && field !== 'usage_pattern' ) {
+      if( field !== 'virtual_or_physical' && field !== 'usage_pattern' && field !== 'usma_usage_pattern' ) {
         var elem = document.getElementById( 'number-' + slide + '-' + field );
         this_field[ 'raw' ] = elem.valueAsNumber;
         this_field[ 'commatized_raw' ] = commatize( this_field[ 'raw' ] );
@@ -32,10 +32,10 @@ function update_numbers() {
         this_field[ 'commatized_raw' ] = this_field[ 'raw' ];
         this_field[ 'math_value' ] = Number( elem.options[ elem.selectedIndex ].value );
       }
-      if ( this_slide[ 'sum_raw' ] == 1 ) {
+      if ( this_slide[ 'sum_raw' ] == 1 && this_field[ 'handle' ] !== 'subscription_ids' && this_field[ 'handle' ] !== 'vmachines' && this_field[ 'handle' ] !== 'data_transferred' ) {
         window[ 'total_' + slide ] += this_field[ 'raw' ];
       }
-      if ( typeof this_field[ 'raw' ] !== 'string' ){
+      if ( typeof this_field[ 'raw' ] !== 'string' && this_field[ 'handle' ] !== 'subscription_ids' && this_field[ 'handle' ] !== 'vmachines' && this_field[ 'handle' ] !== 'data_transferred' ){
         this_slide[ 'total' ] += this_field[ 'raw' ];
         window[ 'total_' + this_slide[ 'handle' ] ] = this_slide[ 'total' ];
       }
@@ -67,7 +67,12 @@ function update_numbers() {
         this_field[ 'calc' ] = this_field[ 'raw' ];
         this_field[ 'commatized_calc' ] = commatize( this_field[ 'calc' ] );
       }
-      if ( this_slide[ 'sum_calc' ] == 1 ) {
+      if ( ( this_slide[ 'handle' ] == 'cloud_services_aws' || this_slide[ 'handle' ] == 'cloud_services_azure' || this_slide[ 'handle' ] == 'on_prem_summary' ) && ( this_field[ 'handle' ] !== 'subscription_ids' && this_field[ 'handle' ] !== 'vmachines' && this_field[ 'handle' ] !== 'data_transferred' ) ) {
+        this_field[ 'commatized_calc' ] = best_unit( this_field[ 'calc' ] );
+      } else {
+        this_field[ 'commatized_calc' ] = commatize( this_field[ 'calc' ] );
+      }
+      if ( this_slide[ 'sum_calc' ] == 1 && this_field[ 'handle' ] !== 'subscription_ids' && this_field[ 'handle' ] !== 'vmachines' && this_field[ 'handle' ] !== 'data_transferred' ) {
         window[ 'total_' + slide + '_eps' ] += this_field[ 'calc' ];
         this_slide[ 'total_eps' ] = window[ 'total_' + slide + '_eps' ];
         this_slide[ 'commatized_total_eps' ] = commatize( this_slide[ 'total_eps' ] );
@@ -218,6 +223,9 @@ function gb_to_mb( gb ) {
 }
 function gb_to_kb( gb ) {
   return down_order( down_order( gb ) );
+}
+function gb_to_b( gb ) {
+  return down_order( down_order( down_order( gb ) ) );
 }
 
 // TB functions

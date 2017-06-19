@@ -45,7 +45,7 @@ function grand_total_row() {
 
   a = 'Deployment Total:';
   b = field_values[ 'grand_totals' ][ 'commatized_devices' ];
-  c = field_values[ 'grand_totals' ][ 'commatized_eps' ];
+  c = best_unit( field_values[ 'grand_totals' ][ 'eps' ] );
   tmp = srow( a, b, c );
   tmp.classList.add( 'grand_total' );
   tmp.id = 'report-grand_total';
@@ -113,6 +113,13 @@ function build_section( slide ) {
       } else {
         c = '&nbsp;';
       }
+      if( this_field[ 'handle' ] == 'data_transferred' ) {
+        b = '&nbsp;';
+        c = best_unit( gb_to_b( this_field[ 'raw'] ) );
+      }
+      if( this_field[ 'handle' ] == 'subscription_ids' || this_field[ 'handle' ] == 'vmachines' ) {
+        b = '&nbsp;';
+      }
       tmp = document.createElement( 'li' );
       tmp.appendChild( srow( a, b, c ) );
       tmp.firstElementChild.id = 'report-' + slide + '-' + field;
@@ -128,7 +135,7 @@ function build_section( slide ) {
     b = '&nbsp;';
   }
   if ( this_slide[ 'sum_calc' ] == 1 ) {
-    c = this_slide[ 'commatized_total_eps' ];
+    c = best_unit( this_slide[ 'total_eps' ] );
   } else {
     c = '&nbsp;';
   }
@@ -238,8 +245,9 @@ function recommends() {
   reco_c.id = 'reco_c';
   reco_header.innerHTML = 'RECOMMENDED SETUP';
   reco_box.appendChild( reco_header );
-  reco_a.innerHTML = line1();
+  reco_a.innerHTML = 'Estimated Storage Usage: ' + best_unit( field_values[ 'grand_totals' ][ 'eps' ] );
   reco_box.appendChild( reco_a );
+  //var reco_val =
   reco_b.innerHTML = line2();
   reco_box.appendChild( reco_b );
   return reco_box;

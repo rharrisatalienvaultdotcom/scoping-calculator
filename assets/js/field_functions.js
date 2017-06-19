@@ -165,7 +165,7 @@ var field_functions = {
   },
   'cloud_services_aws-cloudtrail': function ( data ) {
     var result,
-        avg_event_size = 1536;
+        avg_event_size = 524288;
     if ( data[ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'cloudtrail' ][ 'raw' ] > 0 ) {
       result = data[ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'cloudtrail' ][ 'raw' ] * avg_event_size;
     } else {
@@ -175,7 +175,7 @@ var field_functions = {
   },
   'cloud_services_aws-cloudwatch': function ( data ) {
     var result,
-        avg_event_size = 1536;
+        avg_event_size = 524288;
     if ( data[ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'cloudwatch' ][ 'raw' ] > 0 ) {
       result = data[ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'cloudwatch' ][ 'raw' ] * avg_event_size;
     } else {
@@ -185,7 +185,7 @@ var field_functions = {
   },
   'cloud_services_aws-data_transfered': function ( data ) {
     var result,
-        avg_event_size = 1536;
+        avg_event_size = 524288;
     if ( data[ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'data_transfered' ][ 'raw' ] > 0 ) {
       result = data[ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'data_transfered' ][ 'raw' ] * avg_event_size;
     } else {
@@ -195,7 +195,7 @@ var field_functions = {
   },
   'cloud_services_aws-elastic_cloud': function ( data ) {
     var result,
-        avg_event_size = 1536;
+        avg_event_size = 524288;
     if ( data[ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'elastic_cloud' ][ 'raw' ] > 0 ) {
       result = data[ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'elastic_cloud' ][ 'raw' ] * avg_event_size;
     } else {
@@ -205,7 +205,7 @@ var field_functions = {
   },
   'cloud_services_aws-simple_storage': function ( data ) {
     var result,
-        avg_event_size = 1536;
+        avg_event_size = 524288;
     if ( data[ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'simple_storage' ][ 'raw' ] > 0 ) {
       result = data[ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'simple_storage' ][ 'raw' ] * avg_event_size;
     } else {
@@ -215,7 +215,7 @@ var field_functions = {
   },
   'cloud_services_aws-elastic_load': function ( data ) {
     var result,
-        avg_event_size = 1536;
+        avg_event_size = 524288;
     if ( data[ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'elastic_load' ][ 'raw' ] > 0 ) {
       result = data[ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'elastic_load' ][ 'raw' ] * avg_event_size;
     } else {
@@ -225,7 +225,7 @@ var field_functions = {
   },
   'cloud_services_azure-analytics': function ( data ) {
     var result,
-        avg_event_size = 1536;
+        avg_event_size = 524288;
     if ( data[ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'analytics' ][ 'raw' ] > 0 ) {
       result = data[ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'analytics' ][ 'raw' ] * avg_event_size;
     } else {
@@ -235,7 +235,7 @@ var field_functions = {
   },
   'cloud_services_azure-app_insights': function ( data ) {
     var result,
-        avg_event_size = 1536;
+        avg_event_size = 524288;
     if ( data[ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'app_insights' ][ 'raw' ] > 0 ) {
       result = data[ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'app_insights' ][ 'raw' ] * avg_event_size;
     } else {
@@ -245,7 +245,7 @@ var field_functions = {
   },
   'cloud_services_azure-azure_storage': function ( data ) {
     var result,
-        avg_event_size = 1536;
+        avg_event_size = 524288;
     if ( data[ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'azure_storage' ][ 'raw' ] > 0 ) {
       result = data[ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'azure_storage' ][ 'raw' ] * avg_event_size;
     } else {
@@ -255,9 +255,97 @@ var field_functions = {
   },
   'cloud_services_azure-load_balancing': function ( data ) {
     var result,
-        avg_event_size = 1536;
+        avg_event_size = 524288;
     if ( data[ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'load_balancing' ][ 'raw' ] > 0 ) {
       result = data[ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'load_balancing' ][ 'raw' ] * avg_event_size;
+    } else {
+      result = 0;
+    }
+    return Math.round( result );
+  },
+  'on_prem_summary-usma_domain_controllers': function ( data ) {
+    var result,
+        avg_event_size = 800,
+        avg_epm = 100000;
+    if ( data[ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_domain_controllers' ][ 'raw' ] > 0 ) {
+      result = data[ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_domain_controllers' ][ 'raw' ] * ( avg_event_size * avg_epm );
+    } else {
+      result = 0;
+    }
+    return Math.round( result );
+  },
+  'on_prem_summary-usma_windows_systems': function ( data ) {
+    var result,
+        avg_event_size = 800,
+        avg_epm = 100000;
+    if ( data[ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_windows_systems' ][ 'raw' ] > 0 ) {
+      result = data[ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_windows_systems' ][ 'raw' ] * ( avg_event_size * avg_epm );
+    } else {
+      result = 0;
+    }
+    return Math.round( result );
+  },
+  'on_prem_summary-usma_linux_systems': function ( data ) {
+    var result,
+        avg_event_size = 400,
+        avg_epm = 100000;
+    if ( data[ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_linux_systems' ][ 'raw' ] > 0 ) {
+      result = data[ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_linux_systems' ][ 'raw' ] * ( avg_event_size * avg_epm );
+    } else {
+      result = 0;
+    }
+    return Math.round( result );
+  },
+  'on_prem_summary-usma_firewalls': function ( data ) {
+    var result,
+        avg_event_size = 800,
+        avg_epm = 100000;
+    if ( data[ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_firewalls' ][ 'raw' ] > 0 ) {
+      result = data[ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_firewalls' ][ 'raw' ] * ( avg_event_size * avg_epm );
+    } else {
+      result = 0;
+    }
+    return Math.round( result );
+  },
+  'on_prem_summary-usma_switches_routers': function ( data ) {
+    var result,
+        avg_event_size = 800,
+        avg_epm = 100000;
+    if ( data[ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_switches_routers' ][ 'raw' ] > 0 ) {
+      result = data[ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_switches_routers' ][ 'raw' ] * ( avg_event_size * avg_epm );
+    } else {
+      result = 0;
+    }
+    return Math.round( result );
+  },
+  'on_prem_summary-usma_other_network_devices': function ( data ) {
+    var result,
+        avg_event_size = 800,
+        avg_epm = 100000;
+    if ( data[ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_other_network_devices' ][ 'raw' ] > 0 ) {
+      result = data[ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_other_network_devices' ][ 'raw' ] * ( avg_event_size * avg_epm );
+    } else {
+      result = 0;
+    }
+    return Math.round( result );
+  },
+  'on_prem_summary-usma_users': function ( data ) {
+    var result,
+        avg_event_size = 800,
+        avg_epm = 100000;
+    if ( data[ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_users' ][ 'raw' ] > 0 ) {
+      result = data[ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_users' ][ 'raw' ] * ( avg_event_size * avg_epm );
+    } else {
+      result = 0;
+    }
+    return Math.round( result );
+  },
+  'on_prem_summary-usma_non_dom_users': function ( data ) {
+    var result,
+        avg_event_size = 800,
+        avg_epm = 100000;
+    if ( data[ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_non_dom_users' ][ 'raw' ] > 0 ) {
+      result = data[ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_non_dom_users' ][ 'raw' ] * ( avg_event_size * avg_epm );
     } else {
       result = 0;
     }

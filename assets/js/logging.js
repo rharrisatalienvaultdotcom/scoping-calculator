@@ -44,7 +44,7 @@ function check_for_op_key() {
 function ask_for_op_key( error = null ) {
   if ( ! document.getElementById( 'op_key_requester' ) ) {
     var popup_el = makePopup();
-    console.log( popup_el );
+    //console.log( popup_el );
     document.body.appendChild( popup_el );
     document.getElementById( 'op_key_input' ).onkeyup = function() { handleEnter( event ); };
   }

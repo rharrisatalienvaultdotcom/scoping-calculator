@@ -18,8 +18,21 @@ class Anywhere extends CI_Controller {
     $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'handle' ] = 'cloud_services_aws';
     $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ] = array();
 
+
+    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'data_transferred' ]['title'] = 'Data Transferred (in GB) (monthly)';
+    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'data_transferred' ]['position'] = '0';
+    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'data_transferred' ]['global'] =  '';
+    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'data_transferred' ]['tab_order'] =  '';
+    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'data_transferred' ]['default_val'] =  '0';
+    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'data_transferred' ]['weight'] =  '';
+    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'data_transferred' ]['required'] =  '';
+    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'data_transferred' ]['function'] =  '';
+    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'data_transferred' ]['handle'] =  'data_transferred';
+    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'data_transferred' ]['parent_handle'] =  'cloud_services_aws';
+
+
     $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'cloudtrail' ]['title'] = 'CloudTrail event total (monthly)';
-    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'cloudtrail' ]['position'] = '0';
+    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'cloudtrail' ]['position'] = '1';
     $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'cloudtrail' ]['global'] =  '';
     $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'cloudtrail' ]['tab_order'] =  '';
     $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'cloudtrail' ]['default_val'] =  '0';
@@ -31,7 +44,7 @@ class Anywhere extends CI_Controller {
 
 
     $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'cloudwatch' ]['title'] = 'CloudWatch event total (monthly)';
-    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'cloudwatch' ]['position'] = '1';
+    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'cloudwatch' ]['position'] = '2';
     $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'cloudwatch' ]['global'] =  '';
     $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'cloudwatch' ]['tab_order'] =  '';
     $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'cloudwatch' ]['default_val'] =  '0';
@@ -40,18 +53,6 @@ class Anywhere extends CI_Controller {
     $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'cloudwatch' ]['function'] =  '';
     $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'cloudwatch' ]['handle'] =  'cloudwatch';
     $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'cloudwatch' ]['parent_handle'] =  'cloud_services_aws';
-
-
-    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'data_transfered' ]['title'] = 'Data Transfered (in GB) (monthly)';
-    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'data_transfered' ]['position'] = '2';
-    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'data_transfered' ]['global'] =  '';
-    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'data_transfered' ]['tab_order'] =  '';
-    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'data_transfered' ]['default_val'] =  '0';
-    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'data_transfered' ]['weight'] =  '';
-    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'data_transfered' ]['required'] =  '';
-    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'data_transfered' ]['function'] =  '';
-    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'data_transfered' ]['handle'] =  'data_transfered';
-    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'data_transfered' ]['parent_handle'] =  'cloud_services_aws';
 
 
     $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'elastic_cloud' ]['title'] = 'Elastic Cloud Compute Request Total (monthly)';
@@ -110,8 +111,20 @@ class Anywhere extends CI_Controller {
     $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'subscription_ids' ]['parent_handle'] =  'cloud_services_azure';
 
 
+    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'vmachines' ]['title'] = 'Total Virtual Machines';
+    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'vmachines' ]['position'] = '1';
+    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'vmachines' ]['global'] =  '';
+    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'vmachines' ]['tab_order'] =  '';
+    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'vmachines' ]['default_val'] =  '0';
+    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'vmachines' ]['weight'] =  '';
+    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'vmachines' ]['required'] =  '';
+    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'vmachines' ]['function'] =  '';
+    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'vmachines' ]['handle'] =  'vmachines';
+    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'vmachines' ]['parent_handle'] =  'cloud_services_azure';
+
+
     $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'analytics' ]['title'] = 'Azure Log Analytics Request Total (monthly)';
-    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'analytics' ]['position'] = '1';
+    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'analytics' ]['position'] = '2';
     $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'analytics' ]['global'] =  '';
     $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'analytics' ]['tab_order'] =  '';
     $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'analytics' ]['default_val'] =  '0';
@@ -123,7 +136,7 @@ class Anywhere extends CI_Controller {
 
 
     $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'app_insights' ]['title'] = 'Azure Application Insights Request Total (monthly)';
-    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'app_insights' ]['position'] = '2';
+    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'app_insights' ]['position'] = '3';
     $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'app_insights' ]['global'] =  '';
     $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'app_insights' ]['tab_order'] =  '';
     $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'app_insights' ]['default_val'] =  '0';
@@ -132,18 +145,6 @@ class Anywhere extends CI_Controller {
     $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'app_insights' ]['function'] =  '';
     $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'app_insights' ]['handle'] =  'app_insights';
     $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'app_insights' ]['parent_handle'] =  'cloud_services_azure';
-
-
-    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'vmachines' ]['title'] = 'Total Virtual Machines';
-    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'vmachines' ]['position'] = '3';
-    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'vmachines' ]['global'] =  '';
-    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'vmachines' ]['tab_order'] =  '';
-    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'vmachines' ]['default_val'] =  '0';
-    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'vmachines' ]['weight'] =  '';
-    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'vmachines' ]['required'] =  '';
-    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'vmachines' ]['function'] =  '';
-    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'vmachines' ]['handle'] =  'vmachines';
-    $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'vmachines' ]['parent_handle'] =  'cloud_services_azure';
 
 
     $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'azure_storage' ]['title'] = 'Azure Storage (Blobs, Tables, Queues, Files) Events (monthly)';
@@ -171,9 +172,9 @@ class Anywhere extends CI_Controller {
 
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'position' ] = 2;
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'sum_raw' ] = '1';
-    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'sum_calc' ] = '0';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'sum_calc' ] = '1';
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'add_to_total' ] = '1';
-    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'add_to_eps_total' ] = '0';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'add_to_eps_total' ] = '1';
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'title' ] = 'On Prem Summary';
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'handle' ] = 'on_prem_summary';
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ] = array();
@@ -187,7 +188,7 @@ class Anywhere extends CI_Controller {
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_domain_controllers' ]['required'] =  '';
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_domain_controllers' ]['function'] =  '';
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_domain_controllers' ]['handle'] =  'usma_domain_controllers';
-    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_domain_controllers' ]['parent_handle'] =  'cloud_services_azure';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_domain_controllers' ]['parent_handle'] =  'on_prem_summary';
 
 
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_windows_systems' ]['title'] = 'Total Windows Systems';
@@ -199,7 +200,7 @@ class Anywhere extends CI_Controller {
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_windows_systems' ]['required'] =  '';
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_windows_systems' ]['function'] =  '';
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_windows_systems' ]['handle'] =  'usma_windows_systems';
-    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_windows_systems' ]['parent_handle'] =  'cloud_services_azure';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_windows_systems' ]['parent_handle'] =  'on_prem_summary';
 
 
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_linux_systems' ]['title'] = 'Total Linux Systems';
@@ -211,7 +212,7 @@ class Anywhere extends CI_Controller {
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_linux_systems' ]['required'] =  '';
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_linux_systems' ]['function'] =  '';
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_linux_systems' ]['handle'] =  'usma_linux_systems';
-    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_linux_systems' ]['parent_handle'] =  'cloud_services_azure';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_linux_systems' ]['parent_handle'] =  'on_prem_summary';
 
 
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_firewalls' ]['title'] = 'Total Firewalls';
@@ -223,11 +224,35 @@ class Anywhere extends CI_Controller {
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_firewalls' ]['required'] =  '';
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_firewalls' ]['function'] =  '';
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_firewalls' ]['handle'] =  'usma_firewalls';
-    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_firewalls' ]['parent_handle'] =  'cloud_services_azure';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_firewalls' ]['parent_handle'] =  'on_prem_summary';
+
+
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_switches_routers' ]['title'] = 'Total Switches/Routers';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_switches_routers' ]['position'] = '4';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_switches_routers' ]['global'] =  '';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_switches_routers' ]['tab_order'] =  '';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_switches_routers' ]['default_val'] =  '0';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_switches_routers' ]['weight'] =  '';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_switches_routers' ]['required'] =  '';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_switches_routers' ]['function'] =  '';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_switches_routers' ]['handle'] =  'usma_switches_routers';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_switches_routers' ]['parent_handle'] =  'on_prem_summary';
+
+
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_other_network_devices' ]['title'] = 'Total Other Network Devices';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_other_network_devices' ]['position'] = '5';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_other_network_devices' ]['global'] =  '';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_other_network_devices' ]['tab_order'] =  '';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_other_network_devices' ]['default_val'] =  '0';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_other_network_devices' ]['weight'] =  '';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_other_network_devices' ]['required'] =  '';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_other_network_devices' ]['function'] =  '';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_other_network_devices' ]['handle'] =  'usma_other_network_devices';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_other_network_devices' ]['parent_handle'] =  'on_prem_summary';
 
 
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_users' ]['title'] = 'Total Users';
-    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_users' ]['position'] = '4';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_users' ]['position'] = '6';
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_users' ]['global'] =  '';
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_users' ]['tab_order'] =  '';
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_users' ]['default_val'] =  '0';
@@ -239,7 +264,7 @@ class Anywhere extends CI_Controller {
 
 
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_non_dom_users' ]['title'] = 'Total Non-Domain Users';
-    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_non_dom_users' ]['position'] = '5';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_non_dom_users' ]['position'] = '7';
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_non_dom_users' ]['global'] =  '';
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_non_dom_users' ]['tab_order'] =  '';
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_non_dom_users' ]['default_val'] =  '0';
@@ -247,8 +272,20 @@ class Anywhere extends CI_Controller {
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_non_dom_users' ]['required'] =  '';
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_non_dom_users' ]['function'] =  '';
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_non_dom_users' ]['handle'] =  'usma_non_dom_users';
-    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_non_dom_users' ]['parent_handle'] =  'cloud_services_azure';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_non_dom_users' ]['parent_handle'] =  'on_prem_summary';
 
+/*
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_usage_pattern' ]['title'] = 'Usage Pattern';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_usage_pattern' ]['position'] = '8';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_usage_pattern' ]['global'] =  '';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_usage_pattern' ]['tab_order'] =  '';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_usage_pattern' ]['default_val'] =  '0';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_usage_pattern' ]['weight'] =  '';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_usage_pattern' ]['required'] =  '';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_usage_pattern' ]['function'] =  '';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_usage_pattern' ]['handle'] =  'usma_usage_pattern';
+    $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_usage_pattern' ]['parent_handle'] =  'on_prem_summary';
+*/
     //$mod_tmp = $this->calculator_model->slides_mod;
     $mod_temp = array();
     $mod_tmp['cloud_services_aws'] = $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws'];
@@ -280,7 +317,7 @@ class Anywhere extends CI_Controller {
     $this->load->view( 'slide_wrapper_close' );
     $this->load->view( 'report' );
     $this->load->view( 'wrapper_close' );
-    $this->load->view( 'calc_offpage_js' );
+    $this->load->view( 'calc_offpage_js_anywhere' );
     $this->load->view( 'script_open' );
     $this->load->view( 'calc_onpage_js' );
     $this->load->view( 'script_close' );

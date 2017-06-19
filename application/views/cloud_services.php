@@ -2,6 +2,28 @@
             <h3 class="slide_title">Cloud Services: AWS</h3>
             <div id="fields_wrapper">
               <ul id="fields_list">
+                    <li>
+                      <div class="range_outer_wrapper" style="border-bottom:1px solid grey">
+                        <h3 style="padding-top:35px">Data Transferred (in GB) (monthly)</h3>
+
+                        <ul class="number_box_list" style="width:210px;">
+                          <li class="number_box" style="width:180px;">
+                            <input class="number_input" type="number" name="number-cloud_services_aws-data_transferred" id="number-cloud_services_aws-data_transferred" onchange="( function( el ) { update_numbers(); } )( this )" min=0 step=1 value=0>
+                          </li>
+                          <li class="arrow_box_li">
+                            <ul class="arrow_box">
+                              <li class="number_up" onmouseup="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )" onmousedown="( function( el ){ number_up( el, false ); button_repeater( el, false ); } )( this )" onmouseout="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )">
+                                <div class="number_up_inner"></div>
+                              </li>
+                              <li class="number_down" onmouseup="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )" onmousedown="( function( el ) { number_down( el, false ); button_repeater( el, false ); } )( this )" onmouseout="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )">
+                                <div class="number_down_inner"></div>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+
+                      </div>
+                    </li>
                 <li>
                   <div class="range_outer_wrapper" style="border-bottom:1px solid grey;">
                     <h3 style="padding-top:35px">CloudTrail event total (monthly)</h3>
@@ -40,28 +62,6 @@
                             </ul>
                           </li>
                         </ul>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="range_outer_wrapper" style="border-bottom:1px solid grey">
-                        <h3 style="padding-top:35px">Data Transfered (in GB) (monthly)</h3>
-
-                        <ul class="number_box_list" style="width:210px;">
-                          <li class="number_box" style="width:180px;">
-                            <input class="number_input" type="number" name="number-cloud_services_aws-data_transfered" id="number-cloud_services_aws-data_transfered" onchange="( function( el ) { update_numbers(); } )( this )" min=0 step=1 value=0>
-                          </li>
-                          <li class="arrow_box_li">
-                            <ul class="arrow_box">
-                              <li class="number_up" onmouseup="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )" onmousedown="( function( el ){ number_up( el, false ); button_repeater( el, false ); } )( this )" onmouseout="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )">
-                                <div class="number_up_inner"></div>
-                              </li>
-                              <li class="number_down" onmouseup="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )" onmousedown="( function( el ) { number_down( el, false ); button_repeater( el, false ); } )( this )" onmouseout="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )">
-                                <div class="number_down_inner"></div>
-                              </li>
-                            </ul>
-                          </li>
-                        </ul>
-
                       </div>
                     </li>
                     <li>
@@ -366,6 +366,50 @@
                 </li>
                 <li>
                   <div class="range_outer_wrapper" style="border-bottom:1px solid grey">
+                    <h3 style="padding-top:35px">Total Switches/routers</h3>
+
+                    <ul class="number_box_list" style="width:210px;">
+                      <li class="number_box" style="width:180px;">
+                        <input class="number_input" type="number" name="number-on_prem_summary-usma_switches_routers" id="number-on_prem_summary-usma_switches_routers" onchange="( function( el ) { update_numbers(); } )( this )" min=0 step=1 value=0>
+                      </li>
+                      <li class="arrow_box_li">
+                        <ul class="arrow_box">
+                          <li class="number_up" onmouseup="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )" onmousedown="( function( el ) { number_up( el, false ); button_repeater( el, false ); } )( this )" onmouseout="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )">
+                            <div class="number_up_inner"></div>
+                          </li>
+                          <li class="number_down" onmouseup="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )" onmousedown="( function( el ) { number_down( el, false ); button_repeater( el, false ); } )( this )" onmouseout="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )">
+                            <div class="number_down_inner"></div>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+
+                  </div>
+                </li>
+                <li>
+                  <div class="range_outer_wrapper" style="border-bottom:1px solid grey">
+                    <h3 style="padding-top:35px">Total Other Network Devices</h3>
+
+                    <ul class="number_box_list" style="width:210px;">
+                      <li class="number_box" style="width:180px;">
+                        <input class="number_input" type="number" name="number-on_prem_summary-usma_other_network_devices" id="number-on_prem_summary-usma_other_network_devices" onchange="( function( el ) { update_numbers(); } )( this )" min=0 step=1 value=0>
+                      </li>
+                      <li class="arrow_box_li">
+                        <ul class="arrow_box">
+                          <li class="number_up" onmouseup="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )" onmousedown="( function( el ) { number_up( el, false ); button_repeater( el, false ); } )( this )" onmouseout="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )">
+                            <div class="number_up_inner"></div>
+                          </li>
+                          <li class="number_down" onmouseup="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )" onmousedown="( function( el ) { number_down( el, false ); button_repeater( el, false ); } )( this )" onmouseout="( function( el ) { el.style.backgroundColor = 'transparent'; el.firstElementChild.style.borderColor = 'grey'; clearInterval( int_cont ); clearTimeout( tmt_cont ); } )( this )">
+                            <div class="number_down_inner"></div>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+
+                  </div>
+                </li>
+                <li>
+                  <div class="range_outer_wrapper" style="border-bottom:1px solid grey">
                     <h3 style="padding-top:35px">Total Users</h3>
 
                     <ul class="number_box_list" style="width:210px;">
@@ -408,6 +452,21 @@
 
                   </div>
                 </li>
+                    <li>
+                      <div class="double_dropdown_wrapper">
+                        <ul class="double_dropdown_list">
+                          <li class="double_dropdown_li dd_left">
+                            <h3>Usage Pattern</h3>
+                            <select id="on_prem_summary-usma_usage_pattern" onchange="update_numbers()">
+                              <option value=1 selected>24x7 (Always Up)</option>
+                              <option value=2>5x8 (Business Hours Only)</option>
+                            </select>
+                          <li class="double_dropdown_li dd_right">
+                          </li>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
               </ul>
             </div>
           </div>
