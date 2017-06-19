@@ -31,8 +31,8 @@ function update_report() {
     }
     if ( !field_values[ 'slides' ][ 'cloud_services_aws' ] ) {
       wrapper.appendChild( build_eps_table() );
-      wrapper.appendChild( recommends() );
     }
+    wrapper.appendChild( recommends() );
   } else {
     return void(0);
   }
@@ -245,10 +245,19 @@ function recommends() {
   reco_c.id = 'reco_c';
   reco_header.innerHTML = 'RECOMMENDED SETUP';
   reco_box.appendChild( reco_header );
-  reco_a.innerHTML = 'Estimated Storage Usage: ' + best_unit( field_values[ 'grand_totals' ][ 'eps' ] );
+  reco_a.innerHTML = 'Estimated Storage Usage: <span style="right:0px; position:absolute;">' + best_unit( field_values[ 'grand_totals' ][ 'eps' ] ) + '</span>';
   reco_box.appendChild( reco_a );
-  //var reco_val =
-  reco_b.innerHTML = line2();
+  var reco_val = ( field_values[ 'grand_totals' ][ 'eps' ] / 5 ) + field_values[ 'grand_totals' ][ 'eps' ];
+
+  if ( reco_val < gb_to_b( 250 ) ) {
+    reco_b.innerHTML = 'Recommended storage tier: <span style="right:0px; position:absolute;">250GB</span>';
+  } else if ( reco_val >= gb_to_b( 250 ) && reco_val < gb_to_b( 500 ) ) {
+    reco_b.innerHTML = 'Recommended storage tier: <span style="right:0px; position:absolute;">500GB</span>';
+  } else if ( reco_val >= gb_to_b( 500 ) && reco_val < gb_to_b( 1024 ) ) {
+    reco_b.innerHTML = 'Recommended storage tier: <span style="right:0px; position:absolute;">1TB</span>';
+  } else if ( reco_val >= gb_to_b( 1024 ) && reco_val < gb_to_b( 2048 ) ) {
+    reco_b.innerHTML = 'Recommended storage tier: <span style="right:0px; position:absolute;">2TB</span>';
+  }
   reco_box.appendChild( reco_b );
   return reco_box;
   }

@@ -159,3 +159,6 @@ span {
   margin: 50px auto;
   min-height:100px;
 }
+#reco_header {
+  text-align:center;
+}

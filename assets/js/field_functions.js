@@ -165,7 +165,7 @@ var field_functions = {
   },
   'cloud_services_aws-cloudtrail': function ( data ) {
     var result,
-        avg_event_size = 524288;
+        avg_event_size = 102400;
     if ( data[ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'cloudtrail' ][ 'raw' ] > 0 ) {
       result = data[ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'cloudtrail' ][ 'raw' ] * avg_event_size;
     } else {
@@ -175,7 +175,7 @@ var field_functions = {
   },
   'cloud_services_aws-cloudwatch': function ( data ) {
     var result,
-        avg_event_size = 524288;
+        avg_event_size = 102400;
     if ( data[ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'cloudwatch' ][ 'raw' ] > 0 ) {
       result = data[ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'cloudwatch' ][ 'raw' ] * avg_event_size;
     } else {
@@ -185,7 +185,7 @@ var field_functions = {
   },
   'cloud_services_aws-data_transfered': function ( data ) {
     var result,
-        avg_event_size = 524288;
+        avg_event_size = 102400;
     if ( data[ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'data_transfered' ][ 'raw' ] > 0 ) {
       result = data[ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'data_transfered' ][ 'raw' ] * avg_event_size;
     } else {
@@ -195,7 +195,7 @@ var field_functions = {
   },
   'cloud_services_aws-elastic_cloud': function ( data ) {
     var result,
-        avg_event_size = 524288;
+        avg_event_size = 102400;
     if ( data[ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'elastic_cloud' ][ 'raw' ] > 0 ) {
       result = data[ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'elastic_cloud' ][ 'raw' ] * avg_event_size;
     } else {
@@ -205,7 +205,7 @@ var field_functions = {
   },
   'cloud_services_aws-simple_storage': function ( data ) {
     var result,
-        avg_event_size = 524288;
+        avg_event_size = 102400;
     if ( data[ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'simple_storage' ][ 'raw' ] > 0 ) {
       result = data[ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'simple_storage' ][ 'raw' ] * avg_event_size;
     } else {
@@ -215,7 +215,7 @@ var field_functions = {
   },
   'cloud_services_aws-elastic_load': function ( data ) {
     var result,
-        avg_event_size = 524288;
+        avg_event_size = 102400;
     if ( data[ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'elastic_load' ][ 'raw' ] > 0 ) {
       result = data[ 'slides' ][ 'cloud_services_aws' ][ 'fields' ][ 'elastic_load' ][ 'raw' ] * avg_event_size;
     } else {
@@ -225,7 +225,7 @@ var field_functions = {
   },
   'cloud_services_azure-analytics': function ( data ) {
     var result,
-        avg_event_size = 524288;
+        avg_event_size = 102400;
     if ( data[ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'analytics' ][ 'raw' ] > 0 ) {
       result = data[ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'analytics' ][ 'raw' ] * avg_event_size;
     } else {
@@ -235,7 +235,7 @@ var field_functions = {
   },
   'cloud_services_azure-app_insights': function ( data ) {
     var result,
-        avg_event_size = 524288;
+        avg_event_size = 102400;
     if ( data[ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'app_insights' ][ 'raw' ] > 0 ) {
       result = data[ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'app_insights' ][ 'raw' ] * avg_event_size;
     } else {
@@ -245,7 +245,7 @@ var field_functions = {
   },
   'cloud_services_azure-azure_storage': function ( data ) {
     var result,
-        avg_event_size = 524288;
+        avg_event_size = 102400;
     if ( data[ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'azure_storage' ][ 'raw' ] > 0 ) {
       result = data[ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'azure_storage' ][ 'raw' ] * avg_event_size;
     } else {
@@ -255,7 +255,7 @@ var field_functions = {
   },
   'cloud_services_azure-load_balancing': function ( data ) {
     var result,
-        avg_event_size = 524288;
+        avg_event_size = 102400;
     if ( data[ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'load_balancing' ][ 'raw' ] > 0 ) {
       result = data[ 'slides' ][ 'cloud_services_azure' ][ 'fields' ][ 'load_balancing' ][ 'raw' ] * avg_event_size;
     } else {
