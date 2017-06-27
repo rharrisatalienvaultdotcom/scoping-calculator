@@ -33,6 +33,7 @@ function check_for_op_key() {
     }
     if ( op_keys[0] !== 'undefined' && op_keys[0] !== '' ) {
       current_scoping_id = op_keys[0];
+      check_for_existing_scope( current_scoping_id );
       result =  true;
     }
   } else {
@@ -111,12 +112,66 @@ function response_handler() {
       //response_code = response_code.replace('\\','');
       response_code = JSON.parse( response_code );
       //console.log( '( logging->response_handler ) Current response code: ' + response_code + ' (' + typeof( response_code ) + ');' );
-      field_values = response_code;
+      console.log( response_code[0] );
+      console.log( JSON.parse( response_code[0]['data'] ) );
+      field_values = JSON.parse( response_code[0][ 'data' ]);
+      populate_field_values();
       console.log( 'Existing data for ' + current_scoping_id + ' found!' );
       destroyPopup();
       notification( 'Scoping data loaded for record url ' + current_scoping_id + '.' );
     }
     //console.log( field_values );
+}
+
+function populate_field_values() {
+  console.log( 'Populating fields with loaded values' );
+  for ( var slide in field_values[ 'slides' ] ) {
+    var this_slide = field_values[ 'slides' ][ slide ];
+
+    for ( var field in this_slide[ 'fields' ] ) {
+      var this_field = this_slide[ 'fields' ][ field ],
+          elem;
+
+      elem = document.getElementById( 'number-' + slide + '-' + field );
+      if ( elem ) {
+        elem.value = Number( this_field[ 'raw' ] );
+      }
+      elem = document.getElementById( 'range-' + slide + '-' + field );
+      if ( elem ) {
+        elem.value = Number( this_field[ 'raw' ] );
+      }
+      elem = document.getElementById( slide + '-' + field );
+      if ( elem ) {
+        elem.selectedIndex = this_field[ 'math_value' ] - 1;
+      }
+    }
+  }
+}
+
+function clear_field_values() {
+  console.log( 'Clearing field values' );
+  for ( var slide in field_values[ 'slides' ] ) {
+    var this_slide = field_values[ 'slides' ][ slide ];
+
+    for ( var field in this_slide[ 'fields' ] ) {
+      var this_field = this_slide[ 'fields' ][ field ],
+          elem;
+
+      elem = document.getElementById( 'number-' + slide + '-' + field );
+      if ( elem ) {
+        elem.value = 0;
+      }
+      elem = document.getElementById( 'range-' + slide + '-' + field );
+      if ( elem ) {
+        elem.value = 0;
+      }
+      elem = document.getElementById( slide + '-' + field );
+      if ( elem ) {
+        elem.selectedIndex = 0;
+      }
+    }
+  }
+  update_numbers();
 }
 
 function clear_local_op_keys() {
@@ -125,6 +180,7 @@ function clear_local_op_keys() {
     sessionStorage.op_keys = '';
     result = true;
   }
+  clear_field_values();
   ask_for_op_key();
   //return result;
 }
@@ -146,7 +202,7 @@ function change_op_key() {
 
 function verify_op_key( url ) {
   var sfRegex = /^https\:\/\/[a-zA-Z0-9]{4}\.salesforce\.com\/[a-zA-Z0-9]{15}$/,
-      saRegex = /^(rharris|vobando|cgarcia|kthompson|smace|mallen)\/[a-zA-Z0-9_\-]{0,30}$/,
+      saRegex = /^(rharris|vobando|cgarcia|kthompson|smace|mallen|jizquierdo|swood|agoller)\/[a-zA-Z0-9_\-]{0,30}$/,
       banHammer = /[\<\>\{\}\!\*\%\\\&\$\#\@]/g,
       key = document.getElementById( 'op_key_input' ).value;
   if ( sfRegex.test( key ) || saRegex.test( key ) ) {
@@ -344,15 +400,12 @@ function notification( message = null, show_change_link = true ) {
 
 
       if ( !!message ) {
-        console.log('here');
         message_el.innerHTML = message;
         bubble_el.appendChild(message_el);
         if ( show_change_link == true ) {
           link_el.onclick = ( function() { clear_local_op_keys(); } );
           bubble_el.appendChild( link_el );
-        console.log('here');
         }
-        console.log('here');
         document.getElementById( 'wrapper' ).appendChild( bubble_el );
       }
 }

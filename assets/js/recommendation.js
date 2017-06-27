@@ -22,9 +22,9 @@ function line1() {
 function line2() {
     if ( field_values[ 'slides' ][ 'network_data' ] ) {
         var msg,
-            locations = field_values[ 'slides' ][ 'network_data' ][ 'fields' ][ 'locations' ][ 'raw' ],
-            bandwidth = field_values[ 'slides' ][ 'network_data' ][ 'fields' ][ 'bandwidth' ][ 'raw' ],
-            branch_offices = field_values[ 'slides' ][ 'network_data' ][ 'fields' ][ 'small_branches' ][ 'raw' ];
+            locations = strct[ 'rvals' ][ 'network_data-locations' ],
+            bandwidth = strct[ 'rvals' ][ 'network_data-bandwidth' ],
+            branch_offices = strct[ 'rvals' ][ 'network_data-small_branches' ];
         if ( locations < 1 && grand_total_devices_eps < 1 && bandwidth < 1 ) {
             msg = '&nbsp;';
         } else if ( locations <= 1 && grand_total_devices_eps < 1000 && bandwidth <= 100 ) {

@@ -1,0 +1,38 @@
+dl > div {
+  padding: 0;
+  margin: 0;
+}
+
+dl {
+  margin: 0;
+  padding: 0;
+  -webkit-margin-before:0;
+  -webkit-margin-after:0;
+}
+
+dt {
+  background: #B8C1C8;
+  border-bottom: 1px solid #989EA4;
+  border-top: 1px solid #717D85;
+  color: #FFF;
+  margin: 0;
+  padding:1vw;
+  font-size: 2em;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  z-index: 5;
+}
+
+dd {
+  margin: 0;
+  padding: 0;
+  -webkit-margin-start:0;
+}
+
+dd + dd {
+  /*
+  border-top: 1px solid #CCC;
+ border-top: 1px solid black;
+  */
+}

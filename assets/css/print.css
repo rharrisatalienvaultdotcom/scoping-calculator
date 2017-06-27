@@ -1,0 +1,92 @@
+
+#tophat {
+  display:none;
+}
+
+#field_section {
+  display:none !important;
+  width:0;
+  height:0;
+  position:absolute;
+}
+
+#field_section > dl {
+  display:none;
+  width:0;
+  height:0;
+  position:absolute;
+}
+
+#field_section > dl > div {
+  display:none;
+  width:0;
+  height:0;
+  position:absolute;
+}
+#field_section > dl > div > dt {
+  display:none;
+  width:0;
+  height:0;
+  position:absolute;
+}
+#field_section > dl > div > dd {
+  display:none;
+  width:0;
+  height:0;
+  position:absolute;
+}
+#field_section > dl > div > dd > form {
+  display:none;
+  width:0;
+  height:0;
+  position:absolute;
+}
+#field_section > dl > div > dd > form > label {
+  display:none;
+  width:0;
+  height:0;
+  position:absolute;
+}
+#field_section > dl > div > dd > form > label > p {
+  display:none;
+  width:0;
+  height:0;
+  position:absolute;
+}
+
+#field_section > dl > div > dd > form > div {
+  display:none;
+  width:0;
+  height:0;
+  position:absolute;
+}
+
+#field_section > dl > div > dd > form > div > svg {
+  display:none;
+  width:0;
+  height:0;
+  position:absolute;
+}
+
+#field_section > dl > div > dd > form > div > input {
+  display:none;
+  width:0;
+  height:0;
+  position:absolute;
+}
+
+#report_section {
+  width:100%;
+  float:none;
+  position:absolute;
+  background-color:red;
+  left:0;
+}
+#report_inner_wrapper {
+  width:100%;
+}
+#wrapper {
+  height:auto;
+  overflow:scroll;
+  background-color:transparent;
+}

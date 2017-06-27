@@ -2,7 +2,7 @@ var field_functions = {
   'servers-domain_controller': function ( data ) {
     var result;
     if ( data['slides']['servers']['fields']['domain_controller']['raw'] > 0 ) {
-      result = data['slides']['servers']['fields']['domain_controller']['raw'] * 2 + ( data[ 'slides' ][ 'users' ][ 'total' ] - data[ 'slides' ][ 'users' ][ 'fields' ][ 'non_dom_users' ]['raw'] ) / data[ 'slides' ][ 'servers' ][ 'fields' ][ 'domain_controller' ][ 'weight' ];
+      result = data['slides']['servers']['fields']['domain_controller']['raw'] * 2 + ( data[ 'slides' ][ 'users' ][ 'total' ] - data[ 'slides' ][ 'users' ][ 'fields' ][ 'non_dom_users' ]['raw'] ) / 6;
     } else {
       result = 0;
     }
@@ -11,7 +11,7 @@ var field_functions = {
   'servers-mx_servers': function ( data ) {
     var result;
     if ( data['slides']['servers']['fields']['mx_servers']['raw'] > 0 ) {
-      result = data['slides']['servers']['fields']['mx_servers']['raw'] * 2 + ( data[ 'slides' ][ 'users' ][ 'total' ] - data[ 'slides' ][ 'users' ][ 'fields' ][ 'non_dom_users' ]['raw'] ) / data[ 'slides' ][ 'servers' ][ 'fields' ][ 'mx_servers' ][ 'weight' ];
+      result = data['slides']['servers']['fields']['mx_servers']['raw'] * 2 + ( data[ 'slides' ][ 'users' ][ 'total' ] - data[ 'slides' ][ 'users' ][ 'fields' ][ 'non_dom_users' ]['raw'] ) / 8;
     } else {
       result = 0;
     }
@@ -20,7 +20,7 @@ var field_functions = {
   'servers-file_servers': function ( data ) {
     var result;
     if ( data['slides']['servers']['fields']['file_servers']['raw'] > 0 ) {
-      result = data['slides']['servers']['fields']['file_servers']['raw'] * 2 + ( data[ 'slides' ][ 'users' ][ 'total' ] - data[ 'slides' ][ 'users' ][ 'fields' ][ 'non_dom_users' ]['raw'] ) / data[ 'slides' ][ 'servers' ][ 'fields' ][ 'file_servers' ][ 'weight' ];
+      result = data['slides']['servers']['fields']['file_servers']['raw'] * 2 + ( data[ 'slides' ][ 'users' ][ 'total' ] - data[ 'slides' ][ 'users' ][ 'fields' ][ 'non_dom_users' ]['raw'] ) / 8;
     } else {
       result = 0;
     }
@@ -29,7 +29,7 @@ var field_functions = {
   'servers-application_servers': function ( data ) {
     var result;
     if ( data['slides']['servers']['fields']['application_servers']['raw'] > 0 ) {
-      result = data['slides']['servers']['fields']['application_servers']['raw'] * 2 + ( data[ 'slides' ][ 'users' ][ 'total' ] - data[ 'slides' ][ 'users' ][ 'fields' ][ 'non_dom_users' ]['raw'] ) / data[ 'slides' ][ 'servers' ][ 'fields' ][ 'application_servers' ][ 'weight' ];
+      result = data['slides']['servers']['fields']['application_servers']['raw'] * 2 + ( data[ 'slides' ][ 'users' ][ 'total' ] - data[ 'slides' ][ 'users' ][ 'fields' ][ 'non_dom_users' ]['raw'] ) / 8;
     } else {
       result = 0;
     }
@@ -38,7 +38,7 @@ var field_functions = {
   'servers-db_servers': function ( data ) {
     var result;
     if ( data['slides']['servers']['fields']['db_servers']['raw'] > 0 ) {
-      result = data['slides']['servers']['fields']['db_servers']['raw'] * 2 + ( data[ 'slides' ][ 'users' ][ 'total' ] - data[ 'slides' ][ 'users' ][ 'fields' ][ 'non_dom_users' ]['raw'] ) / data[ 'slides' ][ 'servers' ][ 'fields' ][ 'db_servers' ][ 'weight' ];
+      result = data['slides']['servers']['fields']['db_servers']['raw'] * 2 + ( data[ 'slides' ][ 'users' ][ 'total' ] - data[ 'slides' ][ 'users' ][ 'fields' ][ 'non_dom_users' ]['raw'] ) / 6;
     } else {
       result = 0;
     }
@@ -47,7 +47,7 @@ var field_functions = {
   'servers-web_servers': function ( data ) {
     var result;
     if ( data['slides']['servers']['fields']['web_servers']['raw'] > 0 ) {
-      result = data['slides']['servers']['fields']['web_servers']['raw'] * 2 + ( data[ 'slides' ][ 'users' ][ 'total' ]  / data[ 'slides' ][ 'servers' ][ 'fields' ][ 'web_servers' ][ 'weight' ] );
+      result = data['slides']['servers']['fields']['web_servers']['raw'] * 2 + ( data[ 'slides' ][ 'users' ][ 'total' ]  / 8 );
     } else {
       result = 0;
     }
@@ -56,7 +56,7 @@ var field_functions = {
   'servers-endpoint_protection': function ( data ) {
     var result;
     if ( data['slides']['servers']['fields']['endpoint_protection']['raw'] > 0 ) {
-      result = data['slides']['servers']['fields']['endpoint_protection']['raw'] * 1 + ( data[ 'slides' ][ 'devices' ][ 'total' ] + data[ 'slides' ][ 'users' ][ 'total' ] - data[ 'slides' ][ 'users' ][ 'fields' ][ 'non_dom_users' ]['raw'] ) / data[ 'slides' ][ 'servers' ][ 'fields' ][ 'endpoint_protection' ][ 'weight' ];
+      result = data['slides']['servers']['fields']['endpoint_protection']['raw'] * 1 + ( data[ 'slides' ][ 'devices' ][ 'total' ] + data[ 'slides' ][ 'users' ][ 'total' ] - data[ 'slides' ][ 'users' ][ 'fields' ][ 'non_dom_users' ]['raw'] ) / 25;
     } else {
       result = 0;
     }
@@ -65,7 +65,7 @@ var field_functions = {
   'servers-mail_archiver': function ( data ) {
     var result;
     if ( data['slides']['servers']['fields']['mail_archiver']['raw'] > 0 ) {
-      result = data['slides']['servers']['fields']['mail_archiver']['raw'] * 2 + ( data[ 'slides' ][ 'users' ][ 'total' ] - data[ 'slides' ][ 'users' ][ 'fields' ][ 'non_dom_users' ]['raw'] ) / data[ 'slides' ][ 'servers' ][ 'fields' ][ 'mail_archiver' ][ 'weight' ];
+      result = data['slides']['servers']['fields']['mail_archiver']['raw'] * 2 + ( data[ 'slides' ][ 'users' ][ 'total' ] - data[ 'slides' ][ 'users' ][ 'fields' ][ 'non_dom_users' ]['raw'] ) / 8;
     } else {
       result = 0;
     }
@@ -74,7 +74,7 @@ var field_functions = {
   'network_devices-firewalls': function ( data ) {
     var result;
     if ( data['slides']['network_devices']['fields']['firewalls']['raw'] > 0 ) {
-      result = data['slides']['network_devices']['fields']['firewalls']['raw'] * 4 + ( data[ 'grand_totals' ][ 'devices' ] / 4 ) + ( data[ 'slides' ][ 'users' ][ 'total' ] / data[ 'slides' ][ 'network_devices' ][ 'fields' ][ 'firewalls' ][ 'weight' ]);
+      result = data['slides']['network_devices']['fields']['firewalls']['raw'] * 4 + ( data[ 'grand_totals' ][ 'devices' ] / 4 ) + ( data[ 'slides' ][ 'users' ][ 'total' ] / 8);
     } else {
       result = 0;
     }
@@ -83,7 +83,7 @@ var field_functions = {
   'network_devices-nips_nids': function ( data ) {
     var result;
     if ( data['slides']['network_devices']['fields']['nips_nids']['raw'] > 0 ) {
-      result = data['slides']['network_devices']['fields']['nips_nids']['raw'] * 4 + ( data[ 'grand_totals' ][ 'devices' ] / data[ 'slides' ][ 'network_devices' ][ 'fields' ][ 'nips_nids' ][ 'weight' ] );
+      result = data['slides']['network_devices']['fields']['nips_nids']['raw'] * 4 + ( data[ 'grand_totals' ][ 'devices' ] / 4 );
     } else {
       result = 0;
     }
@@ -92,7 +92,7 @@ var field_functions = {
   'network_devices-vpns': function ( data ) {
     var result;
     if ( data['slides']['network_devices']['fields']['vpns']['raw'] > 0 ) {
-      result = data['slides']['network_devices']['fields']['vpns']['raw'] * 5 + ( data[ 'slides' ][ 'users' ][ 'fields' ][ 'external_users' ]['raw'] / data[ 'slides' ][ 'network_devices' ][ 'fields' ][ 'vpns' ][ 'weight' ] );
+      result = data['slides']['network_devices']['fields']['vpns']['raw'] * 5 + ( data[ 'slides' ][ 'users' ][ 'fields' ][ 'external_users' ]['raw'] / 4 );
     } else {
       result = 0;
     }
@@ -101,7 +101,7 @@ var field_functions = {
   'network_devices-antispam': function ( data ) {
     var result;
     if ( data['slides']['network_devices']['fields']['antispam']['raw'] > 0 ) {
-      result = data['slides']['network_devices']['fields']['antispam']['raw'] * 5 + ( data[ 'grand_totals' ][ 'devices' ] + data[ 'slides' ][ 'users' ][ 'total' ] ) / data[ 'slides' ][ 'network_devices' ][ 'fields' ][ 'antispam' ][ 'weight' ];
+      result = data['slides']['network_devices']['fields']['antispam']['raw'] * 5 + ( data[ 'grand_totals' ][ 'devices' ] + data[ 'slides' ][ 'users' ][ 'total' ] ) / 8;
     } else {
       result = 0;
     }
@@ -110,7 +110,7 @@ var field_functions = {
   'network_devices-access_control': function ( data ) {
     var result;
     if ( data['slides']['network_devices']['fields']['access_control']['raw'] > 0 ) {
-      result = data['slides']['network_devices']['fields']['access_control']['raw'] * 10 + ( data[ 'slides' ][ 'devices' ][ 'total' ] + data[ 'slides' ][ 'servers' ][ 'total' ] ) / data[ 'slides' ][ 'network_devices' ][ 'fields' ][ 'access_control' ][ 'weight' ];
+      result = data['slides']['network_devices']['fields']['access_control']['raw'] * 10 + ( data[ 'slides' ][ 'devices' ][ 'total' ] + data[ 'slides' ][ 'servers' ][ 'total' ] ) / 8;
     } else {
       result = 0;
     }
@@ -119,7 +119,7 @@ var field_functions = {
   'network_devices-switches': function ( data ) {
     var result;
     if ( data['slides']['network_devices']['fields']['switches']['raw'] > 0 ) {
-      result = data['slides']['network_devices']['fields']['switches']['raw'] * 1 + ( data[ 'grand_totals' ][ 'devices' ] / data[ 'slides' ][ 'network_devices' ][ 'fields' ][ 'switches' ][ 'weight' ] );
+      result = data['slides']['network_devices']['fields']['switches']['raw'] * 1 + ( data[ 'grand_totals' ][ 'devices' ] / 25 );
     } else {
       result = 0;
     }
@@ -128,7 +128,7 @@ var field_functions = {
   'network_devices-routers': function ( data ) {
     var result;
     if ( data['slides']['network_devices']['fields']['routers']['raw'] > 0 ) {
-      result = data['slides']['network_devices']['fields']['routers']['raw'] * 1 + ( data[ 'grand_totals' ][ 'devices' ] / data[ 'slides' ][ 'network_devices' ][ 'fields' ][ 'routers' ][ 'weight' ] );
+      result = data['slides']['network_devices']['fields']['routers']['raw'] * 1 + ( data[ 'grand_totals' ][ 'devices' ] / 25 );
     } else {
       result = 0;
     }
@@ -137,7 +137,7 @@ var field_functions = {
   'network_devices-load_balancers': function ( data ) {
     var result;
     if ( data['slides']['network_devices']['fields']['load_balancers']['raw'] > 0 ) {
-      result = data['slides']['network_devices']['fields']['load_balancers']['raw'] * 10 + ( data[ 'grand_totals' ][ 'devices' ] / data[ 'slides' ][ 'network_devices' ][ 'fields' ][ 'load_balancers' ][ 'weight' ] );
+      result = data['slides']['network_devices']['fields']['load_balancers']['raw'] * 10 + ( data[ 'grand_totals' ][ 'devices' ] / 25 );
     } else {
       result = 0;
     }
@@ -146,7 +146,7 @@ var field_functions = {
   'network_devices-web_filters': function ( data ) {
     var result;
     if ( data['slides']['network_devices']['fields']['web_filters']['raw'] > 0 ) {
-      result = data['slides']['network_devices']['fields']['web_filters']['raw'] * 5 + ( data[ 'grand_totals' ][ 'devices' ] / data[ 'slides' ][ 'network_devices' ][ 'fields' ][ 'web_filters' ][ 'weight' ] );
+      result = data['slides']['network_devices']['fields']['web_filters']['raw'] * 5 + ( data[ 'grand_totals' ][ 'devices' ] / 8 );
 
       //console.log('network_devices-web_filters: ' + data['slides']['network_devices']['fields']['web_filters']['raw'] + ' * 5 + ( ' + data[ 'grand_totals' ][ 'devices' ] + ' / ' + data[ 'slides' ][ 'network_devices' ][ 'fields' ][ 'web_filters' ][ 'weight' ] + ' )' );
     } else {
@@ -157,7 +157,7 @@ var field_functions = {
   'network_devices-nas': function ( data ) {
     var result;
     if ( data['slides']['network_devices']['fields']['nas']['raw'] > 0 ) {
-      result = data['slides']['network_devices']['fields']['nas']['raw'] * 5 + ( data[ 'slides' ][ 'servers' ][ 'total' ] / data[ 'slides' ][ 'network_devices' ][ 'fields' ][ 'nas' ][ 'weight' ] );
+      result = data['slides']['network_devices']['fields']['nas']['raw'] * 5 + ( data[ 'slides' ][ 'servers' ][ 'total' ] / 25 );
     } else {
       result = 0;
     }

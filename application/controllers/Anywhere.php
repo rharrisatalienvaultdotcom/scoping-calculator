@@ -274,7 +274,7 @@ class Anywhere extends CI_Controller {
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_non_dom_users' ]['handle'] =  'usma_non_dom_users';
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_non_dom_users' ]['parent_handle'] =  'on_prem_summary';
 
-/*
+
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_usage_pattern' ]['title'] = 'Usage Pattern';
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_usage_pattern' ]['position'] = '8';
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_usage_pattern' ]['global'] =  '';
@@ -285,7 +285,7 @@ class Anywhere extends CI_Controller {
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_usage_pattern' ]['function'] =  '';
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_usage_pattern' ]['handle'] =  'usma_usage_pattern';
     $data[ 'calc_data' ][ 'slides' ][ 'on_prem_summary' ][ 'fields' ][ 'usma_usage_pattern' ]['parent_handle'] =  'on_prem_summary';
-*/
+
     //$mod_tmp = $this->calculator_model->slides_mod;
     $mod_temp = array();
     $mod_tmp['cloud_services_aws'] = $data[ 'calc_data' ][ 'slides' ][ 'cloud_services_aws'];

@@ -18,6 +18,7 @@ function next_slide(el) {
   var max_val = Object.keys(field_values.slides).length;
   max_val -= 1;
   var elem1Pos = Number(elem1[0].getAttribute('data-slide-position'));
+  save_log();
   if (elem1Pos < max_val ) {
     var data_string = '[data-slide-position=' + String.fromCharCode(34) + (Number(elem1Pos) + 1) + String.fromCharCode(34) + ']';
     elem1Pos += 1;

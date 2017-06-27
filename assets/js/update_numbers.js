@@ -32,10 +32,10 @@ function update_numbers() {
         this_field[ 'commatized_raw' ] = this_field[ 'raw' ];
         this_field[ 'math_value' ] = Number( elem.options[ elem.selectedIndex ].value );
       }
-      if ( this_slide[ 'sum_raw' ] == 1 && this_field[ 'handle' ] !== 'subscription_ids' && this_field[ 'handle' ] !== 'vmachines' && this_field[ 'handle' ] !== 'data_transferred' ) {
+      if ( this_slide[ 'sum_raw' ] == 1 && this_field[ 'handle' ] !== 'subscription_ids' && this_field[ 'handle' ] !== 'vmachines' && this_field[ 'handle' ] !== 'data_transferred' && this_field[ 'handle' ] !== 'usma_usage_pattern' ) {
         window[ 'total_' + slide ] += this_field[ 'raw' ];
       }
-      if ( typeof this_field[ 'raw' ] !== 'string' && this_field[ 'handle' ] !== 'subscription_ids' && this_field[ 'handle' ] !== 'vmachines' && this_field[ 'handle' ] !== 'data_transferred' ){
+      if ( typeof this_field[ 'raw' ] !== 'string' && this_field[ 'handle' ] !== 'subscription_ids' && this_field[ 'handle' ] !== 'vmachines' && this_field[ 'handle' ] !== 'data_transferred' && this_field[ 'handle' ] !== 'usma_usage_pattern' ){
         this_slide[ 'total' ] += this_field[ 'raw' ];
         window[ 'total_' + this_slide[ 'handle' ] ] = this_slide[ 'total' ];
       }
@@ -67,12 +67,12 @@ function update_numbers() {
         this_field[ 'calc' ] = this_field[ 'raw' ];
         this_field[ 'commatized_calc' ] = commatize( this_field[ 'calc' ] );
       }
-      if ( ( this_slide[ 'handle' ] == 'cloud_services_aws' || this_slide[ 'handle' ] == 'cloud_services_azure' || this_slide[ 'handle' ] == 'on_prem_summary' ) && ( this_field[ 'handle' ] !== 'subscription_ids' && this_field[ 'handle' ] !== 'vmachines' && this_field[ 'handle' ] !== 'data_transferred' ) ) {
+      if ( ( this_slide[ 'handle' ] == 'cloud_services_aws' || this_slide[ 'handle' ] == 'cloud_services_azure' || this_slide[ 'handle' ] == 'on_prem_summary' ) && ( this_field[ 'handle' ] !== 'subscription_ids' && this_field[ 'handle' ] !== 'vmachines' && this_field[ 'handle' ] !== 'data_transferred' && this_field[ 'handle' ] !== 'usma_usage_pattern' ) ) {
         this_field[ 'commatized_calc' ] = best_unit( this_field[ 'calc' ] );
       } else {
         this_field[ 'commatized_calc' ] = commatize( this_field[ 'calc' ] );
       }
-      if ( this_slide[ 'sum_calc' ] == 1 && this_field[ 'handle' ] !== 'subscription_ids' && this_field[ 'handle' ] !== 'vmachines' && this_field[ 'handle' ] !== 'data_transferred' ) {
+      if ( this_slide[ 'sum_calc' ] == 1 && this_field[ 'handle' ] !== 'subscription_ids' && this_field[ 'handle' ] !== 'vmachines' && this_field[ 'handle' ] !== 'data_transferred' && this_field[ 'handle' ] !== 'usma_usage_pattern' ) {
         window[ 'total_' + slide + '_eps' ] += this_field[ 'calc' ];
         this_slide[ 'total_eps' ] = window[ 'total_' + slide + '_eps' ];
         this_slide[ 'commatized_total_eps' ] = commatize( this_slide[ 'total_eps' ] );
@@ -88,8 +88,10 @@ function update_numbers() {
   }
   field_values[ 'grand_totals' ][ 'eps' ] = grand_total_devices_eps;
   field_values[ 'grand_totals' ][ 'commatized_eps' ] = commatize( grand_total_devices_eps );
-  update_eps_vals();
-  update_recommendations();
+  if ( field_values[ 'slides' ][ 'misc' ] ) {
+    update_eps_vals();
+    update_recommendations();
+  }
   update_report();
   console.log( field_values );
   //console.clear();

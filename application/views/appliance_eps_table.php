@@ -1,0 +1,43 @@
+<div id="eps_table_wrapper">
+  <div id="eps_header_row" class="row">
+    <span id="header_a" class="eps_header label">&nbsp;</span>
+    <span id="header_b" class="eps_header col">Est. Events</span>
+    <span id="header_c" class="eps_header col joined">Est. Storage</span>
+  </div>
+  <div id="eps_subheader_row" class="row">
+    <span id="subheader_a" class="eps_subheader label">&nbsp;</span>
+    <span id="subheader_b" class="eps_subheader col">&nbsp;</span>
+    <span id="subheader_c" class="eps_subheader col">Raw</span>
+    <span id="subheader_d" class="eps_subheader col">Compressed</span>
+  </div>
+  <div id="eps_second_row" class="eps_odd row">
+    <span id="second_a" class="eps_row label">Events/Second</span>
+    <span id="second_b" class="eps_row col">0</span>
+    <span id="second_c" class="eps_row col">0</span>
+    <span id="second_d" class="eps_row col">0</span>
+  </div>
+  <div id="eps_hour_row" class="row">
+    <span id="hour_a" class="eps_row label">Events/Hour</span>
+    <span id="hour_b" class="eps_row col">0</span>
+    <span id="hour_c" class="eps_row col">0</span>
+    <span id="hour_d" class="eps_row col">0</span>
+  </div>
+  <div id="eps_day_row" class="eps_odd row">
+    <span id="day_a" class="eps_row label">Events/Day</span>
+    <span id="day_b" class="eps_row col">0</span>
+    <span id="day_c" class="eps_row col">0</span>
+    <span id="day_d" class="eps_row col">0</span>
+  </div>
+  <div id="eps_month_row" class="row">
+    <span id="month_a" class="eps_row label">Events/Month</span>
+    <span id="month_b" class="eps_row col">0</span>
+    <span id="month_c" class="eps_row col">0</span>
+    <span id="month_d" class="eps_row col">0</span>
+  </div>
+  <div id="eps_year_row" class="eps_odd row">
+    <span id="year_a" class="eps_row label">Events/Year</span>
+    <span id="year_b" class="eps_row col">0</span>
+    <span id="year_c" class="eps_row col">0</span>
+    <span id="year_d" class="eps_row col">0</span>
+  </div>
+</div>

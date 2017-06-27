@@ -1,0 +1,66 @@
+form > label > p {
+  user-select:none;
+  position:relative;
+  margin:.25vw 0;
+  vertical-align:top;
+  padding:.25vw;
+  font-size:1em;
+  line-height:1.125vw;
+  word-wrap:normal;
+}
+
+form > p > label {
+  position:relative;
+  width:100%;
+}
+
+form > p {
+  display:inline-block;
+  width:60%;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"] {
+  background-color:rgba( 255, 255, 255, 0 );
+  display:inline-block;
+  position:relative;
+  text-align:center;
+  height:100%;
+  width:7.5em;
+  padding:.5em 0;
+  top:-.69em;
+  margin:0;
+  border:0;
+  font-size:1em;
+  box-shadow:0 0 5px 2px black inset;
+}
+form {
+  margin:.5vw auto;
+  padding: 1vw 0;
+  user-select:none;
+  width:90%;
+  position:relative;
+}
+dd ~ dd > form {
+  border-top:1px solid black;
+}
+div.input_wrapper {
+  position:absolute;
+  height:2em;
+  top:1vw;
+  right:0;
+}
+svg {
+  margin:0;
+  position:relative;
+  user-select:none;
+  cursor:default;
+}
+svg.plus {
+}
+svg.minus {
+  float:left;
+}
