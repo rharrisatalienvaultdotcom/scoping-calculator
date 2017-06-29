@@ -26,8 +26,8 @@ function check_for_op_key() {
   var op_keys,
       result = false;
 
-  if ( sessionStorage.op_keys ) {
-    op_keys = JSON.parse( sessionStorage.op_keys );
+  if ( sessionStorage[ 'op_keys_' + product_type ] ) {
+    op_keys = JSON.parse( sessionStorage[ 'op_keys_' + product_type ] );
     if ( ! Array.isArray( op_keys ) ) {
       op_keys = [];
     }
@@ -37,7 +37,7 @@ function check_for_op_key() {
       result =  true;
     }
   } else {
-    sessionStorage.op_keys = '';
+    sessionStorage[ 'op_keys_' + product_type ] = '';
   }
   return result;
 }
@@ -56,7 +56,7 @@ function showError( error = null ) {
 }
 
 function save_op_key( key ) {
-  var op_keys = (sessionStorage.op_keys) ? JSON.parse( sessionStorage.op_keys ) : [],
+  var op_keys = (sessionStorage[ 'op_keys_' + product_type ]) ? JSON.parse( sessionStorage[ 'op_keys_' + product_type ] ) : [],
       result = false;
   if ( ! Array.isArray( op_keys ) ) {
     op_keys = [];
@@ -69,8 +69,8 @@ function save_op_key( key ) {
   } else {
     op_keys[0] = key;
   }
-  sessionStorage.op_keys = JSON.stringify( op_keys );
-  if ( JSON.parse( sessionStorage.op_keys )[0] === key ) {
+  sessionStorage[ 'op_keys_' + product_type ] = JSON.stringify( op_keys );
+  if ( JSON.parse( sessionStorage[ 'op_keys_' + product_type ] )[0] === key ) {
     current_scoping_id = key;
     check_for_existing_scope( key );
     result = true;
@@ -176,8 +176,8 @@ function clear_field_values() {
 
 function clear_local_op_keys() {
   var result = false;
-  if ( sessionStorage.op_keys ) {
-    sessionStorage.op_keys = '';
+  if ( sessionStorage[ 'op_keys_' + product_type ] ) {
+    sessionStorage[ 'op_keys_' + product_type ] = '';
     result = true;
   }
   clear_field_values();
@@ -186,16 +186,16 @@ function clear_local_op_keys() {
 }
 
 function change_op_key() {
-  var op_keys = (sessionStorage.op_keys) ? JSON.parse( sessionStorage.op_keys ) : [],
+  var op_keys = (sessionStorage[ 'op_keys_' + product_type ]) ? JSON.parse( sessionStorage[ 'op_keys_' + product_type ] ) : [],
       result = false;;
   if ( op_keys[0] && op_keys[0] != '' ) {
     op_keys.unshift('');
-    sessionStorage.op_keys = JSON.stringify( op_keys );
+    sessionStorage[ 'op_keys_' + product_type ] = JSON.stringify( op_keys );
     result = true;
   } else {
 
   }
-  console.log(sessionStorage.op_keys);
+  console.log(sessionStorage[ 'op_keys_' + product_type ]);
   check_for_op_key();
   return true;
 }
