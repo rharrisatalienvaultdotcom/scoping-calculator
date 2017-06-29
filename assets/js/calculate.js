@@ -1,166 +1,166 @@
 var calculators = {
   'servers-domain_controller': function (  ) {
-    var result;
+    var result = {};
     if ( strct[ 'rvals' ]['servers-domain_controller'] > 0 ) {
-      result = strct[ 'rvals' ]['servers-domain_controller'] * 2 + ( strct[ 'grvals' ][ 'users' ] - strct[ 'rvals' ][ 'users-non_dom_users' ] ) / 6;
+      result[ 'calc' ] = strct[ 'rvals' ]['servers-domain_controller'] * 2 + ( strct[ 'grvals' ][ 'users' ] - strct[ 'rvals' ][ 'users-non_dom_users' ] ) / 6;
     } else {
-      result = 0;
+      result[ 'calc' ] = 0;
     }
-    return Math.round( result );
+    return result;
   },
   'servers-mx_servers': function (  ) {
-    var result;
+    var result = {};
     if ( strct[ 'rvals' ]['servers-mx_servers'] > 0 ) {
-      result = strct[ 'rvals' ]['servers-mx_servers'] * 2 + ( strct[ 'grvals' ][ 'users' ] - strct[ 'rvals' ][ 'users-non_dom_users' ] ) / 8;
+      result[ 'calc' ] = strct[ 'rvals' ]['servers-mx_servers'] * 2 + ( strct[ 'grvals' ][ 'users' ] - strct[ 'rvals' ][ 'users-non_dom_users' ] ) / 8;
     } else {
-      result = 0;
+      result[ 'calc' ] = 0;
     }
-    return Math.round( result );
+    return result;
   },
   'servers-file_servers': function (  ) {
-    var result;
+    var result = {};
     if ( strct[ 'rvals' ]['servers-file_servers'] > 0 ) {
-      result = strct[ 'rvals' ]['servers-file_servers'] * 2 + ( strct[ 'grvals' ][ 'users' ] - strct[ 'rvals' ][ 'users-non_dom_users' ] ) / 8;
+      result[ 'calc' ] = strct[ 'rvals' ]['servers-file_servers'] * 2 + ( strct[ 'grvals' ][ 'users' ] - strct[ 'rvals' ][ 'users-non_dom_users' ] ) / 8;
     } else {
-      result = 0;
+      result[ 'calc' ] = 0;
     }
-    return Math.round( result );
+    return result;
   },
   'servers-application_servers': function (  ) {
-    var result;
+    var result = {};
     if ( strct[ 'rvals' ]['servers-application_servers'] > 0 ) {
-      result = strct[ 'rvals' ]['servers-application_servers'] * 2 + ( strct[ 'grvals' ][ 'users' ] - strct[ 'rvals' ][ 'users-non_dom_users' ] ) / 8;
+      result[ 'calc' ] = strct[ 'rvals' ]['servers-application_servers'] * 2 + ( strct[ 'grvals' ][ 'users' ] - strct[ 'rvals' ][ 'users-non_dom_users' ] ) / 8;
     } else {
-      result = 0;
+      result[ 'calc' ] = 0;
     }
-    return Math.round( result );
+    return result;
   },
   'servers-db_servers': function (  ) {
-    var result;
+    var result = {};
     if ( strct[ 'rvals' ]['servers-db_servers'] > 0 ) {
-      result = strct[ 'rvals' ]['servers-db_servers'] * 2 + ( strct[ 'grvals' ][ 'users' ] - strct[ 'rvals' ][ 'users-non_dom_users' ] ) / 6;
+      result[ 'calc' ] = strct[ 'rvals' ]['servers-db_servers'] * 2 + ( strct[ 'grvals' ][ 'users' ] - strct[ 'rvals' ][ 'users-non_dom_users' ] ) / 6;
     } else {
-      result = 0;
+      result[ 'calc' ] = 0;
     }
-    return Math.round( result );
+    return result;
   },
   'servers-web_servers': function (  ) {
-    var result;
+    var result = {};
     if ( strct[ 'rvals' ]['servers-web_servers'] > 0 ) {
-      result = strct[ 'rvals' ]['servers-web_servers'] * 2 + ( strct[ 'grvals' ][ 'users' ]  / 8 );
+      result[ 'calc' ] = strct[ 'rvals' ]['servers-web_servers'] * 2 + ( strct[ 'grvals' ][ 'users' ]  / 8 );
     } else {
-      result = 0;
+      result[ 'calc' ] = 0;
     }
-    return Math.round( result );
+    return result;
   },
   'servers-endpoint_protection': function (  ) {
-    var result;
+    var result = {};
     if ( strct[ 'rvals' ]['servers-endpoint_protection'] > 0 ) {
-      result = strct[ 'rvals' ]['servers-endpoint_protection'] * 1 + ( strct[ 'grvals' ][ 'devices' ] + strct[ 'rrvals' ][ 'users' ] - strct[ 'rvals' ][ 'users-non_dom_users' ] ) / 25;
+      result[ 'calc' ] = strct[ 'rvals' ]['servers-endpoint_protection'] * 1 + ( strct[ 'grvals' ][ 'devices' ] + strct[ 'rrvals' ][ 'users' ] - strct[ 'rvals' ][ 'users-non_dom_users' ] ) / 25;
     } else {
-      result = 0;
+      result[ 'calc' ] = 0;
     }
-    return Math.round( result );
+    return result;
   },
   'servers-mail_archiver': function (  ) {
-    var result;
+    var result = {};
     if ( strct[ 'rvals' ]['servers-mail_archiver'] > 0 ) {
-      result = strct[ 'rvals' ]['servers-mail_archiver'] * 2 + ( strct[ 'grvals' ][ 'users' ] - strct[ 'rvals' ][ 'users-non_dom_users' ] ) / 8;
+      result[ 'calc' ] = strct[ 'rvals' ]['servers-mail_archiver'] * 2 + ( strct[ 'grvals' ][ 'users' ] - strct[ 'rvals' ][ 'users-non_dom_users' ] ) / 8;
     } else {
-      result = 0;
+      result[ 'calc' ] = 0;
     }
-    return Math.round( result );
+    return result;
   },
   'network_devices-firewalls': function (  ) {
-    var result;
+    var result = {};
     if ( strct[ 'rvals' ]['network_devices-firewalls'] > 0 ) {
-      result = strct[ 'rvals' ]['network_devices-firewalls'] * 4 + ( strct[ 'rtotal' ] / 4 ) + ( strct[ 'grvals' ][ 'users' ] / 8);
+      result[ 'calc' ] = strct[ 'rvals' ]['network_devices-firewalls'] * 4 + ( strct[ 'rtotal' ] / 4 ) + ( strct[ 'grvals' ][ 'users' ] / 8);
     } else {
-      result = 0;
+      result[ 'calc' ] = 0;
     }
-    return Math.round( result );
+    return result;
   },
   'network_devices-nips_nids': function (  ) {
-    var result;
+    var result = {};
     if ( strct[ 'rvals' ]['network_devices-nips_nids'] > 0 ) {
-      result = strct[ 'rvals' ]['network_devices-nips_nids'] * 4 + ( strct[ 'rtotal' ] / 4 );
+      result[ 'calc' ] = strct[ 'rvals' ]['network_devices-nips_nids'] * 4 + ( strct[ 'rtotal' ] / 4 );
     } else {
-      result = 0;
+      result[ 'calc' ] = 0;
     }
-    return Math.round( result );
+    return result;
   },
   'network_devices-vpns': function (  ) {
-    var result;
+    var result = {};
     if ( strct[ 'rvals' ]['network_devices-vpns'] > 0 ) {
-      result = strct[ 'rvals' ]['network_devices-vpns'] * 5 + ( strct[ 'rvals' ][ 'users-external_users' ] / 4 );
+      result[ 'calc' ] = strct[ 'rvals' ]['network_devices-vpns'] * 5 + ( strct[ 'rvals' ][ 'users-external_users' ] / 4 );
     } else {
-      result = 0;
+      result[ 'calc' ] = 0;
     }
-    return Math.round( result );
+    return result;
   },
   'network_devices-antispam': function (  ) {
-    var result;
+    var result = {};
     if ( strct[ 'rvals' ]['network_devices-antispam'] > 0 ) {
-      result = strct[ 'rvals' ]['network_devices-antispam'] * 5 + ( strct[ 'rtotal' ] + strct[ 'grvals' ][ 'users' ] ) / 8;
+      result[ 'calc' ] = strct[ 'rvals' ]['network_devices-antispam'] * 5 + ( strct[ 'rtotal' ] + strct[ 'grvals' ][ 'users' ] ) / 8;
     } else {
-      result = 0;
+      result[ 'calc' ] = 0;
     }
-    return Math.round( result );
+    return result;
   },
   'network_devices-access_control': function (  ) {
-    var result;
+    var result = {};
     if ( strct[ 'rvals' ]['network_devices-access_control'] > 0 ) {
-      result = strct[ 'rvals' ]['network_devices-access_control'] * 10 + ( strct[ 'grvals' ][ 'devices' ] + strct[ 'grvals' ][ 'servers' ] ) / 8;
+      result[ 'calc' ] = strct[ 'rvals' ]['network_devices-access_control'] * 10 + ( strct[ 'grvals' ][ 'devices' ] + strct[ 'grvals' ][ 'servers' ] ) / 8;
     } else {
-      result = 0;
+      result[ 'calc' ] = 0;
     }
-    return Math.round( result );
+    return result;
   },
   'network_devices-switches': function (  ) {
-    var result;
+    var result = {};
     if ( strct[ 'rvals' ]['network_devices-switches'] > 0 ) {
-      result = strct[ 'rvals' ]['network_devices-switches'] * 1 + ( strct[ 'rtotal' ] / 25 );
+      result[ 'calc' ] = strct[ 'rvals' ]['network_devices-switches'] * 1 + ( strct[ 'rtotal' ] / 25 );
     } else {
-      result = 0;
+      result[ 'calc' ] = 0;
     }
-    return Math.round( result );
+    return result;
   },
   'network_devices-routers': function (  ) {
-    var result;
+    var result = {};
     if ( strct[ 'rvals' ]['network_devices-routers'] > 0 ) {
-      result = strct[ 'rvals' ]['network_devices-routers'] * 1 + ( strct[ 'rtotal' ] / 25 );
+      result[ 'calc' ] = strct[ 'rvals' ]['network_devices-routers'] * 1 + ( strct[ 'rtotal' ] / 25 );
     } else {
-      result = 0;
+      result[ 'calc' ] = 0;
     }
-    return Math.round( result );
+    return result;
   },
   'network_devices-load_balancers': function (  ) {
-    var result;
+    var result = {};
     if ( strct[ 'rvals' ]['network_devices-load_balancers'] > 0 ) {
-      result = strct[ 'rvals' ]['network_devices-load_balancers'] * 10 + ( strct[ 'rtotal' ] / 25 );
+      result[ 'calc' ] = strct[ 'rvals' ]['network_devices-load_balancers'] * 10 + ( strct[ 'rtotal' ] / 25 );
     } else {
-      result = 0;
+      result[ 'calc' ] = 0;
     }
-    return Math.round( result );
+    return result;
   },
   'network_devices-web_filters': function (  ) {
-    var result;
+    var result = {};
     if ( strct[ 'rvals' ]['network_devices-web_filters'] > 0 ) {
-      result = strct[ 'rvals' ]['network_devices-web_filters'] * 5 + ( strct[ 'rtotal' ] / 8 );
+      result[ 'calc' ] = strct[ 'rvals' ]['network_devices-web_filters'] * 5 + ( strct[ 'rtotal' ] / 8 );
 
     } else {
-      result = 0;
+      result[ 'calc' ] = 0;
     }
-    return Math.round( result );
+    return result;
   },
   'network_devices-nas': function (  ) {
-    var result;
+    var result = {};
     if ( strct[ 'rvals' ]['network_devices-nas'] > 0 ) {
-      result = strct[ 'rvals' ]['network_devices-nas'] * 5 + ( strct[ 'grvals' ][ 'servers' ] / 25 );
+      result[ 'calc' ] = strct[ 'rvals' ]['network_devices-nas'] * 5 + ( strct[ 'grvals' ][ 'servers' ] / 25 );
     } else {
-      result = 0;
+      result[ 'calc' ] = 0;
     }
-    return Math.round( result );
+    return result;
   },
   'amazon_aws-cloudtrail_events': function (  ) {
     var result = {}
@@ -272,7 +272,7 @@ var calculators = {
     return result;
   },
   'on_prem_summary-domain_controllers-epm': function (  ) {
-    var result;
+    var result = {};
     result = strct[ 'rvals' ][ 'on_prem_summary-domain_controllers' ] * 2 + strct[ 'rvals' ][ 'on_prem_summary-users'] / 6;
     return result;
   },
@@ -288,7 +288,7 @@ var calculators = {
     return result;
   },
   'on_prem_summary-windows_servers-epm': function (  ) {
-    var result;
+    var result = {};
     result = strct[ 'rvals' ][ 'on_prem_summary-windows_servers' ] * 2 + strct[ 'rvals' ][ 'on_prem_summary-users'] / 6;
     return result;
   },
@@ -304,7 +304,7 @@ var calculators = {
     return result;
   },
   'on_prem_summary-linux_servers-epm': function (  ) {
-    var result;
+    var result = {};
     result = strct[ 'rvals' ][ 'on_prem_summary-linux_servers' ] * 2 + strct[ 'rvals' ][ 'on_prem_summary-users'] / 8;
     return result;
   },
@@ -320,7 +320,7 @@ var calculators = {
     return result;
   },
   'on_prem_summary-application_servers-epm': function (  ) {
-    var result;
+    var result = {};
     result = strct[ 'rvals' ][ 'on_prem_summary-application_servers' ] * 2 + strct[ 'rvals' ][ 'on_prem_summary-users'] / 8;
     return result;
   },
@@ -359,7 +359,7 @@ var calculators = {
     return result;
   },
   'on_prem_summary-switches_routers-epm': function (  ) {
-    var result;
+    var result = {};
     result = strct[ 'rvals' ][ 'on_prem_summary-switches_routers' ] * 4 + ( strct[ 'rtotal' ] / 4 );
     return result;
   },
@@ -375,13 +375,13 @@ var calculators = {
     return Math.round( result );
   },
   'estimate_storage': function ( eps = null, es = null ) {
-    if ( eps !== null && es !== null ) {
+    if ( !! eps  && !! es  ) {
       var result,
-          tf = ( strct[ 'rvals' ][ 'on_prem_summary-usage_pattern' ] == 1) ? 86400 : 43200 ;
+          tf = ( strct[ 'f' ][ strct[ 'fk' ][ 'on_prem_summary-usage_pattern' ] ][ 'options'][ 0 ][ 1 ] == strct[ 'rvals' ][ 'on_prem_summary-usage_pattern' ] ) ? 86400 : 43200 ;
       result = ( ( ( eps * es ) / 1024 ) * tf ) * 30 ;
     } else {
       result = null;
     }
-    return Math.round( result );
+    return result;
   }
 }

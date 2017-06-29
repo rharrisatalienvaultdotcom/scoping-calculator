@@ -23,6 +23,9 @@ class Appliance_alt extends CI_Controller {
     $this->load->view( 'body_open' );
     $this->load->view( 'tophat' );
     $this->load->view( 'wrapper_open' );
+    $this->load->view( 'script_open' );
+    $this->load->view( 'product_type', array( 'product_type' => $this->router->fetch_class() ) );
+    $this->load->view( 'script_close' );
     $this->load->view( 'field_section_start' );
     $this->load->view( 'field_list_start' );
     foreach ( $strct[ 'g' ] as $g ) {
@@ -70,8 +73,9 @@ class Appliance_alt extends CI_Controller {
     $this->load->view( 'appliance_recommendation_box' );
     $this->load->view( 'report_section_stop' );
     $this->load->view( 'wrapper_close' );
-    $this->load->view( 'offpage_js' );
+    $this->load->view( 'opportunity_getter', array( 'product' => 'A' . substr( $this->router->fetch_class(), 1, ( strpos( $this->router->fetch_class(), '_' ) - 1 ) ) ) );
     $this->load->view( 'onpage_js', array( 'strct' => json_encode( $strct ) ) );
+    $this->load->view( 'offpage_js' );
     $this->load->view( 'body_close' );
 
   }

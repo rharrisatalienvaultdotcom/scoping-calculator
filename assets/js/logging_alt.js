@@ -26,8 +26,8 @@ function check_for_op_key() {
   var op_keys,
       result = false;
 
-  if ( sessionStorage.op_keys ) {
-    op_keys = JSON.parse( sessionStorage.op_keys );
+  if ( sessionStorage[ "op_keys_" + product_type ] ) {
+    op_keys = JSON.parse( sessionStorage[ "op_keys_" + product_type ] );
     if ( ! Array.isArray( op_keys ) ) {
       op_keys = [];
     }
@@ -37,7 +37,7 @@ function check_for_op_key() {
       result =  true;
     }
   } else {
-    sessionStorage.op_keys = '';
+    sessionStorage[ "op_keys_" + product_type ] = '';
   }
   return result;
 }
@@ -53,7 +53,7 @@ function showError( error = null ) {
 }
 
 function save_op_key( key ) {
-  var op_keys = ( sessionStorage.op_keys ) ? JSON.parse( sessionStorage.op_keys ) : [],
+  var op_keys = ( sessionStorage[ "op_keys_" + product_type ] ) ? JSON.parse( sessionStorage[ "op_keys_" + product_type ] ) : [],
       result = false;
   if ( ! Array.isArray( op_keys ) ) {
     op_keys = [];
@@ -66,8 +66,11 @@ function save_op_key( key ) {
   } else {
     op_keys[0] = key;
   }
-  sessionStorage.op_keys = JSON.stringify( op_keys );
-  if ( JSON.parse( sessionStorage.op_keys )[0] === key ) {
+  if ( ! sessionStorage.op_keys ) {
+    sessionStorage.op_keys = '';
+  }
+  sessionStorage[ "op_keys_" + product_type ] = JSON.stringify( op_keys );
+  if ( JSON.parse( sessionStorage[ "op_keys_" + product_type ] )[0] === key ) {
     current_scoping_id = key;
     check_for_existing_scope( key );
     result = true;
@@ -109,8 +112,8 @@ function response_handler() {
       //response_code = response_code.replace('\\','');
       response_code = JSON.parse( response_code );
       //console.log( '( logging->response_handler ) Current response code: ' + response_code + ' (' + typeof( response_code ) + ');' );
-      console.log( response_code[0] );
-      console.log( JSON.parse( response_code[0]['data'] ) );
+      //console.log( response_code[0] );
+      //console.log( JSON.parse( response_code[0]['data'] ) );
       strct[ 'rvals' ] = JSON.parse( response_code[0][ 'data' ]);
       populate_field_values();
       console.log( 'Existing data for ' + current_scoping_id + ' found!' );
@@ -125,7 +128,6 @@ function populate_field_values() {
   for ( var f in strct[ 'rvals' ] ) {
     var elem = document.getElementById( f );
     if ( isNaN( Number( strct[ 'rvals' ][ f ] ) ) ) {
-      console.log( elem );
       for ( var o = 0 ; o < elem.options.length ; o++ ) {
         if ( elem.options[ o ].text == strct[ 'rvals' ][ f ] ) {
           elem.options[ o ].selected ='true';
@@ -147,8 +149,8 @@ function clear_field_values() {
 
 function clear_local_op_keys() {
   var result = false;
-  if ( sessionStorage.op_keys ) {
-    sessionStorage.op_keys = '';
+  if ( sessionStorage[ "op_keys_" + product_type ] ) {
+    sessionStorage[ "op_keys_" + product_type ] = '';
     result = true;
   }
   clear_field_values();
@@ -157,11 +159,11 @@ function clear_local_op_keys() {
 }
 
 function change_op_key() {
-  var op_keys = (sessionStorage.op_keys) ? JSON.parse( sessionStorage.op_keys ) : [],
+  var op_keys = (sessionStorage[ "op_keys_" + product_type ] ) ? JSON.parse( sessionStorage[ "op_keys_" + product_type ] ) : [],
       result = false;;
   if ( op_keys[0] && op_keys[0] != '' ) {
     op_keys.unshift('');
-    sessionStorage.op_keys = JSON.stringify( op_keys );
+    sessionStorage[ "op_keys_" + product_type ] = JSON.stringify( op_keys );
     result = true;
   } else {
 
