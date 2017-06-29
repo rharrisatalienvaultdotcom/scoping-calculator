@@ -180,7 +180,8 @@ function best_unit( num ) {
 }
 
 function commatize( num = 0 ) {
-  var num_array = String( num ).split( '' ),
+  var pre_array = String( num ).split( '.' ),
+    num_array = String( pre_array[ 0 ] ).split( '' ),
     res = '',
     n = 0;
   if ( typeof ( num ) === 'number' ) {
@@ -193,6 +194,7 @@ function commatize( num = 0 ) {
       }
       res = num_array.pop() + String( res );
     }
+    res = ( pre_array[ 1 ] ) ? res + '.' + pre_array[ 1 ] : res;
   } else {
     res = num;
   }
