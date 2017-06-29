@@ -87,7 +87,7 @@ function b_to_gb( b ) {
   return up_order( up_order( up_order( b ) ) );
 }
 function b_to_tb( b ) {
-
+  return up_order( up_order( up_order( up_order( b ) ) ) );
 }
 // KB functions
 function kb_to_mb( kb ) {
@@ -99,6 +99,9 @@ function kb_to_gb( kb ) {
 function kb_to_tb( kb ) {
   return up_order( up_order( up_order( kb ) ) );
 }
+function kb_to_b( kb ) {
+  return down_order( kb );
+}
 
 // MB functions
 function mb_to_gb( mb ) {
@@ -109,6 +112,9 @@ function mb_to_tb( mb ) {
 }
 function mb_to_kb( mb ) {
   return down_order( mb );
+}
+function mb_to_b( mb ) {
+  return down_order( down_order( mb ) );
 }
 
 // GB functions
@@ -134,6 +140,9 @@ function tb_to_mb( tb ) {
 }
 function tb_to_kb( tb ) {
   return down_order( down_order( down_order( tb ) ) );
+}
+function tb_to_b( tb ) {
+  return down_order( down_order( down_order( down_order( tb ) ) ) );
 }
 
 function up_order( num ) {
@@ -165,6 +174,8 @@ function best_unit( num ) {
       }
     }
     return num;
+  } else {
+   return 0;
   }
 }
 

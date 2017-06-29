@@ -61,6 +61,12 @@ class Calculator_alt_model extends CI_Model {
       $this->strct[ 'f' ][ $n ][ 'tab_order' ] = $n;
       $this->strct[ 'f' ][ $n ][ 'columns' ] = explode( '|', $row[ 'columns' ] );
       $this->strct[ 'f' ][ $n ][ 'default_vals' ] = explode( '|', $row[ 'default_vals' ] );
+      if ( $this->strct[ 'f' ][ $n ][ 'type' ] == 'select' ) {
+        $this->strct[ 'f' ][ $n ][ 'options' ] = explode( '|', $row[ 'options' ] );
+        for ( $o = 0; $o < count( $this->strct[ 'f' ][ $n ][ 'options' ] ) ; $o++ ) {
+          $this->strct[ 'f' ][ $n ][ 'options' ][ $o ] = explode( ':', $this->strct[ 'f' ][ $n ][ 'options' ][ $o ] );
+        }
+      }
       $this->strct[ 'fk' ][ $row[ 'parent' ] . "-" . $row[ 'handle' ] ] = $n;
       $this->strct[ 'gfk' ][ $this->strct[ 'gk' ][ $row[ 'parent' ] ] ][ $row[ 'position' ] ] = $n;
       $this->strct[ 'fgk' ][ $n ] = $this->strct[ 'gk' ][ $row[ 'parent' ] ];

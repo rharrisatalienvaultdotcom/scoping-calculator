@@ -30,6 +30,59 @@ function update_report() {
     }
     calc_total();
     check_display();
+    prettify_numbers();
+    make_recommendation();
+  }
+}
+
+function make_recommendation() {
+  var storage = strct[ 'ctotal' ][ 'stor' ] * 1.2,
+      instances = strct[ 'rvals' ][ 'amazon_aws-ecc_instances' ] + strct[ 'rvals' ][ 'microsoft_azure-subscription_ids' ],
+      locations = strct[ 'rvals' ][ 'on_prem_summary-locations_with_net_access'],
+      sensors = instances + locations,
+      storage_tier;
+
+      if ( b_to_gb( storage ) < 250 ) {
+        storage_tier = '250GB';
+      } else if ( b_to_gb( storage ) > 250 && b_to_gb( storage ) < 500 ) {
+        storage_tier = '500GB';
+      } else if ( b_to_gb( storage ) > 500 && b_to_tb( storage ) < 1 ) {
+        storage_tier = '1TB';
+      } else if ( b_to_tb( storage ) > 1 && b_to_tb( storage ) < 2 ) {
+        storage_tier = '2TB';
+      }
+      strct[ 'rec' ] = {};
+      strct[ 'rec' ][ 'sensors' ] = sensors;
+      strct[ 'rec' ][ 'storage_tier' ] = storage_tier;
+      if ( document.getElementById( 'reco_sensor_count' ) ) {
+        document.getElementById( 'reco_sensor_count' ).innerHTML = sensors;
+      }
+      if ( document.getElementById( 'reco_storage_tier' ) ) {
+        document.getElementById( 'reco_storage_tier' ).innerHTML = storage_tier;
+      }
+}
+
+function prettify_numbers() {
+  var rows = document.getElementsByClassName( 'report_row' );
+  for ( var r = 0; r < rows.length ; r++ ) {
+    var spans = rows[r].getElementsByTagName( 'span' );
+    spans[ 1 ].innerHTML = ( ! isNaN( Number( spans[ 1 ].innerHTML ) ) && ! spans[ 1 ].classList.contains( 'empty' ) ) ? round_pretty( Number( spans[ 1 ].innerHTML ) ) : spans[ 1 ].innerHTML;
+    spans[ 2 ].innerHTML = ( ! isNaN( Number( spans[ 2 ].innerHTML ) ) && ! spans[ 2 ].classList.contains( 'empty' ) ) ? round_pretty( Number( spans[ 2 ].innerHTML ) ) : spans[ 2 ].innerHTML;
+    spans[ 3 ].innerHTML = ( ! isNaN( Number( spans[ 3 ].innerHTML ) ) && ! spans[ 3 ].classList.contains( 'empty' ) ) ? best_unit( Number( spans[ 3 ].innerHTML ) ) : spans[ 3 ].innerHTML;
+  }
+  rows = document.getElementsByClassName( 'report_subtotal' );
+  for ( var r = 0; r < rows.length ; r++ ) {
+    var spans = rows[r].getElementsByTagName( 'span' );
+    spans[ 1 ].innerHTML = ( ! isNaN( Number( spans[ 1 ].innerHTML ) ) && ! spans[ 1 ].classList.contains( 'empty' ) ) ? round_pretty( Number( spans[ 1 ].innerHTML ) ) : spans[ 1 ].innerHTML;
+    spans[ 2 ].innerHTML = ( ! isNaN( Number( spans[ 2 ].innerHTML ) ) && ! spans[ 2 ].classList.contains( 'empty' ) ) ? round_pretty( Number( spans[ 2 ].innerHTML ) ) : spans[ 2 ].innerHTML;
+    spans[ 3 ].innerHTML = ( ! isNaN( Number( spans[ 3 ].innerHTML ) ) && ! spans[ 3 ].classList.contains( 'empty' ) ) ? best_unit( Number( spans[ 3 ].innerHTML ) ) : spans[ 3 ].innerHTML;
+  }
+  rows = document.getElementsByClassName( 'report_total' );
+  for ( var r = 0; r < rows.length ; r++ ) {
+    var spans = rows[r].getElementsByTagName( 'span' );
+    spans[ 1 ].innerHTML = ( ! isNaN( Number( spans[ 1 ].innerHTML ) ) && ! spans[ 1 ].classList.contains( 'empty' ) ) ? round_pretty( Number( spans[ 1 ].innerHTML ) ) : spans[ 1 ].innerHTML;
+    spans[ 2 ].innerHTML = ( ! isNaN( Number( spans[ 2 ].innerHTML ) ) && ! spans[ 2 ].classList.contains( 'empty' ) ) ? round_pretty( Number( spans[ 2 ].innerHTML ) ) : spans[ 2 ].innerHTML;
+    spans[ 3 ].innerHTML = ( ! isNaN( Number( spans[ 3 ].innerHTML ) ) && ! spans[ 3 ].classList.contains( 'empty' ) ) ? best_unit( Number( spans[ 3 ].innerHTML ) ) : spans[ 3 ].innerHTML;
   }
 }
 
@@ -48,8 +101,14 @@ function calc_total() {
   if( ! strct[ 'ctotal' ][ 'calc' ] ) {
     strct[ 'ctotal' ][ 'calc' ] = 0;
   }
+  if( ! strct[ 'ctotal' ][ 'stor' ] ) {
+    strct[ 'ctotal' ][ 'stor' ] = 0;
+  }
+  if( strct[ 'ctotal' ][ 'raw' ] ) {
+    strct[ 'ctotal' ][ 'calc' ] += strct[ 'ctotal' ][ 'raw' ];
+  }
   document.getElementById( 'report_total' ).getElementsByTagName( 'span' )[2].innerHTML = strct[ 'ctotal' ][ 'calc' ];
-  document.getElementById( 'report_total' ).getElementsByTagName( 'span' )[3].innerHTML = best_unit( strct[ 'ctotal' ][ 'stor' ] );
+  document.getElementById( 'report_total' ).getElementsByTagName( 'span' )[3].innerHTML = strct[ 'ctotal' ][ 'stor' ];
 }
 
 function raw_total() {
@@ -76,7 +135,7 @@ function calculate() {
           for ( var e = 0 ; e < row.length ; e++ ) {
             for ( var v in cvals ) {
               if ( row[ e ].classList.contains( v ) ) {
-                row[ e ].innerHTML = best_unit( cvals[ v ] );
+                row[ e ].innerHTML = cvals[ v ];
               }
             }
           }
@@ -141,7 +200,7 @@ function csum_group( gid = null ) {
         for ( var v in sum ) {
           fname = strct[ 'g' ][ strct[ 'gk' ][ gid ] ][ 'columns' ][ strct[ 'g' ][ strct[ 'gk' ][ gid ] ][ 'fcolumns' ].indexOf( v ) ].toLowerCase().replace( /\./g, '' ).replace( /\ /g, '_');
           if ( row[ e ].classList.contains( fname ) ) {
-            row[ e ].innerHTML = best_unit( sum[ v ] );
+            row[ e ].innerHTML = sum[ v ];
           }
         }
       }
@@ -160,8 +219,8 @@ function sync_inputs( fid = null, type = null ) {
         target.innerHTML = iElem.valueAsNumber;
         result = iElem.valueAsNumber;
       } else if ( type == 'select' ) {
-        target.innerHTML = iElem.options[ fid.selectedIndex ].text;
-        result = iElem.options[ fid.selectedIndex ].text;
+        target.innerHTML = iElem.options[ iElem.selectedIndex ].text;
+        result = iElem.options[ iElem.selectedIndex ].text;
       }
     }
   }
@@ -180,7 +239,7 @@ function check_display() {
           fn = strct[ 'f' ][ fid ][ 'handle' ],
           fv = document.getElementById( 'report_' + gn + '-' + fn + '_raw' );
           if( fv !== null ) {
-            if ( Number( fv.innerHTML.replace( /,/g, '' ) ) > 0 && Number( fv.innerHTML.replace( /,/g, '' ) ) !== 'NaN' ) {
+            if ( ( Number( fv.innerHTML.replace( /,/g, '' ) ) > 0 && ! isNaN(Number( fv.innerHTML.replace( /,/g, '' ) ) ) ) || strct[ 'f' ][ fid ][ 'type' ] == 'select' ){
               document.getElementById( 'report_' + gn + '-' + fn ).classList.remove( 'hidden' );
               t = 1;
               if ( strct[ 'f' ][ fid ][ 'sum' ] == '1' ) {

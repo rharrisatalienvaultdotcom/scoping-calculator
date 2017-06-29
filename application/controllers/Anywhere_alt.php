@@ -16,7 +16,7 @@ class Anywhere_alt extends CI_Controller {
 
     $this->load->view( 'head_open' );
     $this->load->view( 'favicon' );
-    $this->load->view( 'page_title', array( 'page_title' => 'USM Appliance! Scoping Calculator' ) );
+    $this->load->view( 'page_title', array( 'page_title' => 'USM Anywhere! Scoping Calculator' ) );
     $this->load->view( 'onpage_css' );
     $this->load->view( 'offpage_css' );
     $this->load->view( 'head_close' );
@@ -67,7 +67,7 @@ class Anywhere_alt extends CI_Controller {
     }
     $this->load->view( 'report_grand_total', array( 'headers' => $gtotal_headers ) );
     //$this->load->view( 'appliance_eps_table' );
-    //$this->load->view( 'appliance_recommendation_box' );
+    $this->load->view( 'anywhere_recommend_box' );
     $this->load->view( 'report_section_stop' );
     $this->load->view( 'wrapper_close' );
     $this->load->view( 'offpage_js' );

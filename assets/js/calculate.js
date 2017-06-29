@@ -166,7 +166,9 @@ var calculators = {
     var result = {}
         es = 2048;
     result[ 'stor' ] = 0;
+        result[ 'raw' ] = 0;
     if ( strct[ 'rvals' ][ 'amazon_aws-cloudtrail_events' ] > 0 ) {
+      result[ 'raw' ] = strct[ 'rvals' ][ 'amazon_aws-cloudtrail_events' ];
       result[ 'stor' ] = calculators[ 'estimate_storage' ]( strct[ 'rvals' ][ 'amazon_aws-cloudtrail_events' ], es );
     }
     return result;
@@ -175,7 +177,9 @@ var calculators = {
     var result = {},
         es = 340;
         result[ 'stor' ] = 0;
+        result[ 'raw' ] = 0;
     if ( strct[ 'rvals' ][ 'amazon_aws-ecc_requests' ] > 0 ) {
+      result[ 'raw' ] = strct[ 'rvals' ][ 'amazon_aws-ecc_requests' ];
       result[ 'stor' ] = calculators[ 'estimate_storage' ]( strct[ 'rvals' ][ 'amazon_aws-ecc_requests' ], es );
     }
     return result;
@@ -184,7 +188,9 @@ var calculators = {
     var result = {},
         es = 800;
         result[ 'stor' ] = 0;
+        result[ 'raw' ] = 0;
     if ( strct[ 'rvals' ][ 'amazon_aws-sss_requests' ] > 0 ) {
+      result[ 'raw' ] = strct[ 'rvals' ][ 'amazon_aws-sss_requests' ];
       result[ 'stor' ] = calculators[ 'estimate_storage' ]( strct[ 'rvals' ][ 'amazon_aws-sss_requests' ], es );
     }
     return result;
@@ -193,7 +199,9 @@ var calculators = {
     var result = {},
         es = 800;
         result[ 'stor' ] = 0;
+        result[ 'raw' ] = 0;
     if ( strct[ 'rvals' ][ 'amazon_aws-elb_requests' ] > 0 ) {
+      result[ 'raw' ] = strct[ 'rvals' ][ 'amazon_aws-elb_requests' ];
       result[ 'stor' ] = calculators[ 'estimate_storage' ]( strct[ 'rvals' ][ 'amazon_aws-elb_requests' ], es );
     }
     return result;
@@ -212,7 +220,9 @@ var calculators = {
     var result = {},
         es = 800;
         result[ 'stor' ] = 0;
+        result[ 'raw' ] = 0;
     if ( strct[ 'rvals' ][ 'microsoft_azure-log_analytics_requests' ] > 0 ) {
+      result[ 'raw' ] = strct[ 'rvals' ][ 'microsoft_azure-log_analytics_requests' ];
       result[ 'stor' ] = calculators[ 'estimate_storage' ]( strct[ 'rvals' ][ 'microsoft_azure-log_analytics_requests' ], es );
     }
     return result;
@@ -221,7 +231,9 @@ var calculators = {
     var result = {},
         es = 800;
         result[ 'stor' ] = 0;
+        result[ 'raw' ] = 0;
     if ( strct[ 'rvals' ][ 'microsoft_azure-application_insights_requests' ] > 0 ) {
+      result[ 'raw' ] = strct[ 'rvals' ][ 'microsoft_azure-application_insights_requests' ];
       result[ 'stor' ] = calculators[ 'estimate_storage' ]( strct[ 'rvals' ][ 'microsoft_azure-application_insights_requests' ], es );
     }
     return result;
@@ -230,7 +242,9 @@ var calculators = {
     var result = {},
         es = 800;
         result[ 'stor' ] = 0;
+        result[ 'raw' ] = 0;
     if ( strct[ 'rvals' ][ 'microsoft_azure-storage_events' ] > 0 ) {
+      result[ 'raw' ] = strct[ 'rvals' ][ 'microsoft_azure-storage_events' ];
       result[ 'stor' ] = calculators[ 'estimate_storage' ]( strct[ 'rvals' ][ 'microsoft_azure-storage_events' ], es );
     }
     return result;
@@ -239,7 +253,9 @@ var calculators = {
     var result = {},
         es = 800;
         result[ 'stor' ] = 0;
+        result[ 'raw' ] = 0;
     if ( strct[ 'rvals' ][ 'microsoft_azure-load_balancing_events' ] > 0 ) {
+      result[ 'raw' ] = strct[ 'rvals' ][ 'microsoft_azure-load_balancing_events' ];
       result[ 'stor' ] = calculators[ 'estimate_storage' ]( strct[ 'rvals' ][ 'microsoft_azure-load_balancing_events' ], es );
     }
     return result;
@@ -250,7 +266,7 @@ var calculators = {
         result[ 'calc' ] = 0;
         result[ 'stor' ] = 0;
     if ( strct[ 'rvals' ][ 'on_prem_summary-domain_controllers' ] > 0 ) {
-      result[ 'calc' ] = strct[ 'rvals' ][ 'on_prem_summary-domain_controllers' ];
+      result[ 'calc' ] = calculators[ 'on_prem_summary-domain_controllers-epm' ]();
       result[ 'stor' ] = calculators[ 'estimate_storage' ]( result[ 'calc' ], es );
     }
     return result;
@@ -266,7 +282,7 @@ var calculators = {
         result[ 'calc' ] = 0;
         result[ 'stor' ] = 0;
     if ( strct[ 'rvals' ][ 'on_prem_summary-windows_servers' ] > 0 ) {
-      result[ 'calc' ] = strct[ 'rvals' ][ 'on_prem_summary-windows_servers' ];
+      result[ 'calc' ] = calculators[ 'on_prem_summary-windows_servers-epm' ]();
       result[ 'stor' ] = calculators[ 'estimate_storage' ]( result[ 'calc' ], es );
     }
     return result;
@@ -282,7 +298,7 @@ var calculators = {
         result[ 'calc' ] = 0;
         result[ 'stor' ] = 0;
     if ( strct[ 'rvals' ][ 'on_prem_summary-linux_servers' ] > 0 ) {
-      result[ 'calc' ] = strct[ 'rvals' ][ 'on_prem_summary-linux_servers' ];
+      result[ 'calc' ] = calculators[ 'on_prem_summary-linux_servers-epm' ]();
       result[ 'stor' ] = calculators[ 'estimate_storage' ]( result[ 'calc' ], es );
     }
     return result;
@@ -298,7 +314,7 @@ var calculators = {
         result[ 'calc' ] = 0;
         result[ 'stor' ] = 0;
     if ( strct[ 'rvals' ][ 'on_prem_summary-application_servers' ] > 0 ) {
-      result[ 'calc' ] = strct[ 'rvals' ][ 'on_prem_summary-application_servers' ];
+      result[ 'calc' ] = calculators[ 'on_prem_summary-application_servers-epm' ]();
       result[ 'stor' ] = calculators[ 'estimate_storage' ]( result[ 'calc' ], es );
     }
     return result;
@@ -313,9 +329,8 @@ var calculators = {
         es = 800;
         result[ 'calc' ] = 0;
         result[ 'stor' ] = 0;
-        es = 800;
     if ( strct[ 'rvals' ][ 'on_prem_summary-firewalls' ] > 0 ) {
-      result[ 'calc' ] = strct[ 'rvals' ][ 'on_prem_summary-firewalls' ];
+      result[ 'calc' ] = calculators[ 'on_prem_summary-firewalls-epm' ]();
       result[ 'stor' ] = calculators[ 'estimate_storage' ]( result[ 'calc' ], es );
     }
     return result;
@@ -326,7 +341,7 @@ var calculators = {
         dc = strct[ 'rvals' ][ 'on_prem_summary-domain_controllers' ],
         ws = strct[ 'rvals' ][ 'on_prem_summary-windows_servers' ],
         ls = strct[ 'rvals' ][ 'on_prem_summary-linux_servers' ],
-        as = strct[ 'rvals' ][ 'on_prem_summary-application_servers-epm' ],
+        as = strct[ 'rvals' ][ 'on_prem_summary-application_servers' ],
         ond = 0,
         wst = strct[ 'rvals' ][ 'on_prem_summary-workstations' ];
     result = fw * 4 + ( dc + ws + ls + as + ond / 4 ) + (wst / 8 );
@@ -338,7 +353,7 @@ var calculators = {
         result[ 'calc' ] = 0;
         result[ 'stor' ] = 0;
     if ( strct[ 'rvals' ][ 'on_prem_summary-switches_routers' ] > 0 ) {
-      result[ 'calc' ] = strct[ 'rvals' ][ 'on_prem_summary-switches_routers' ];
+      result[ 'calc' ] = calculators[ 'on_prem_summary-switches_routers-epm' ]();
       result[ 'stor' ] = calculators[ 'estimate_storage' ]( result[ 'calc' ], es );
     }
     return result;
