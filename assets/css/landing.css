@@ -3,7 +3,7 @@ body {
   height:100%;
   overflow:hidden;
   position:relative;
-  background-color:#d8dfe4;
+  background-color:darkgrey;
 }
 a {
   padding:50px;
@@ -86,5 +86,21 @@ img.appliance {
   padding-left:250px;
   padding-top:30px;
   padding-bottom:30px;
+}
+#background_wrapper {
+  position:absolute;
+  display:block;
+  box-sizing:border-box;
+  width:50%;
+  height:100vh;
+  top:-10vh;
+  left:-15%;
+  background:url(/assets/img/favicon.small.green.png);
+  background-size: 120%;
+  background-repeat: no-repeat;
+  background-color:darkgrey;
+  filter: blur( 10px );
+  -webkit-filter: blur( 10px );
+  z-index:-1;
 }
 

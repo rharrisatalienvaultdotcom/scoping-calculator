@@ -1,1 +1,1 @@
-    <div id="wrapper">
+    <div id="wrapper" class="blur">

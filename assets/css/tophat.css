@@ -1,12 +1,12 @@
 #tophat {
   position:relative;
+  display:block;
   width:100%;
   height:3vw;
   background-color:darkgray;
   z-index:10;
   box-shadow: 0 0 5px 2px black;
   padding:.5vw 1vw;
-  font-size:2vw;
 }
 
 #back {
@@ -16,4 +16,20 @@
   border-left: .5vw solid lightgrey;
   border-bottom: .5vw solid lightgrey;
   transform: rotate(45deg);
+  margin-top:.25vw;
+}
+
+#message_area,
+#change_link {
+  font-size: .6em;
+  margin: 0 .25vw;
+}
+
+#message_area_wrapper {
+  position:absolute;
+  right:2vw
+}
+
+#message_area_wrapper > a:visited {
+  color:blue;
 }

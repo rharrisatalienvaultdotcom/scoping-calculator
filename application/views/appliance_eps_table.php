@@ -1,14 +1,9 @@
 <div id="eps_table_wrapper">
   <div id="eps_header_row" class="row">
-    <span id="header_a" class="eps_header label">&nbsp;</span>
-    <span id="header_b" class="eps_header col">Est. Events</span>
-    <span id="header_c" class="eps_header col joined">Est. Storage</span>
-  </div>
-  <div id="eps_subheader_row" class="row">
     <span id="subheader_a" class="eps_subheader label">&nbsp;</span>
-    <span id="subheader_b" class="eps_subheader col">&nbsp;</span>
-    <span id="subheader_c" class="eps_subheader col">Raw</span>
-    <span id="subheader_d" class="eps_subheader col">Compressed</span>
+    <span id="subheader_b" class="eps_subheader col">Est. Events</span>
+    <span id="subheader_c" class="eps_subheader col">Est. Storage (Raw)</span>
+    <span id="subheader_d" class="eps_subheader col">Est. Storage (Compressed)</span>
   </div>
   <div id="eps_second_row" class="eps_odd row">
     <span id="second_a" class="eps_row label">Events/Second</span>

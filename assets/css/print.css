@@ -9,84 +9,186 @@
   height:0;
   position:absolute;
 }
-
-#field_section > dl {
-  display:none;
-  width:0;
-  height:0;
-  position:absolute;
-}
-
-#field_section > dl > div {
-  display:none;
-  width:0;
-  height:0;
-  position:absolute;
-}
-#field_section > dl > div > dt {
-  display:none;
-  width:0;
-  height:0;
-  position:absolute;
-}
-#field_section > dl > div > dd {
-  display:none;
-  width:0;
-  height:0;
-  position:absolute;
-}
-#field_section > dl > div > dd > form {
-  display:none;
-  width:0;
-  height:0;
-  position:absolute;
-}
-#field_section > dl > div > dd > form > label {
-  display:none;
-  width:0;
-  height:0;
-  position:absolute;
-}
-#field_section > dl > div > dd > form > label > p {
-  display:none;
-  width:0;
-  height:0;
-  position:absolute;
-}
-
-#field_section > dl > div > dd > form > div {
-  display:none;
-  width:0;
-  height:0;
-  position:absolute;
-}
-
-#field_section > dl > div > dd > form > div > svg {
-  display:none;
-  width:0;
-  height:0;
-  position:absolute;
-}
-
-#field_section > dl > div > dd > form > div > input {
-  display:none;
-  width:0;
-  height:0;
-  position:absolute;
-}
-
-#report_section {
-  width:100%;
-  float:none;
-  position:absolute;
-  background-color:red;
-  left:0;
-}
-#report_inner_wrapper {
-  width:100%;
-}
 #wrapper {
-  height:auto;
-  overflow:scroll;
   background-color:transparent;
 }
+#report_section {
+  width:100%;
+}
+#report_inner_wrapper {
+  background-color:white;
+  position:relative;
+  box-sizing:border-box;
+  margin:1vw;
+  padding:1vw 1vw 1vw 1vw;
+  box-shadow: 0 0 5px 2px black;
+  transition: filter 600ms;
+}
+
+#report_header {
+  border-bottom:1px solid black;
+}
+
+#report_header > img {
+  height:4.55vw;
+  max-height:73px;
+}
+
+#report_header > img:first-child {
+  /*width: 108px;
+  height: 73px;*/
+  margin: 0 .5vw;
+  width:6.75vw;
+  max-width:108px;
+}
+
+#report_header > img + img {
+  border-left: 1px solid red;
+  padding: 0 1vw;
+  width:6.55vw;
+  max-width:103px;
+}
+
+#report_title {
+  display:inline-block;
+  margin:1vw 0 0 0;
+  position:absolute !important;
+  font-size:2.25em;
+}
+
+#report_date {
+  position:absolute !important;
+  right:2vw;
+  top:1vw;
+}
+
+h2.group_label {
+  padding:.5vw;
+  margin:3vw 0 0 0;
+  border-bottom: 1px solid grey;
+}
+
+.report_column_headers {
+  margin:1vw 0 0 0;
+  padding:0 .5vw .5vw .5vw;
+  border-bottom:1px solid red;
+}
+
+span.col,
+span.label {
+  position:relative;
+  display:inline-block;
+  padding:.25vw .5vw;
+}
+
+span.col {
+  width:19%;
+  margin:0;
+}
+
+span.col.value {
+  padding-right:1.5vw;
+}
+
+div.report_subtotal > span.col,
+div.report_total > span.col {
+  padding-right:1.5vw;
+}
+
+span.col,
+span.report_subtotal_label,
+span.report_total_label {
+  text-align:right;
+}
+
+span.label {
+  width:40%;
+}
+span.field.label {
+  text-align:left;
+}
+
+div.row {
+  padding:.125vw;
+}
+
+div.report_subtotal {
+  border-top:1px solid grey;
+}
+
+div.report_total_headers {
+  margin-top:2vw;
+  padding-top: 4vw ;
+  border-top:1px solid black;
+}
+div.report_total,
+div.report_total_headers {
+  border-bottom:1px solid black;
+}
+
+#eps_table_wrapper {
+  margin:5vw 1vw;
+  position:relative;
+}
+
+#eps_table_wrapper > div.row {
+padding:0 .125vw;
+}
+
+#eps_table_wrapper > div > span.col {
+  width:27%;
+}
+
+#eps_table_wrapper > div > span.eps_row.col {
+  padding-right:2vw;
+}
+
+#eps_table_wrapper > div > span:first-child {
+  border-right:1px solid grey;
+  width:16%;
+}
+
+#recommendation_box h3 {
+  text-align:center;
+}
+
+#eps_header_row {
+  background-color: darkgray;
+  color:white;
+  position:relative;
+}
+
+div.eps_odd {
+  background-color:lightgrey;
+}
+
+#recommendation_box {
+  position:relative;
+  width:80%;
+  margin:2vw auto 4vw auto;
+  border:1vw solid grey;
+}
+
+#recommendation_box h3 {
+  margin:1vw;
+  border-bottom:1px solid black
+}
+
+#recommendation_box p {
+  position:relative;
+  padding-left:1vw;
+}
+#recommendation_box span {
+  position:absolute;
+  right: 2vw;
+}
+
+.hidden {
+  display:none;
+}
+
+.blur {
+  -webkit-filter: blur( 10px );
+  filter: blur( 10px );
+}
+

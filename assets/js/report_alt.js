@@ -282,3 +282,5 @@ function check_display() {
     document.getElementById( 'report_inner_wrapper' ).classList.add( 'blur' );
   }
 }
+
+update_report();

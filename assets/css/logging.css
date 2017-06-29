@@ -1,0 +1,69 @@
+#op_key_requester {
+  position: fixed;
+  display: block;
+  top:0px;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#op_key_inner_box {
+  position: relative;
+  display: block;
+  width: 33%;
+  margin: 15% auto 0px;
+  padding: 3vw 3vw;
+}
+#op_key_inner_box > img {
+  border: 1px solid black;
+  border-radius:1vw;
+  padding:1vw .5vw 1vw .7vw;
+  margin-bottom:2vw;
+  filter: invert( 100%);
+  -webkit-filter: invert( 100%);
+}
+
+#op_key_inner_box > input[type="url"] {
+  width:100%;
+  padding:.3vw;
+  border-radius:.5vw;
+  border:0px solid black;
+  margin:.5vw 0;
+  font-size:.9em;
+}
+
+#op_key_inner_box > input[type="url"]:focus,
+#op_key_inner_box > input[type="url"]:active {
+  box-shadow:0 0 0 0;
+  outline:none;
+}
+
+#op_key_inner_box > input[type="button"] {
+  height:2.5vw;
+  width:6vw;
+  font-size:1em;
+  border-radius:.5vw;
+}
+
+#op_key_inner_box > input[type="button"].submit {
+  position:absolute;
+  right:3vw;
+}
+
+#op_key_inner_box > input[type="button"].cancel {
+  position:absolute;
+  left:3vw;
+}
+
+#op_key_inner_box > div:first-of-type {
+  color:white;
+}
+
+#op_key_inner_box > div:last-of-type {
+  position:relative;
+  margin:.6vw 0;
+  color:red;
+  text-align:center;
+  font-size:1.5em;
+}

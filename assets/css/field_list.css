@@ -26,13 +26,45 @@ dt {
 
 dd {
   margin: 0;
-  padding: 0;
+  padding: 0 .5vw;
   -webkit-margin-start:0;
 }
 
-dd + dd {
-  /*
-  border-top: 1px solid #CCC;
+dd > form {
+  box-sizing:border-box;
+  margin:0 auto;
+  width:90%;
+  position:relative;
+  padding:0;
+}
+
+dd > form > p {
+  display:inline-block;
+  width:60%;
+  box-sizing:border-box;
+  margin:1vw 0;
+}
+
+dd > form > p > label {
+  user-select:none;
+  box-sizing:border-box;
+  position:relative;
+  display:inline-block;
+  font-size:1em;
+  word-wrap:normal;
+  width:100%;
+}
+
+dd ~ dd > form {
  border-top: 1px solid black;
-  */
+}
+
+div.input_wrapper {
+  box-sizing:border-box;
+  position:absolute;
+  padding:0;
+  top:.5vw;
+  margin-bottom:1vw;
+  right:0;
+  line-height:0px;
 }

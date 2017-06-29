@@ -1,23 +1,4 @@
-form > label > p {
-  user-select:none;
-  position:relative;
-  margin:.25vw 0;
-  vertical-align:top;
-  padding:.25vw;
-  font-size:1em;
-  line-height:1.125vw;
-  word-wrap:normal;
-}
 
-form > p > label {
-  position:relative;
-  width:100%;
-}
-
-form > p {
-  display:inline-block;
-  width:60%;
-}
 
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
@@ -25,42 +6,65 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 input[type="number"] {
   background-color:rgba( 255, 255, 255, 0 );
+  box-sizing:border-box;
   display:inline-block;
   position:relative;
   text-align:center;
-  height:100%;
-  width:7.5em;
-  padding:.5em 0;
-  top:-.69em;
-  margin:0;
+  width:7.5vw;
+  padding:.45em 0;
+  margin:0 2.2vw;
   border:0;
   font-size:1em;
+  line-height:0px;
+  height:2vw;
   box-shadow:0 0 5px 2px black inset;
 }
-form {
-  margin:.5vw auto;
-  padding: 1vw 0;
-  user-select:none;
-  width:90%;
-  position:relative;
-}
-dd ~ dd > form {
-  border-top:1px solid black;
-}
-div.input_wrapper {
+div.button {
   position:absolute;
-  height:2em;
-  top:1vw;
-  right:0;
+  box-sizing:border-box;
+  border:1px solid darkgray;
+  border-radius:2vw;
+  display:inline-block;
+  height:2vw;
+  width:2vw;
 }
-svg {
-  margin:0;
-  position:relative;
-  user-select:none;
-  cursor:default;
+div.button:active {
+  background-color:white;
 }
-svg.plus {
+.button.minus {
+  left:0px;
 }
-svg.minus {
-  float:left;
+.button.minus::before {
+  content: '';
+  width: 1.4vw;
+  height: .1vw;
+  border-top: .1vw solid black;
+  display: block;
+  position: absolute;
+  margin-top: .9vw;
+  margin-left: .25vw;
 }
+.button.plus {
+  right:0px;
+}
+.button.plus::before {
+  content: '';
+  width: 1.4vw;
+  height: .1vw;
+  border-top: .1vw solid black;
+  display: block;
+  position: absolute;
+  margin-top: .9vw;
+  margin-left: .25vw;
+}
+.button.plus::after {
+  content: '';
+  box-sizing:border-box;
+  width: .1vw;
+  height: 1.4vw;
+  border-right: .1vw solid black;
+  display: block;
+  position: absolute;
+  margin-top: .25vw;
+  margin-left: .9vw;
+  }

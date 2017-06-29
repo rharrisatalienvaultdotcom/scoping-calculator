@@ -78,4 +78,13 @@
         width:0px;
       }
 
+      .hidden {
+        display:none !important;
+      }
+
+      .blur {
+        -webkit-filter: blur( 10px ) !important;
+        filter: blur( 10px ) !important;
+      }
+
     </style>
