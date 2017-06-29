@@ -163,8 +163,9 @@ var calculators = {
     return result;
   },
   'amazon_aws-cloudtrail_events': function (  ) {
-    var result = {}
-        es = 2048;
+    var result = {},
+       // es = 2048;
+        es = 800;
     result[ 'stor' ] = 0;
         result[ 'raw' ] = 0;
     if ( strct[ 'rvals' ][ 'amazon_aws-cloudtrail_events' ] > 0 ) {

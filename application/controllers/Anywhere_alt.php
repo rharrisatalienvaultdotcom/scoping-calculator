@@ -42,6 +42,7 @@ class Anywhere_alt extends CI_Controller {
     $this->load->view( 'report_section_start' );
     $this->load->view( 'report_header', array( 'product' => 'A' . substr( $this->router->fetch_class(), 1, ( strpos( $this->router->fetch_class(), '_' ) - 1 ) ) ) );
     $gtotal_headers = array( 0 => '', 1 => '', 2 => '');
+    $gtotal_fcolumns = array( 0 => '', 1 => '', 2 => '');
     foreach ( $strct[ 'g' ] as $g ) {
         $this->load->view( 'report_group_title', $g );
         foreach ( $strct[ 'gfk' ][ $g[ 'position' ] ] as $gfk ) {
@@ -64,11 +65,12 @@ class Anywhere_alt extends CI_Controller {
             $i = 0;
             foreach ( $g[ 'columns' ] as $col ) {
                 $gtotal_headers[ $i ] = ( $gtotal_headers[ $i ] == '' ) ? $col : $gtotal_headers[ $i ];
+                $gtotal_fcolumns[ $i ] = ( $gtotal_fcolumns[ $i ] == '' ) ? $g[ 'fcolumns' ][ $i ] : $gtotal_fcolumns[ $i ];
                 $i++;
             }
         }
     }
-    $this->load->view( 'report_grand_total', array( 'headers' => $gtotal_headers ) );
+    $this->load->view( 'report_grand_total', array( 'headers' => $gtotal_headers, 'fcolumns' => $gtotal_fcolumns ) );
     //$this->load->view( 'appliance_eps_table' );
     $this->load->view( 'anywhere_recommend_box' );
     $this->load->view( 'report_section_stop' );

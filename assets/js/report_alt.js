@@ -50,6 +50,24 @@ function make_recommendation() {
         storage_tier = '1TB';
       } else if ( b_to_tb( storage ) > 1 && b_to_tb( storage ) < 2 ) {
         storage_tier = '2TB';
+      } else if ( b_to_tb( storage ) > 2 && b_to_tb( storage ) < 3 ) {
+        storage_tier = '3TB';
+      } else if ( b_to_tb( storage ) > 3 && b_to_tb( storage ) < 4 ) {
+        storage_tier = '4TB';
+      } else if ( b_to_tb( storage ) > 4 && b_to_tb( storage ) < 5 ) {
+        storage_tier = '5TB';
+      } else if ( b_to_tb( storage ) > 5 && b_to_tb( storage ) < 6 ) {
+        storage_tier = '6TB';
+      } else if ( b_to_tb( storage ) > 6 && b_to_tb( storage ) < 7 ) {
+        storage_tier = '7TB';
+      } else if ( b_to_tb( storage ) > 7 && b_to_tb( storage ) < 8 ) {
+        storage_tier = '8TB';
+      } else if ( b_to_tb( storage ) > 8 && b_to_tb( storage ) < 9 ) {
+        storage_tier = '9TB';
+      } else if ( b_to_tb( storage ) > 9 && b_to_tb( storage ) < 10 ) {
+        storage_tier = '10TB';
+      } else {
+        storage_tier = best_unit( storage );
       }
       strct[ 'rec' ] = {};
       strct[ 'rec' ][ 'sensors' ] = sensors;
@@ -66,8 +84,8 @@ function prettify_numbers() {
   var rows = document.getElementsByClassName( 'report_row' );
   for ( var r = 0; r < rows.length ; r++ ) {
     var spans = rows[r].getElementsByTagName( 'span' );
-    spans[ 1 ].innerHTML = ( ! isNaN( Number( spans[ 1 ].innerHTML ) ) && ! spans[ 1 ].classList.contains( 'empty' ) ) ? round_pretty( Number( spans[ 1 ].innerHTML ) ) : spans[ 1 ].innerHTML;
-    spans[ 2 ].innerHTML = ( ! isNaN( Number( spans[ 2 ].innerHTML ) ) && ! spans[ 2 ].classList.contains( 'empty' ) ) ? round_pretty( Number( spans[ 2 ].innerHTML ) ) : spans[ 2 ].innerHTML;
+    spans[ 1 ].innerHTML = ( ! isNaN( Number( spans[ 1 ].innerHTML ) ) && ! spans[ 1 ].classList.contains( 'empty' ) ) ? commatize( round_pretty( Number( spans[ 1 ].innerHTML ) ) ) : spans[ 1 ].innerHTML;
+    spans[ 2 ].innerHTML = ( ! isNaN( Number( spans[ 2 ].innerHTML ) ) && ! spans[ 2 ].classList.contains( 'empty' ) ) ? commatize( round_pretty( Number( spans[ 2 ].innerHTML ) ) ) : spans[ 2 ].innerHTML;
     if ( ! isNaN( Number( spans[ 3 ].innerHTML ) ) && ! spans[ 3 ].classList.contains( 'empty' ) ) {
      if ( spans[ 3 ].classList.contains( 'stor' ) ) {
       spans[ 3 ].innerHTML = best_unit( Number( spans[ 3 ].innerHTML ) );
@@ -79,8 +97,8 @@ function prettify_numbers() {
   rows = document.getElementsByClassName( 'report_subtotal' );
   for ( var r = 0; r < rows.length ; r++ ) {
     var spans = rows[r].getElementsByTagName( 'span' );
-    spans[ 1 ].innerHTML = ( ! isNaN( Number( spans[ 1 ].innerHTML ) ) && ! spans[ 1 ].classList.contains( 'empty' ) ) ? round_pretty( Number( spans[ 1 ].innerHTML ) ) : spans[ 1 ].innerHTML;
-    spans[ 2 ].innerHTML = ( ! isNaN( Number( spans[ 2 ].innerHTML ) ) && ! spans[ 2 ].classList.contains( 'empty' ) ) ? round_pretty( Number( spans[ 2 ].innerHTML ) ) : spans[ 2 ].innerHTML;
+    spans[ 1 ].innerHTML = ( ! isNaN( Number( spans[ 1 ].innerHTML ) ) && ! spans[ 1 ].classList.contains( 'empty' ) ) ? commatize( round_pretty( Number( spans[ 1 ].innerHTML ) ) ) : spans[ 1 ].innerHTML;
+    spans[ 2 ].innerHTML = ( ! isNaN( Number( spans[ 2 ].innerHTML ) ) && ! spans[ 2 ].classList.contains( 'empty' ) ) ? commatize( round_pretty( Number( spans[ 2 ].innerHTML ) ) ) : spans[ 2 ].innerHTML;
     if ( ! isNaN( Number( spans[ 3 ].innerHTML ) ) && ! spans[ 3 ].classList.contains( 'empty' ) ) {
      if ( spans[ 3 ].classList.contains( 'stor' ) ) {
       spans[ 3 ].innerHTML = best_unit( Number( spans[ 3 ].innerHTML ) )
@@ -92,8 +110,8 @@ function prettify_numbers() {
   rows = document.getElementsByClassName( 'report_total' );
   for ( var r = 0; r < rows.length ; r++ ) {
     var spans = rows[r].getElementsByTagName( 'span' );
-    spans[ 1 ].innerHTML = ( ! isNaN( Number( spans[ 1 ].innerHTML ) ) && ! spans[ 1 ].classList.contains( 'empty' ) ) ? round_pretty( Number( spans[ 1 ].innerHTML ) ) : spans[ 1 ].innerHTML;
-    spans[ 2 ].innerHTML = ( ! isNaN( Number( spans[ 2 ].innerHTML ) ) && ! spans[ 2 ].classList.contains( 'empty' ) ) ? round_pretty( Number( spans[ 2 ].innerHTML ) ) : spans[ 2 ].innerHTML;
+    spans[ 1 ].innerHTML = ( ! isNaN( Number( spans[ 1 ].innerHTML ) ) && ! spans[ 1 ].classList.contains( 'empty' ) ) ? commatize( round_pretty( Number( spans[ 1 ].innerHTML ) ) ) : spans[ 1 ].innerHTML;
+    spans[ 2 ].innerHTML = ( ! isNaN( Number( spans[ 2 ].innerHTML ) ) && ! spans[ 2 ].classList.contains( 'empty' ) ) ? commatize( round_pretty( Number( spans[ 2 ].innerHTML ) ) ) : spans[ 2 ].innerHTML;
     if ( ! isNaN( Number( spans[ 3 ].innerHTML ) ) && ! spans[ 3 ].classList.contains( 'empty' ) ) {
      if ( spans[ 3 ].classList.contains( 'stor' ) ) {
       spans[ 3 ].innerHTML = best_unit( Number( spans[ 3 ].innerHTML ) )
