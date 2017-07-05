@@ -1,7 +1,7 @@
 (function() {
   if ( check_storage_compatibility() ) {
     if ( check_for_op_key() ) {
-      notification( 'Scoping data loaded for record url ' + current_scoping_id + '.' );
+      //notification( 'Scoping data loaded for record url ' + current_scoping_id + '.' );
     } else {
       ask_for_op_key();
     }
@@ -86,45 +86,50 @@ function check_for_existing_scope( key = null ) {
 }
 
 function response_handler() {
-    //console.log( '( logging->response_handler ) Current response code: ' + response_code + ' (' + typeof( response_code ) + ');' );
-    if ( Number( response_code ) == 0 ) {
+    console.log( '( logging->response_handler ) Current response code: ' + response_code + ' (' + typeof( response_code ) + ');' );
+    response_code = JSON.parse( response_code );
+    if ( Number( response_code[ 'code' ] ) == 0 ) {
       console.log( 'No entry exists for this scoping id, but no data provided.' );
-      save_log();
-    } else if ( Number( response_code ) == 1 ) {
+      clear_field_values();
+      update_report();
+    } else if ( Number( response_code[ 'code' ] ) == 1 ) {
       console.log( 'Entry created for this scoping id successfully' );
       console.log( '( logging->response_handler ) Current response code: ' + response_code + ' (' + typeof( response_code ) + ');' );
       destroyPopup();
-      notification( 'Scoping data saved for record url ' + current_scoping_id + '.' );
-    } else if ( Number( response_code ) == 2 ) {
+      notification( 'Current Scope: ' + current_scoping_id + '<br />Created: '  + response_code[ 'created' ] + ' -- Updated: ' + response_code[ 'updated' ] );
+    } else if ( Number( response_code[ 'code' ] ) == 2 ) {
       console.log( 'Entry updated for this scoping id successfully' );
       console.log( '( logging->response_handler ) Current response code: ' + response_code + ' (' + typeof( response_code ) + ');' );
       destroyPopup();
-      notification( 'Scoping data updated for record url ' + current_scoping_id + '.' );
-    } else if ( Number( response_code ) == 3 ) {
+      notification( 'Current Scope: ' + current_scoping_id + '<br />Created: '  + response_code[ 'created' ] + ' -- Updated: ' + response_code[ 'updated' ] );
+    } else if ( Number( response_code[ 'code' ] ) == 3 ) {
       console.log( 'Unable create this scoping id successfully' );
       console.log( '( logging->response_handler ) Current response code: ' + response_code + ' (' + typeof( response_code ) + ');' );
       destroyPopup();
-    } else if ( Number( response_code ) == 4 ) {
+    } else if ( Number( response_code[ 'code' ] ) == 4 ) {
       console.log( 'Unable to update this scoping id successfully' );
       console.log( '( logging->response_handler ) Current response code: ' + response_code + ' (' + typeof( response_code ) + ');' );
       destroyPopup();
-    } else {
+    } else if( Number( response_code[ 'code' ] ) == 5 ) {
       //response_code = response_code.replace('\\','');
-      response_code = JSON.parse( response_code );
+      //response_code = JSON.parse( response_code );
       //console.log( '( logging->response_handler ) Current response code: ' + response_code + ' (' + typeof( response_code ) + ');' );
-      //console.log( response_code[0] );
+      console.log( response_code );
       //console.log( JSON.parse( response_code[0]['data'] ) );
-      strct[ 'rvals' ] = JSON.parse( response_code[0][ 'data' ]);
+      strct[ 'rvals' ] = JSON.parse( response_code[ 'data' ]);
+      //clear_field_values();
       populate_field_values();
+      update_report( false );;
       console.log( 'Existing data for ' + current_scoping_id + ' found!' );
       destroyPopup();
-      notification( 'Current Scope: ' + current_scoping_id + ' - Created: '  + response_code[0][ 'timestamp' ].split( ' ' )[0] );
+      notification( 'Current Scope: ' + current_scoping_id + '<br />Created: '  + response_code[ 'created' ] + ' -- Updated: ' + response_code[ 'updated' ] );
     }
     //console.log( field_values );
 }
 
 function populate_field_values() {
   console.log( 'Populating fields with loaded values' );
+  console.log( strct[ 'rvals' ] );
   for ( var f in strct[ 'rvals' ] ) {
     var elem = document.getElementById( f );
     if ( isNaN( Number( strct[ 'rvals' ][ f ] ) ) ) {
@@ -142,9 +147,10 @@ function populate_field_values() {
 function clear_field_values() {
   console.log( 'Clearing field values' );
   for ( var f in strct[ 'rvals' ] ) {
-    strct[ 'rvals' ][ f ] = strct[ 'f' ][ strct[ 'fk' ][ f ] ][ 'default_vals' ][ strct[ 'f' ][ strct[ 'fk' ][ f ] ][ 'default_vals' ].indexOf( 'raw' ) ];
+    strct[ 'rvals' ][ f ] = strct[ 'f' ][ strct[ 'fk' ][ f ] ][ 'default_vals' ][ strct[ 'f' ][ strct[ 'fk' ][ f ] ][ 'columns' ].indexOf( 'raw' ) ];
   }
-  update_report();
+  populate_field_values();
+  update_report( false );
 }
 
 function clear_local_op_keys() {
@@ -168,6 +174,7 @@ function change_op_key() {
   } else {
 
   }
+  clear_field_values();
   console.log(sessionStorage.op_keys);
   check_for_op_key();
   return true;

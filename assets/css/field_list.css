@@ -11,10 +11,11 @@ dl {
 }
 
 dt {
-  background: #B8C1C8;
+  background-color: #45515b;
   border-bottom: 1px solid #989EA4;
   border-top: 1px solid #717D85;
-  color: #FFF;
+  font-weight:700;
+  color: #f4f7fa;
   margin: 0;
   padding:1vw;
   font-size: 2em;
@@ -28,6 +29,9 @@ dd {
   margin: 0;
   padding: 0 .5vw;
   -webkit-margin-start:0;
+  font-family:Museo_Slab;
+  font-weight:100;
+  font-size:1em;
 }
 
 dd > form {
@@ -35,14 +39,14 @@ dd > form {
   margin:0 auto;
   width:90%;
   position:relative;
-  padding:0;
+  padding:0;`
 }
 
 dd > form > p {
   display:inline-block;
   width:60%;
   box-sizing:border-box;
-  margin:1vw 0;
+  margin:.5vw 0 1.5vw 0;
 }
 
 dd > form > p > label {
@@ -56,14 +60,14 @@ dd > form > p > label {
 }
 
 dd ~ dd > form {
- border-top: 1px solid black;
+ border-top: 1px solid #27cdf1;
 }
 
 div.input_wrapper {
   box-sizing:border-box;
   position:absolute;
   padding:0;
-  top:.5vw;
+  top:.63vw;
   margin-bottom:1vw;
   right:0;
   line-height:0px;

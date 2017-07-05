@@ -26,7 +26,7 @@
 }
 
 #report_header > img + img {
-  border-left: 1px solid red;
+  border-left: 1px solid #e84b36;
   padding: 0 1vw;
   width:6.55vw;
   max-width:103px;

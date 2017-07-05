@@ -1,4 +1,4 @@
-function update_report() {
+function update_report( save = true ) {
   //console.log( 'update_report() called!' );
   //logoa.src += document.URL.split('/').pop().split('_')[0].replace(/\w\S*/g, function( txt ) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); } );
   if ( strct ) {
@@ -32,6 +32,9 @@ function update_report() {
     check_display();
     prettify_numbers();
     make_recommendation();
+    if ( typeof( save_log ) == 'function' && save === true ) {
+      save_log();
+    }
   }
 }
 

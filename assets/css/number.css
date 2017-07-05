@@ -5,31 +5,33 @@ input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 input[type="number"] {
-  background-color:rgba( 255, 255, 255, 0 );
+  background-color:#f4f7fa;
+  color:#45515b;
   box-sizing:border-box;
+  font-family:Museo_Slab;
+  font-weight:100;
   display:inline-block;
   position:relative;
-  text-align:center;
+  text-align:right;
   width:7.5vw;
-  padding:.45em 0;
+  padding:.45em .5em .45em 0;
   margin:0 2.2vw;
-  border:0;
-  font-size:1em;
+  border:2px solid #00B3DC;
+  font-size:.8em;
   line-height:0px;
   height:2vw;
-  box-shadow:0 0 5px 2px black inset;
 }
 div.button {
   position:absolute;
   box-sizing:border-box;
-  border:1px solid darkgray;
+  border:1px solid #00B3DC;
   border-radius:2vw;
   display:inline-block;
   height:2vw;
   width:2vw;
 }
 div.button:active {
-  background-color:white;
+  background-color:#27cdf1;
 }
 .button.minus {
   left:0px;
@@ -38,7 +40,7 @@ div.button:active {
   content: '';
   width: 1.4vw;
   height: .1vw;
-  border-top: .1vw solid black;
+  border-top: .1vw solid #00B3DC;
   display: block;
   position: absolute;
   margin-top: .9vw;
@@ -51,7 +53,7 @@ div.button:active {
   content: '';
   width: 1.4vw;
   height: .1vw;
-  border-top: .1vw solid black;
+  border-top: .1vw solid #00B3DC;
   display: block;
   position: absolute;
   margin-top: .9vw;
@@ -62,7 +64,7 @@ div.button:active {
   box-sizing:border-box;
   width: .1vw;
   height: 1.4vw;
-  border-right: .1vw solid black;
+  border-right: .1vw solid #00B3DC;
   display: block;
   position: absolute;
   margin-top: .25vw;

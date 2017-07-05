@@ -274,7 +274,7 @@ var calculators = {
   },
   'on_prem_summary-domain_controllers-epm': function (  ) {
     var result = {};
-    result = strct[ 'rvals' ][ 'on_prem_summary-domain_controllers' ] * 2 + strct[ 'rvals' ][ 'on_prem_summary-users'] / 6;
+    result = strct[ 'rvals' ][ 'on_prem_summary-domain_controllers' ] * 2 + ( strct[ 'rvals' ][ 'on_prem_summary-users'] - strct[ 'rvals' ][ 'on_prem_summary-non_dom_users' ] ) / 6;
     return result;
   },
   'on_prem_summary-windows_servers': function (  ) {
@@ -290,7 +290,7 @@ var calculators = {
   },
   'on_prem_summary-windows_servers-epm': function (  ) {
     var result = {};
-    result = strct[ 'rvals' ][ 'on_prem_summary-windows_servers' ] * 2 + strct[ 'rvals' ][ 'on_prem_summary-users'] / 6;
+    result = strct[ 'rvals' ][ 'on_prem_summary-windows_servers' ] * 2 + ( strct[ 'rvals' ][ 'on_prem_summary-users'] - strct[ 'rvals' ][ 'on_prem_summary-non_dom_users' ] ) / 6;
     return result;
   },
   'on_prem_summary-linux_servers': function (  ) {
@@ -306,7 +306,7 @@ var calculators = {
   },
   'on_prem_summary-linux_servers-epm': function (  ) {
     var result = {};
-    result = strct[ 'rvals' ][ 'on_prem_summary-linux_servers' ] * 2 + strct[ 'rvals' ][ 'on_prem_summary-users'] / 8;
+    result = strct[ 'rvals' ][ 'on_prem_summary-linux_servers' ] * 2 + ( strct[ 'rvals' ][ 'on_prem_summary-users'] - strct[ 'rvals' ][ 'on_prem_summary-non_dom_users' ] ) / 8;
     return result;
   },
   'on_prem_summary-application_servers': function (  ) {
@@ -322,7 +322,7 @@ var calculators = {
   },
   'on_prem_summary-application_servers-epm': function (  ) {
     var result = {};
-    result = strct[ 'rvals' ][ 'on_prem_summary-application_servers' ] * 2 + strct[ 'rvals' ][ 'on_prem_summary-users'] / 8;
+    result = strct[ 'rvals' ][ 'on_prem_summary-application_servers' ] * 2 + ( strct[ 'rvals' ][ 'on_prem_summary-users'] - strct[ 'rvals' ][ 'on_prem_summary-non_dom_users' ] ) / 8;
     return result;
   },
   'on_prem_summary-firewalls': function (  ) {

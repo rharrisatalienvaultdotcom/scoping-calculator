@@ -5,7 +5,135 @@
 
       @font-face {
         font-family:ProximaNova;
+        src: url("/assets/fonts/ProximaNova-Thin.otf");
+        font-weight:100;
+        font-style:normal;
+      }
+
+      @font-face {
+        font-family:ProximaNova;
+        src: url("/assets/fonts/ProximaNova-Light.otf");
+        font-weight:200;
+        font-style:normal;
+      }
+
+      @font-face {
+        font-family:ProximaNova;
+        src: url("/assets/fonts/ProximaNova-Reg.otf");
+        font-weight:normal;
+        font-style:normal;
+      }
+
+      @font-face {
+        font-family:ProximaNova;
         src: url("/assets/fonts/ProximaNova-Sbold.otf");
+        font-weight:600;
+        font-style:normal;
+      }
+
+      @font-face {
+        font-family:ProximaNova;
+        src: url("/assets/fonts/ProximaNova-Bold.otf");
+        font-weight:700;
+        font-style:normal;
+      }
+
+      @font-face {
+        font-family:ProximaNova;
+        src: url("/assets/fonts/ProximaNova-Xbold.otf");
+        font-weight:800;
+        font-style:normal;
+      }
+
+      @font-face {
+        font-family:ProximaNova;
+        src: url("/assets/fonts/ProximaNova-Black.otf");
+        font-weight:600;
+        font-style:normal;
+      }
+
+      @font-face {
+        font-family:Museo_Slab;
+        src: url("/assets/fonts/Museo_Slab_100.otf");
+        font-weight:100;
+        font-style:normal;
+      }
+
+      @font-face {
+        font-family:Museo_Slab;
+        src: url("/assets/fonts/Museo_Slab_100italic.otf");
+        font-weight:100;
+        font-style:italic;
+      }
+
+      @font-face {
+        font-family:Museo_Slab;
+        src: url("/assets/fonts/Museo_Slab_300.otf");
+        font-weight:300;
+        font-style:normal;
+      }
+
+      @font-face {
+        font-family:Museo_Slab;
+        src: url("/assets/fonts/Museo_Slab_300italic.otf");
+        font-weight:300;
+        font-style:italic;
+      }
+
+      @font-face {
+        font-family:Museo_Slab;
+        src: url("/assets/fonts/Museo_Slab_500.otf");
+        font-weight:500;
+        font-style:normal;
+      }
+
+      @font-face {
+        font-family:Museo_Slab;
+        src: url("/assets/fonts/Museo_Slab_500italic.otf");
+        font-weight:500;
+        font-style:italic;
+      }
+
+      @font-face {
+        font-family:Museo_Slab;
+        src: url("/assets/fonts/Museo_Slab_700.otf");
+        font-weight:700;
+        font-style:normal;
+      }
+
+      @font-face {
+        font-family:Museo_Slab;
+        src: url("/assets/fonts/Museo_Slab_700italic.otf");
+        font-weight:700;
+        font-style:italic;
+      }
+
+      @font-face {
+        font-family:Museo_Slab;
+        src: url("/assets/fonts/Museo_Slab_900.otf");
+        font-weight:900;
+        font-style:normal;
+      }
+
+      @font-face {
+        font-family:Museo_Slab;
+        src: url("/assets/fonts/Museo_Slab_900italic.otf");
+        font-weight:900;
+        font-style:italic;
+      }
+
+      @font-face {
+        font-family:Museo_Slab;
+        src: url("/assets/fonts/Museo_Slab_1000.otf");
+        font-weight:1000;
+        font-style:normal;
+      }
+
+      @font-face {
+        font-family:Museo_Slab;
+        src: url("/assets/fonts/Museo_Slab_1000italic.otf");
+        font-weight:1000;
+        font-style:italic;
       }
 
       body {
@@ -23,13 +151,14 @@
 
       #wrapper {
         position:relative;
-        background-color:lightgray;
+        background-color:#f4f7fa;
         height: calc(100vh - 3vw);
         overflow:hidden;
       }
 
       #field_section {
-        background-color:white;
+        background-color:#ecf9fe;
+        color:#015697;
         padding:0px;
         top:0px;
         height:calc(100vh - 3vw);

@@ -3,7 +3,7 @@
   display:block;
   width:100%;
   height:3vw;
-  background-color:darkgray;
+  background-color:#525e68;
   z-index:10;
   box-shadow: 0 0 5px 2px black;
   padding:.5vw 1vw;
@@ -13,8 +13,8 @@
   display:inline-block;
   width: 1.5vw;
   height: 1.5vw;
-  border-left: .5vw solid lightgrey;
-  border-bottom: .5vw solid lightgrey;
+  border-left: .5vw solid #6CC219;
+  border-bottom: .5vw solid #6CC219;
   transform: rotate(45deg);
   margin-top:.25vw;
 }
@@ -22,14 +22,29 @@
 #message_area,
 #change_link {
   font-size: .6em;
-  margin: 0 .25vw;
+}
+
+#message_area {
+  width:30vw;
+  color:white;
 }
 
 #message_area_wrapper {
   position:absolute;
-  right:2vw
+  right:2vw;
+  width:25vw;
+}
+
+#message_area_wrapper > a {
+  color:#00B3DC;
+  display:inline-block;
+  position:absolute;
+  padding:.25vw;
+  height:100%;
+  right:0;
+  top:0;
 }
 
 #message_area_wrapper > a:visited {
-  color:blue;
+  color:#00B3DC;
 }
