@@ -93,36 +93,45 @@ function response_handler() {
       clear_field_values();
       update_report();
     } else if ( Number( response_code[ 'code' ] ) == 1 ) {
-      console.log( 'Entry created for this scoping id successfully' );
-      console.log( '( logging->response_handler ) Current response code: ' + response_code + ' (' + typeof( response_code ) + ');' );
+      //console.log( 'Entry created for this scoping id successfully' );
+      //console.log( '( logging->response_handler ) Current response code: ' + response_code + ' (' + typeof( response_code ) + ');' );
       destroyPopup();
-      notification( 'Current Scope: ' + current_scoping_id + '<br />Created: '  + response_code[ 'created' ] + ' -- Updated: ' + response_code[ 'updated' ] );
+      if ( current_scoping_id.indexOf( 'salesforce.com' ) !== -1 ) {
+        current_scoping_id = '<a href="' + current_scoping_id.replace( '-' + product_type, '' ) + '" target="_blank">' + current_scoping_id + '</a>';
+      }
+      notification( 'Current Scope: ' + current_scoping_id + ' :: <a href="#" id="change_link" onclick="( function( el ) { clear_local_op_keys(); } )( this )">(Change)</a><br />Created: '  + response_code[ 'created' ] + ' -- Updated: ' + response_code[ 'updated' ] );
     } else if ( Number( response_code[ 'code' ] ) == 2 ) {
-      console.log( 'Entry updated for this scoping id successfully' );
-      console.log( '( logging->response_handler ) Current response code: ' + response_code + ' (' + typeof( response_code ) + ');' );
+      //console.log( 'Entry updated for this scoping id successfully' );
+      //console.log( '( logging->response_handler ) Current response code: ' + response_code + ' (' + typeof( response_code ) + ');' );
       destroyPopup();
-      notification( 'Current Scope: ' + current_scoping_id + '<br />Created: '  + response_code[ 'created' ] + ' -- Updated: ' + response_code[ 'updated' ] );
+      if ( current_scoping_id.indexOf( 'salesforce.com' ) !== -1 ) {
+        current_scoping_id = '<a href="' + current_scoping_id.replace( '-' + product_type, '' ) + '" target="_blank">' + current_scoping_id + '</a>';
+      }
+      notification( 'Current Scope: ' + current_scoping_id + ' :: <a href="#" id="change_link" onclick="( function( el ) { clear_local_op_keys(); } )( this )">(Change)</a><br />Created: '  + response_code[ 'created' ] + ' -- Updated: ' + response_code[ 'updated' ] );
     } else if ( Number( response_code[ 'code' ] ) == 3 ) {
-      console.log( 'Unable create this scoping id successfully' );
-      console.log( '( logging->response_handler ) Current response code: ' + response_code + ' (' + typeof( response_code ) + ');' );
+      //console.log( 'Unable create this scoping id successfully' );
+      //console.log( '( logging->response_handler ) Current response code: ' + response_code + ' (' + typeof( response_code ) + ');' );
       destroyPopup();
     } else if ( Number( response_code[ 'code' ] ) == 4 ) {
-      console.log( 'Unable to update this scoping id successfully' );
-      console.log( '( logging->response_handler ) Current response code: ' + response_code + ' (' + typeof( response_code ) + ');' );
+      //console.log( 'Unable to update this scoping id successfully' );
+      //console.log( '( logging->response_handler ) Current response code: ' + response_code + ' (' + typeof( response_code ) + ');' );
       destroyPopup();
     } else if( Number( response_code[ 'code' ] ) == 5 ) {
       //response_code = response_code.replace('\\','');
       //response_code = JSON.parse( response_code );
       //console.log( '( logging->response_handler ) Current response code: ' + response_code + ' (' + typeof( response_code ) + ');' );
-      console.log( response_code );
+      //console.log( response_code );
       //console.log( JSON.parse( response_code[0]['data'] ) );
       strct[ 'rvals' ] = JSON.parse( response_code[ 'data' ]);
       //clear_field_values();
       populate_field_values();
       update_report( false );;
-      console.log( 'Existing data for ' + current_scoping_id + ' found!' );
+      //console.log( 'Existing data for ' + current_scoping_id + ' found!' );
       destroyPopup();
-      notification( 'Current Scope: ' + current_scoping_id + '<br />Created: '  + response_code[ 'created' ] + ' -- Updated: ' + response_code[ 'updated' ] );
+      if ( current_scoping_id.indexOf( 'salesforce.com' ) !== -1 ) {
+        current_scoping_id = '<a href="' + current_scoping_id.replace( '-' + product_type, '' ) + '" target="_blank">' + current_scoping_id + '</a>';
+      }
+      notification( 'Current Scope: ' + current_scoping_id + ' :: <a href="#" id="change_link" onclick="( function( el ) { clear_local_op_keys(); } )( this )">(Change)</a><br />Created: '  + response_code[ 'created' ] + ' -- Updated: ' + response_code[ 'updated' ] );
     }
     //console.log( field_values );
 }

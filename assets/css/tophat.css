@@ -31,20 +31,15 @@
 
 #message_area_wrapper {
   position:absolute;
-  right:2vw;
-  width:25vw;
+  right:15vw;
 }
 
-#message_area_wrapper > a {
+#message_area > a {
   color:#00B3DC;
   display:inline-block;
-  position:absolute;
-  padding:.25vw;
-  height:100%;
-  right:0;
-  top:0;
+
 }
 
-#message_area_wrapper > a:visited {
+#message_area > a:visited {
   color:#00B3DC;
 }
