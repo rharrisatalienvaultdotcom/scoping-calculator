@@ -166,47 +166,56 @@ var calculators = {
     var result = {},
        // es = 2048;
         //es = 800;
-        es = 200;
+        //es = 200;
+        es = 204800;
     result[ 'stor' ] = 0;
         result[ 'raw' ] = 0;
     if ( strct[ 'rvals' ][ 'amazon_aws-cloudtrail_events' ] > 0 ) {
       result[ 'raw' ] = strct[ 'rvals' ][ 'amazon_aws-cloudtrail_events' ];
-      result[ 'stor' ] = calculators[ 'estimate_storage' ]( strct[ 'rvals' ][ 'amazon_aws-cloudtrail_events' ], es );
+      result[ 'stor' ] = result[ 'raw' ] * es;
+      //result[ 'stor' ] = calculators[ 'estimate_storage' ]( strct[ 'rvals' ][ 'amazon_aws-cloudtrail_events' ], es );
     }
     return result;
   },
   'amazon_aws-ecc_requests': function (  ) {
     var result = {},
-        es = 340;
+        //es = 340;
+        //es = 200;
+        es = 204800;
         result[ 'stor' ] = 0;
         result[ 'raw' ] = 0;
     if ( strct[ 'rvals' ][ 'amazon_aws-ecc_requests' ] > 0 ) {
       result[ 'raw' ] = strct[ 'rvals' ][ 'amazon_aws-ecc_requests' ];
-      result[ 'stor' ] = calculators[ 'estimate_storage' ]( strct[ 'rvals' ][ 'amazon_aws-ecc_requests' ], es );
+      result[ 'stor' ] = result[ 'raw' ] * es;
+      //result[ 'stor' ] = calculators[ 'estimate_storage' ]( strct[ 'rvals' ][ 'amazon_aws-ecc_requests' ], es );
     }
     return result;
   },
   'amazon_aws-sss_requests': function (  ) {
     var result = {},
         //es = 800;
-        es = 200;
+        //es = 200;
+        es = 204800;
         result[ 'stor' ] = 0;
         result[ 'raw' ] = 0;
     if ( strct[ 'rvals' ][ 'amazon_aws-sss_requests' ] > 0 ) {
       result[ 'raw' ] = strct[ 'rvals' ][ 'amazon_aws-sss_requests' ];
-      result[ 'stor' ] = calculators[ 'estimate_storage' ]( strct[ 'rvals' ][ 'amazon_aws-sss_requests' ], es );
+      result[ 'stor' ] = result[ 'raw' ] * es;
+      //result[ 'stor' ] = calculators[ 'estimate_storage' ]( strct[ 'rvals' ][ 'amazon_aws-sss_requests' ], es );
     }
     return result;
   },
   'amazon_aws-elb_requests': function (  ) {
     var result = {},
         //es = 800;
-        es = 200;
+        //es = 200;
+        es = 204800;
         result[ 'stor' ] = 0;
         result[ 'raw' ] = 0;
     if ( strct[ 'rvals' ][ 'amazon_aws-elb_requests' ] > 0 ) {
       result[ 'raw' ] = strct[ 'rvals' ][ 'amazon_aws-elb_requests' ];
-      result[ 'stor' ] = calculators[ 'estimate_storage' ]( strct[ 'rvals' ][ 'amazon_aws-elb_requests' ], es );
+      result[ 'stor' ] = result[ 'raw' ] * es;
+      //result[ 'stor' ] = calculators[ 'estimate_storage' ]( strct[ 'rvals' ][ 'amazon_aws-elb_requests' ], es );
     }
     return result;
   },
@@ -223,48 +232,56 @@ var calculators = {
   'microsoft_azure-log_analytics_requests': function (  ) {
     var result = {},
         //es = 800;
-        es = 200;
+        //es = 200;
+        es = 204800;
         result[ 'stor' ] = 0;
         result[ 'raw' ] = 0;
     if ( strct[ 'rvals' ][ 'microsoft_azure-log_analytics_requests' ] > 0 ) {
       result[ 'raw' ] = strct[ 'rvals' ][ 'microsoft_azure-log_analytics_requests' ];
-      result[ 'stor' ] = calculators[ 'estimate_storage' ]( strct[ 'rvals' ][ 'microsoft_azure-log_analytics_requests' ], es );
+      result[ 'stor' ] = result[ 'raw' ] * es;
+      //result[ 'stor' ] = calculators[ 'estimate_storage' ]( strct[ 'rvals' ][ 'microsoft_azure-log_analytics_requests' ], es );
     }
     return result;
   },
   'microsoft_azure-application_insights_requests': function (  ) {
     var result = {},
         //es = 800;
-        es = 200;
+        //es = 200;
+        es = 204800;
         result[ 'stor' ] = 0;
         result[ 'raw' ] = 0;
     if ( strct[ 'rvals' ][ 'microsoft_azure-application_insights_requests' ] > 0 ) {
       result[ 'raw' ] = strct[ 'rvals' ][ 'microsoft_azure-application_insights_requests' ];
-      result[ 'stor' ] = calculators[ 'estimate_storage' ]( strct[ 'rvals' ][ 'microsoft_azure-application_insights_requests' ], es );
+      result[ 'stor' ] = result[ 'raw' ] * es;
+      //result[ 'stor' ] = calculators[ 'estimate_storage' ]( strct[ 'rvals' ][ 'microsoft_azure-application_insights_requests' ], es );
     }
     return result;
   },
   'microsoft_azure-storage_events': function (  ) {
     var result = {},
         //es = 800;
-        es = 200;
+        //es = 200;
+        es = 204800;
         result[ 'stor' ] = 0;
         result[ 'raw' ] = 0;
     if ( strct[ 'rvals' ][ 'microsoft_azure-storage_events' ] > 0 ) {
       result[ 'raw' ] = strct[ 'rvals' ][ 'microsoft_azure-storage_events' ];
-      result[ 'stor' ] = calculators[ 'estimate_storage' ]( strct[ 'rvals' ][ 'microsoft_azure-storage_events' ], es );
+      result[ 'stor' ] = result[ 'raw' ] * es;
+      //result[ 'stor' ] = calculators[ 'estimate_storage' ]( strct[ 'rvals' ][ 'microsoft_azure-storage_events' ], es );
     }
     return result;
   },
   'microsoft_azure-load_balancing_events': function (  ) {
     var result = {},
         //es = 800;
-        es = 200;
+        //es = 200;
+        es = 204800;
         result[ 'stor' ] = 0;
         result[ 'raw' ] = 0;
     if ( strct[ 'rvals' ][ 'microsoft_azure-load_balancing_events' ] > 0 ) {
       result[ 'raw' ] = strct[ 'rvals' ][ 'microsoft_azure-load_balancing_events' ];
-      result[ 'stor' ] = calculators[ 'estimate_storage' ]( strct[ 'rvals' ][ 'microsoft_azure-load_balancing_events' ], es );
+      result[ 'stor' ] = result[ 'raw' ] * es;
+      //result[ 'stor' ] = calculators[ 'estimate_storage' ]( strct[ 'rvals' ][ 'microsoft_azure-load_balancing_events' ], es );
     }
     return result;
   },

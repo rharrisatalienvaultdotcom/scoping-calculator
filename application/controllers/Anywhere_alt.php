@@ -44,12 +44,16 @@ class Anywhere_alt extends CI_Controller {
     $gtotal_headers = array( 0 => '', 1 => '', 2 => '');
     $gtotal_fcolumns = array( 0 => '', 1 => '', 2 => '');
     foreach ( $strct[ 'g' ] as $g ) {
+        $this->load->view( 'report_group_start', $g );
         $this->load->view( 'report_group_title', $g );
+        $this->load->view( 'unsummed_set_start', $g );
         foreach ( $strct[ 'gfk' ][ $g[ 'position' ] ] as $gfk ) {
             if ( $strct[ 'f' ][ $gfk ][ 'sum' ] == 0 ) {
                 $this->load->view( 'report_column_row', array( 'group' => $g, 'field' => $strct[ 'f' ][ $gfk ] ) );
             }
         }
+        $this->load->view( 'unsummed_set_stop' );
+        $this->load->view( 'summed_set_start', $g );
         if ( mb_strlen( implode( '', $g['columns' ] ) ) > 0 ) {
             $this->load->view( 'report_column_headers', array( 'group' => $g ) );
         }
@@ -58,6 +62,7 @@ class Anywhere_alt extends CI_Controller {
                 $this->load->view( 'report_column_row', array( 'group' => $g, 'field' => $strct[ 'f' ][ $gfk ] ) );
             }
         }
+        $this->load->view( 'summed_set_stop' );
         if ( $g[ 'subtotal' ] == 1 ) {
             $this->load->view( 'report_subtotal_row', array( 'group' => $g ) );
         }
@@ -69,6 +74,7 @@ class Anywhere_alt extends CI_Controller {
                 $i++;
             }
         }
+        $this->load->view( 'report_group_stop' );
     }
     $this->load->view( 'report_grand_total', array( 'headers' => $gtotal_headers, 'fcolumns' => $gtotal_fcolumns ) );
     //$this->load->view( 'appliance_eps_table' );

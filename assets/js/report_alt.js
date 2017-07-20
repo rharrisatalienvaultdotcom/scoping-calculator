@@ -42,7 +42,8 @@ function make_recommendation() {
   var storage = strct[ 'ctotal' ][ 'stor' ] * 1.2,
       instances = strct[ 'rvals' ][ 'amazon_aws-ecc_instances' ] + strct[ 'rvals' ][ 'microsoft_azure-subscription_ids' ],
       locations = strct[ 'rvals' ][ 'on_prem_summary-locations_with_net_access'],
-      sensors = instances + locations,
+      total_sensors = instances + locations,
+      sensors = ( ( total_sensors > 1 ) ? ( total_sensors - 1 ) : 1 ),
       storage_tier;
 
       if ( b_to_gb( storage ) < 250 ) {
