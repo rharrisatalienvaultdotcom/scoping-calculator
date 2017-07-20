@@ -48,8 +48,10 @@ var initNumberInputs = () => {
 
 var initSelectInputs = () => {
   var slct = toArray( document.getElementsByClassName( 'select_input' ) );
-  for ( var i = 0 , length = nmbrs.length ; i < length ; i++ ) {
-    slct[ i ].addEventListener( 'change', function( event ) { update_report(); }, false );
+  for ( var i = 0 , length = slct.length ; i < length ; i++ ) {
+    console.log( 'Select event set!');
+    slct[ i ].addEventListener( 'change', function( event ) { this.dataset.value = this.selectedIndex; }, false );
+    slct[ i ].addEventListener( 'change', function( event ) { this.dataset.value_text = this.options[ this.selectedIndex ].text; }, false );
     slct[ i ].addEventListener( 'change', function( event ) { update_report(); }, false );
   }
 }
@@ -57,6 +59,7 @@ var initInputForm = () => {
   initNumberButtons( 'minus' );
   initNumberButtons( 'plus' );
   initNumberInputs();
+  initSelectInputs();
 }
 
 var toArray = (collection) => {
