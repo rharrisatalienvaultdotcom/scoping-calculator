@@ -301,6 +301,7 @@ var calculators = {
     var result = {},
         tf = ( strct[ 'f' ][ strct[ 'fk' ][ 'on_prem_summary-usage_pattern' ] ][ 'options'][ 0 ][ 1 ] == strct[ 'rvals' ][ 'on_prem_summary-usage_pattern' ] ) ? 86400 : 43200 ;
     result = strct[ 'rvals' ][ 'on_prem_summary-domain_controllers' ] * 2 + ( ( strct[ 'rvals' ][ 'on_prem_summary-users' ] + strct[ 'rvals' ][ 'on_prem_summary-non_dom_users' ] + strct[ 'rvals' ][ 'on_prem_summary-external_users'] ) - strct[ 'rvals' ][ 'on_prem_summary-non_dom_users' ] ) / 6;
+    console.log( 'Domain controllers: ' + result );
     result = ( result * tf ) * 30;
     return result;
   },
@@ -320,6 +321,7 @@ var calculators = {
     var result = {},
         tf = ( strct[ 'f' ][ strct[ 'fk' ][ 'on_prem_summary-usage_pattern' ] ][ 'options'][ 0 ][ 1 ] == strct[ 'rvals' ][ 'on_prem_summary-usage_pattern' ] ) ? 86400 : 43200 ;
     result = strct[ 'rvals' ][ 'on_prem_summary-windows_servers' ] * 2 + ( ( strct[ 'rvals' ][ 'on_prem_summary-users' ] + strct[ 'rvals' ][ 'on_prem_summary-non_dom_users' ] + strct[ 'rvals' ][ 'on_prem_summary-external_users'] ) ) / 6;
+    console.log( 'Windows Servers: ' + result );
     result = ( result * tf ) * 30;
     return result;
   },
@@ -339,6 +341,7 @@ var calculators = {
     var result = {},
         tf = ( strct[ 'f' ][ strct[ 'fk' ][ 'on_prem_summary-usage_pattern' ] ][ 'options'][ 0 ][ 1 ] == strct[ 'rvals' ][ 'on_prem_summary-usage_pattern' ] ) ? 86400 : 43200 ;
     result = strct[ 'rvals' ][ 'on_prem_summary-linux_servers' ] * 2 + ( ( strct[ 'rvals' ][ 'on_prem_summary-users' ] + strct[ 'rvals' ][ 'on_prem_summary-non_dom_users' ] + strct[ 'rvals' ][ 'on_prem_summary-external_users'] ) ) / 8;
+    console.log( 'Linux Servers: ' + result );
     result = ( result * tf ) * 30;
     return result;
   },
@@ -358,6 +361,7 @@ var calculators = {
     var result = {},
         tf = ( strct[ 'f' ][ strct[ 'fk' ][ 'on_prem_summary-usage_pattern' ] ][ 'options'][ 0 ][ 1 ] == strct[ 'rvals' ][ 'on_prem_summary-usage_pattern' ] ) ? 86400 : 43200 ;
     result = strct[ 'rvals' ][ 'on_prem_summary-application_servers' ] * 2 + ( ( strct[ 'rvals' ][ 'on_prem_summary-users' ] + strct[ 'rvals' ][ 'on_prem_summary-non_dom_users' ] + strct[ 'rvals' ][ 'on_prem_summary-external_users'] ) - strct[ 'rvals' ][ 'on_prem_summary-non_dom_users' ] ) / 8;
+    console.log( 'Domain controllers: ' + result );
     result = ( result * tf ) * 30;
     return result;
   },
@@ -383,7 +387,8 @@ var calculators = {
         ond = 0,
         wst = strct[ 'rvals' ][ 'on_prem_summary-workstations' ],
         tf = ( strct[ 'f' ][ strct[ 'fk' ][ 'on_prem_summary-usage_pattern' ] ][ 'options'][ 0 ][ 1 ] == strct[ 'rvals' ][ 'on_prem_summary-usage_pattern' ] ) ? 86400 : 43200 ;
-    result = fw * 4 + ( dc + ws + ls + as + ond / 4 ) + (wst / 8 );
+    result = fw * 4 + ( ( dc + ws + ls + as + ond + wst ) / 4 ) + ( ( strct[ 'rvals' ][ 'on_prem_summary-users' ] + strct[ 'rvals' ][ 'on_prem_summary-non_dom_users' ] + strct[ 'rvals' ][ 'on_prem_summary-external_users'] ) / 8 );
+    console.log( 'Firewalls: ' + result );
     result = ( result * tf ) * 30;
     return result;
   },
@@ -403,6 +408,7 @@ var calculators = {
     var result = {},
         tf = ( strct[ 'f' ][ strct[ 'fk' ][ 'on_prem_summary-usage_pattern' ] ][ 'options'][ 0 ][ 1 ] == strct[ 'rvals' ][ 'on_prem_summary-usage_pattern' ] ) ? 86400 : 43200 ;
     result = strct[ 'rvals' ][ 'on_prem_summary-switches_routers' ] * 4 + ( strct[ 'rtotal' ] / 4 );
+    console.log( 'Switches & routers: ' + result );
     result = ( result * tf ) * 30;
     return result;
   },
