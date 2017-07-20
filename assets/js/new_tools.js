@@ -20,7 +20,7 @@ var initNumberButtons = ( crement = false ) => {
     var bttns = toArray( document.getElementsByClassName( crement + '_button' ) );
     for ( var i = 0 , length = bttns.length ; i < length ; i++ ) {
       if ( crement === 'minus' ) {
-        bttns[ i ].addEventListener( 'mousedown', function( event ) { /*el.nextElementSibling.stepDown(); */ this.nextElementSibling.value = Number( this.nextElementSibling.value ) - 1 ; }, false );
+        bttns[ i ].addEventListener( 'mousedown', function( event ) { /*el.nextElementSibling.stepDown(); */ if ( Number( this.nextElementSibling.value > 0 ) ) { this.nextElementSibling.value = Number( this.nextElementSibling.value ) - 1 ; } }, false );
         //bttns[ i ].addEventListener( 'mousedown', function( event ) { /*el.nextElementSibling.stepDown(); */ this.nextElementSibling.dataset.value = this.nextElementSibling.value; }, false );
         bttns[ i ].addEventListener( 'mouseup', function( event ) { this.nextElementSibling.focus(); }, false );
       } else if ( crement === 'plus' ) {
@@ -38,7 +38,8 @@ var initNumberInputs = () => {
   for ( var i = 0 , length = nmbrs.length ; i < length ; i++ ) {
     //nbmrs[ i ].addEventListener( '', , false );
     nmbrs[ i ].addEventListener( 'focus', function( event ) { this.select(); }, false );
-    nmbrs[ i ].addEventListener( 'focus', function( event ) { this.dataset.value = this.value; }, false );
+    nmbrs[ i ].addEventListener( 'keyup', function( event ) { this.dataset.value = this.value; }, false );
+    nmbrs[ i ].addEventListener( 'blur', function( event ) { this.dataset.value = this.value; }, false );
     //nmbrs[ i ].addEventListener( 'change', function( event ) { update_report(); }, false );
     //nmbrs[ i ].addEventListener( 'blur', function( event ) { update_report(); }, false );
     nmbrs[ i ].addEventListener( 'keyup', function( event ) { update_report(); }, false );

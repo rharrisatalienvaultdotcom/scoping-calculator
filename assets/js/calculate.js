@@ -292,13 +292,16 @@ var calculators = {
         result[ 'stor' ] = 0;
     if ( strct[ 'rvals' ][ 'on_prem_summary-domain_controllers' ] > 0 ) {
       result[ 'calc' ] = calculators[ 'on_prem_summary-domain_controllers-epm' ]();
-      result[ 'stor' ] = calculators[ 'estimate_storage' ]( result[ 'calc' ], es );
+      result[ 'stor' ] = result[ 'calc' ] * es;
+      //result[ 'stor' ] = calculators[ 'estimate_storage' ]( result[ 'calc' ], es );
     }
     return result;
   },
   'on_prem_summary-domain_controllers-epm': function (  ) {
-    var result = {};
-    result = strct[ 'rvals' ][ 'on_prem_summary-domain_controllers' ] * 2 + ( strct[ 'rvals' ][ 'on_prem_summary-users'] - strct[ 'rvals' ][ 'on_prem_summary-non_dom_users' ] ) / 6;
+    var result = {},
+        tf = ( strct[ 'f' ][ strct[ 'fk' ][ 'on_prem_summary-usage_pattern' ] ][ 'options'][ 0 ][ 1 ] == strct[ 'rvals' ][ 'on_prem_summary-usage_pattern' ] ) ? 86400 : 43200 ;
+    result = strct[ 'rvals' ][ 'on_prem_summary-domain_controllers' ] * 2 + ( ( strct[ 'rvals' ][ 'on_prem_summary-users' ] + strct[ 'rvals' ][ 'on_prem_summary-non_dom_users' ] + strct[ 'rvals' ][ 'on_prem_summary-external_users'] ) - strct[ 'rvals' ][ 'on_prem_summary-non_dom_users' ] ) / 6;
+    result = ( result * tf ) * 30;
     return result;
   },
   'on_prem_summary-windows_servers': function (  ) {
@@ -308,13 +311,16 @@ var calculators = {
         result[ 'stor' ] = 0;
     if ( strct[ 'rvals' ][ 'on_prem_summary-windows_servers' ] > 0 ) {
       result[ 'calc' ] = calculators[ 'on_prem_summary-windows_servers-epm' ]();
-      result[ 'stor' ] = calculators[ 'estimate_storage' ]( result[ 'calc' ], es );
+      result[ 'stor' ] = result[ 'calc' ] * es;
+      //result[ 'stor' ] = calculators[ 'estimate_storage' ]( result[ 'calc' ], es );
     }
     return result;
   },
   'on_prem_summary-windows_servers-epm': function (  ) {
-    var result = {};
-    result = strct[ 'rvals' ][ 'on_prem_summary-windows_servers' ] * 2 + ( strct[ 'rvals' ][ 'on_prem_summary-users'] - strct[ 'rvals' ][ 'on_prem_summary-non_dom_users' ] ) / 6;
+    var result = {},
+        tf = ( strct[ 'f' ][ strct[ 'fk' ][ 'on_prem_summary-usage_pattern' ] ][ 'options'][ 0 ][ 1 ] == strct[ 'rvals' ][ 'on_prem_summary-usage_pattern' ] ) ? 86400 : 43200 ;
+    result = strct[ 'rvals' ][ 'on_prem_summary-windows_servers' ] * 2 + ( ( strct[ 'rvals' ][ 'on_prem_summary-users' ] + strct[ 'rvals' ][ 'on_prem_summary-non_dom_users' ] + strct[ 'rvals' ][ 'on_prem_summary-external_users'] ) ) / 6;
+    result = ( result * tf ) * 30;
     return result;
   },
   'on_prem_summary-linux_servers': function (  ) {
@@ -324,13 +330,16 @@ var calculators = {
         result[ 'stor' ] = 0;
     if ( strct[ 'rvals' ][ 'on_prem_summary-linux_servers' ] > 0 ) {
       result[ 'calc' ] = calculators[ 'on_prem_summary-linux_servers-epm' ]();
-      result[ 'stor' ] = calculators[ 'estimate_storage' ]( result[ 'calc' ], es );
+      result[ 'stor' ] = result[ 'calc' ] * es;
+      //result[ 'stor' ] = calculators[ 'estimate_storage' ]( result[ 'calc' ], es );
     }
     return result;
   },
   'on_prem_summary-linux_servers-epm': function (  ) {
-    var result = {};
-    result = strct[ 'rvals' ][ 'on_prem_summary-linux_servers' ] * 2 + ( strct[ 'rvals' ][ 'on_prem_summary-users'] - strct[ 'rvals' ][ 'on_prem_summary-non_dom_users' ] ) / 8;
+    var result = {},
+        tf = ( strct[ 'f' ][ strct[ 'fk' ][ 'on_prem_summary-usage_pattern' ] ][ 'options'][ 0 ][ 1 ] == strct[ 'rvals' ][ 'on_prem_summary-usage_pattern' ] ) ? 86400 : 43200 ;
+    result = strct[ 'rvals' ][ 'on_prem_summary-linux_servers' ] * 2 + ( ( strct[ 'rvals' ][ 'on_prem_summary-users' ] + strct[ 'rvals' ][ 'on_prem_summary-non_dom_users' ] + strct[ 'rvals' ][ 'on_prem_summary-external_users'] ) ) / 8;
+    result = ( result * tf ) * 30;
     return result;
   },
   'on_prem_summary-application_servers': function (  ) {
@@ -340,13 +349,16 @@ var calculators = {
         result[ 'stor' ] = 0;
     if ( strct[ 'rvals' ][ 'on_prem_summary-application_servers' ] > 0 ) {
       result[ 'calc' ] = calculators[ 'on_prem_summary-application_servers-epm' ]();
-      result[ 'stor' ] = calculators[ 'estimate_storage' ]( result[ 'calc' ], es );
+      result[ 'stor' ] = result[ 'calc' ] * es;
+      //result[ 'stor' ] = calculators[ 'estimate_storage' ]( result[ 'calc' ], es );
     }
     return result;
   },
   'on_prem_summary-application_servers-epm': function (  ) {
-    var result = {};
-    result = strct[ 'rvals' ][ 'on_prem_summary-application_servers' ] * 2 + ( strct[ 'rvals' ][ 'on_prem_summary-users'] - strct[ 'rvals' ][ 'on_prem_summary-non_dom_users' ] ) / 8;
+    var result = {},
+        tf = ( strct[ 'f' ][ strct[ 'fk' ][ 'on_prem_summary-usage_pattern' ] ][ 'options'][ 0 ][ 1 ] == strct[ 'rvals' ][ 'on_prem_summary-usage_pattern' ] ) ? 86400 : 43200 ;
+    result = strct[ 'rvals' ][ 'on_prem_summary-application_servers' ] * 2 + ( ( strct[ 'rvals' ][ 'on_prem_summary-users' ] + strct[ 'rvals' ][ 'on_prem_summary-non_dom_users' ] + strct[ 'rvals' ][ 'on_prem_summary-external_users'] ) - strct[ 'rvals' ][ 'on_prem_summary-non_dom_users' ] ) / 8;
+    result = ( result * tf ) * 30;
     return result;
   },
   'on_prem_summary-firewalls': function (  ) {
@@ -356,7 +368,8 @@ var calculators = {
         result[ 'stor' ] = 0;
     if ( strct[ 'rvals' ][ 'on_prem_summary-firewalls' ] > 0 ) {
       result[ 'calc' ] = calculators[ 'on_prem_summary-firewalls-epm' ]();
-      result[ 'stor' ] = calculators[ 'estimate_storage' ]( result[ 'calc' ], es );
+      result[ 'stor' ] = result[ 'calc' ] * es;
+      //result[ 'stor' ] = calculators[ 'estimate_storage' ]( result[ 'calc' ], es );
     }
     return result;
   },
@@ -368,8 +381,10 @@ var calculators = {
         ls = strct[ 'rvals' ][ 'on_prem_summary-linux_servers' ],
         as = strct[ 'rvals' ][ 'on_prem_summary-application_servers' ],
         ond = 0,
-        wst = strct[ 'rvals' ][ 'on_prem_summary-workstations' ];
+        wst = strct[ 'rvals' ][ 'on_prem_summary-workstations' ],
+        tf = ( strct[ 'f' ][ strct[ 'fk' ][ 'on_prem_summary-usage_pattern' ] ][ 'options'][ 0 ][ 1 ] == strct[ 'rvals' ][ 'on_prem_summary-usage_pattern' ] ) ? 86400 : 43200 ;
     result = fw * 4 + ( dc + ws + ls + as + ond / 4 ) + (wst / 8 );
+    result = ( result * tf ) * 30;
     return result;
   },
   'on_prem_summary-switches_routers': function (  ) {
@@ -379,13 +394,16 @@ var calculators = {
         result[ 'stor' ] = 0;
     if ( strct[ 'rvals' ][ 'on_prem_summary-switches_routers' ] > 0 ) {
       result[ 'calc' ] = calculators[ 'on_prem_summary-switches_routers-epm' ]();
-      result[ 'stor' ] = calculators[ 'estimate_storage' ]( result[ 'calc' ], es );
+      result[ 'stor' ] = result[ 'calc' ] * es;
+      //result[ 'stor' ] = calculators[ 'estimate_storage' ]( result[ 'calc' ], es );
     }
     return result;
   },
   'on_prem_summary-switches_routers-epm': function (  ) {
-    var result = {};
+    var result = {},
+        tf = ( strct[ 'f' ][ strct[ 'fk' ][ 'on_prem_summary-usage_pattern' ] ][ 'options'][ 0 ][ 1 ] == strct[ 'rvals' ][ 'on_prem_summary-usage_pattern' ] ) ? 86400 : 43200 ;
     result = strct[ 'rvals' ][ 'on_prem_summary-switches_routers' ] * 4 + ( strct[ 'rtotal' ] / 4 );
+    result = ( result * tf ) * 30;
     return result;
   },
   'on_prem_summary-other_network_devices': function (  ) {
@@ -403,7 +421,7 @@ var calculators = {
     if ( !! eps  && !! es  ) {
       var result,
           tf = ( strct[ 'f' ][ strct[ 'fk' ][ 'on_prem_summary-usage_pattern' ] ][ 'options'][ 0 ][ 1 ] == strct[ 'rvals' ][ 'on_prem_summary-usage_pattern' ] ) ? 86400 : 43200 ;
-      result = ( ( ( eps * es ) / 1024 ) * tf ) * 30 ;
+      result = ( ( eps * es ) * tf ) * 30 ;
     } else {
       result = null;
     }
